@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { 
   Menu, X, CheckCircle2, XCircle, Lock, Unlock, 
   TrendingUp, BarChart2, Cloud, CandlestickChart, 
-  Globe, Bell, ShieldCheck, Mail, CreditCard, Play
+  Globe, Bell, ShieldCheck, Mail, CreditCard, Play, MessageCircle
 } from 'lucide-react';
 
 const CHECKOUT_LINK = "https://checkout.tradersqueen.in";
@@ -753,8 +753,17 @@ const Footer = () => (
           <div>
             <h4 className="text-white font-bold mb-6">Contact</h4>
             <ul className="space-y-4 text-muted">
-              <li>support@tradersqueen.in</li>
-              <li>tradersqueen.in</li>
+              <li>
+                <a
+                  href="https://wa.me/919879737819"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                >
+                  <MessageCircle size={20} />
+                  Contact on WhatsApp
+                </a>
+              </li>
             </ul>
           </div>
         </div>
