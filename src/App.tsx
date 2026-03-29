@@ -3,8 +3,11 @@ import { motion } from 'motion/react';
 import { 
   Menu, X, CheckCircle2, XCircle, Lock, Unlock, 
   TrendingUp, BarChart2, Cloud, CandlestickChart, 
-  Globe, Bell, ShieldCheck, Mail, CreditCard, Play, MessageCircle
+  Globe, Bell, ShieldCheck, Mail, CreditCard, Play, MessageCircle, ChevronLeft, ChevronRight
 } from 'lucide-react';
+
+const screenshotModules = import.meta.glob('./assets/screenshots/*.{png,jpg,jpeg,webp}', { eager: true });
+const screenshots = Object.values(screenshotModules).map((module: any) => module.default);
 
 const CHECKOUT_LINK = "https://superprofile.bio/vp/69c0fe2898385800138423c6?checkout=true";
 
@@ -213,37 +216,115 @@ const Solution = () => (
   </section>
 );
 
-const ChartProof = () => (
-  <section className="py-24 px-6 bg-[#0a0c0f]">
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-12">
-        <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">See It For Yourself</p>
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">The Signal That Fired on Monday<br/>Is Still There on Friday.</h2>
-      </div>
-      
-      <div className="bg-[#13161c] p-4 rounded-2xl border border-[#1e232b] mb-10 shadow-2xl">
-        {/* Placeholder for real chart screenshot */}
-        <div className="aspect-video bg-[#1a1e24] rounded-xl flex items-center justify-center border border-[#2a303c] relative overflow-hidden">
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#3a404c 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-          <div className="text-center z-10 p-6">
-            <BarChart2 size={48} className="mx-auto text-[#4a5568] mb-4" />
-            <p className="text-gray-400 font-mono text-sm max-w-md mx-auto">[Insert Real Nifty 15-min Chart Screenshot Here]</p>
-            <p className="text-gray-500 font-mono text-xs mt-4">Showing Buy CALL, Entry, SL, and TP1/TP2/TP3 lines</p>
-            <div className="mt-8 flex items-center justify-center gap-4 text-xs font-mono text-gray-500">
-              <span className="px-3 py-1 bg-[#2a303c] rounded">Left: signal at bar close</span>
-              <span>→</span>
-              <span className="px-3 py-1 bg-[#2a303c] rounded">Right: same chart, 3 days later. Nothing moved.</span>
-            </div>
+const ChartProof = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const hasMultipleImages = screenshots.length > 1;
+
+  useEffect(() => {
+    if (!hasMultipleImages || isHovered) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % screenshots.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [hasMultipleImages, isHovered]);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % screenshots.length);
+  };
+
+  return (
+    <section className="py-24 px-6 bg-[#0a0c0f]">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">See It For Yourself</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">The Signal That Fired on Monday<br/>Is Still There on Friday.</h2>
+        </div>
+
+        <div className="bg-[#13161c] p-4 rounded-2xl border border-[#1e232b] mb-10 shadow-2xl">
+          <div
+            className="aspect-video bg-[#1a1e24] rounded-xl flex items-center justify-center border border-[#2a303c] relative overflow-hidden group"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {screenshots.length === 0 ? (
+              <>
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#3a404c 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                <div className="text-center z-10 p-6">
+                  <BarChart2 size={48} className="mx-auto text-[#4a5568] mb-4" />
+                  <p className="text-gray-400 font-mono text-sm max-w-md mx-auto">[Add 16:9 PNG screenshots in src/assets/screenshots folder]</p>
+                  <p className="text-gray-500 font-mono text-xs mt-4">Showing Buy CALL, Entry, SL, and TP1/TP2/TP3 lines</p>
+                  <div className="mt-8 flex items-center justify-center gap-4 text-xs font-mono text-gray-500">
+                    <span className="px-3 py-1 bg-[#2a303c] rounded">Left: signal at bar close</span>
+                    <span>→</span>
+                    <span className="px-3 py-1 bg-[#2a303c] rounded">Right: same chart, 3 days later. Nothing moved.</span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {screenshots.map((src, idx) => (
+                  <img
+                    key={idx}
+                    src={src}
+                    alt={`Screenshot ${idx + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                      idx === currentIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                  />
+                ))}
+
+                {hasMultipleImages && (
+                  <>
+                    <button
+                      onClick={goToPrevious}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-20"
+                      aria-label="Previous screenshot"
+                    >
+                      <ChevronLeft size={24} />
+                    </button>
+
+                    <button
+                      onClick={goToNext}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-20"
+                      aria-label="Next screenshot"
+                    >
+                      <ChevronRight size={24} />
+                    </button>
+
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                      {screenshots.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCurrentIndex(idx)}
+                          className={`w-2 h-2 rounded-full transition-all ${
+                            idx === currentIndex ? 'bg-primary w-4' : 'bg-white/50 hover:bg-white/80'
+                          }`}
+                          aria-label={`Go to screenshot ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </>
+            )}
           </div>
         </div>
+
+        <p className="text-xl text-muted max-w-4xl mx-auto text-center leading-relaxed">
+          Every chart screenshot in the world can be faked. So here is how you check ours: the moment you receive the .pine file, paste it into TradingView, run it on any historical Nifty or BankNifty chart, and scroll back. Every signal you see on today's chart was there at the original bar close and has not moved. That is verifiable. That is the standard every indicator should be held to. Almost none are.
+        </p>
       </div>
-      
-      <p className="text-xl text-muted max-w-4xl mx-auto text-center leading-relaxed">
-        Every chart screenshot in the world can be faked. So here is how you check ours: the moment you receive the .pine file, paste it into TradingView, run it on any historical Nifty or BankNifty chart, and scroll back. Every signal you see on today's chart was there at the original bar close and has not moved. That is verifiable. That is the standard every indicator should be held to. Almost none are.
-      </p>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Features = () => (
   <section id="what-you-get" className="py-24 px-6 bg-[#f5f4f1] text-[#1a1a1a]">
