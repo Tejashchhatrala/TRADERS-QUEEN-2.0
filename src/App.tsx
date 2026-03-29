@@ -7,7 +7,15 @@ import {
 } from 'lucide-react';
 
 const screenshotModules = import.meta.glob('./assets/screenshots/*.{png,jpg,jpeg,webp}', { eager: true });
-const screenshots = Object.values(screenshotModules).map((module: any) => module.default);
+const screenshots = Object.entries(screenshotModules).map(([path, module]: [string, any]) => {
+  const filename = path.split('/').pop() || '';
+  const nameWithoutExt = filename.replace(/\.[^/.]+$/, "");
+  const caption = nameWithoutExt.replace(/^[0-9.\-_]+/, '').trim();
+  return {
+    src: module.default,
+    caption: caption || 'Traders Queen 2.0 Chart'
+  };
+});
 
 const CHECKOUT_LINK = "https://superprofile.bio/vp/69c0fe2898385800138423c6?checkout=true";
 
@@ -245,7 +253,7 @@ const ChartProof = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">See It For Yourself</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">The Signal That Fired on Monday<br/>Is Still There on Friday.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Built for Every Market Condition</h2>
         </div>
 
         <div className="bg-[#13161c] p-4 rounded-2xl border border-[#1e232b] mb-10 shadow-2xl">
@@ -261,24 +269,28 @@ const ChartProof = () => {
                   <BarChart2 size={48} className="mx-auto text-[#4a5568] mb-4" />
                   <p className="text-gray-400 font-mono text-sm max-w-md mx-auto">[Add 16:9 PNG screenshots in src/assets/screenshots folder]</p>
                   <p className="text-gray-500 font-mono text-xs mt-4">Showing Buy CALL, Entry, SL, and TP1/TP2/TP3 lines</p>
-                  <div className="mt-8 flex items-center justify-center gap-4 text-xs font-mono text-gray-500">
-                    <span className="px-3 py-1 bg-[#2a303c] rounded">Left: signal at bar close</span>
-                    <span>→</span>
-                    <span className="px-3 py-1 bg-[#2a303c] rounded">Right: same chart, 3 days later. Nothing moved.</span>
-                  </div>
                 </div>
               </>
             ) : (
               <>
-                {screenshots.map((src, idx) => (
-                  <img
+                {screenshots.map((item, idx) => (
+                  <div
                     key={idx}
-                    src={src}
-                    alt={`Screenshot ${idx + 1}`}
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                      idx === currentIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    className={`absolute inset-0 transition-opacity duration-1000 ${
+                      idx === currentIndex ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
                     }`}
-                  />
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.caption}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-4 left-4 right-4 text-center z-20 pointer-events-none">
+                       <span className="inline-block bg-black/70 backdrop-blur-md text-white px-6 py-2 rounded-full font-bold shadow-lg text-lg border border-white/10 uppercase tracking-wide">
+                         {item.caption}
+                       </span>
+                    </div>
+                  </div>
                 ))}
 
                 {hasMultipleImages && (
@@ -319,7 +331,7 @@ const ChartProof = () => {
         </div>
 
         <p className="text-xl text-muted max-w-4xl mx-auto text-center leading-relaxed">
-          Every chart screenshot in the world can be faked. So here is how you check ours: the moment you receive the .pine file, paste it into TradingView, run it on any historical Nifty or BankNifty chart, and scroll back. Every signal you see on today's chart was there at the original bar close and has not moved. That is verifiable. That is the standard every indicator should be held to. Almost none are.
+          Traders Queen 2.0 isn't just a trend indicator. It's a comprehensive trading system designed for the realities of the Indian market. Whether you're navigating choppy <strong>sideways filters</strong>, trading across <strong>multiple markets and asset classes</strong>, engaging in <strong>Option buying or selling</strong>, or switching between <strong>different time frames</strong>, the logic adapts. Every chart screenshot you see above showcases the exact performance you get in live markets.
         </p>
       </div>
     </section>
