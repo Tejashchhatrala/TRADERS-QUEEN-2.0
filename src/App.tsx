@@ -6,7 +6,7 @@ import {
   Globe, Bell, ShieldCheck, Mail, CreditCard, Play, MessageCircle
 } from 'lucide-react';
 
-const CHECKOUT_LINK = "https://checkout.tradersqueen.in";
+const CHECKOUT_LINK = "https://superprofile.bio/vp/69c0fe2898385800138423c6?checkout=true";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:block">
-          <a href={CHECKOUT_LINK} className="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-colors">
+          <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-colors">
             Get the Code — ₹2,999
           </a>
         </div>
@@ -45,7 +45,7 @@ const Navbar = () => {
           <a href="#what-you-get" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">What You Get</a>
           <a href="#reviews" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">Reviews</a>
           <a href="#faq" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">FAQ</a>
-          <a href={CHECKOUT_LINK} className="inline-block text-center bg-primary hover:bg-primary-hover text-white font-bold py-3 px-6 rounded-lg w-full mt-2 transition-colors">
+          <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block text-center bg-primary hover:bg-primary-hover text-white font-bold py-3 px-6 rounded-lg w-full mt-2 transition-colors">
             Get the Code — ₹2,999
           </a>
         </div>
@@ -91,7 +91,7 @@ const Hero = () => {
         </p>
         
         <div className="mb-8">
-          <a href={CHECKOUT_LINK} className="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-4 px-8 rounded-xl text-xl transition-colors w-full md:w-auto shadow-lg shadow-primary/20">
+          <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-4 px-8 rounded-xl text-xl transition-colors w-full md:w-auto shadow-lg shadow-primary/20">
             Get the Full Source Code — ₹2,999
           </a>
           <p className="text-sm text-muted mt-4">Delivered to your inbox within 2 hours · No subscription · No renewal · Yours forever</p>
@@ -580,7 +580,7 @@ const Offer = () => (
       </div>
 
       <div className="text-center">
-        <a href={CHECKOUT_LINK} className="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-6 px-12 rounded-2xl text-2xl md:text-3xl transition-colors mb-6 w-full md:w-auto shadow-xl shadow-primary/20">
+        <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-6 px-12 rounded-2xl text-2xl md:text-3xl transition-colors mb-6 w-full md:w-auto shadow-xl shadow-primary/20">
           Get the Full Code — ₹2,999
         </a>
         <p className="text-gray-400 mb-4 text-lg">Delivered to your inbox within 2 hours of payment.</p>
@@ -712,7 +712,7 @@ const FinalCTA = () => (
         <span className="text-white font-medium">The code will be on your computer whether we exist tomorrow or not. That is the only kind of ownership that actually protects you.</span>
       </p>
       
-      <a href={CHECKOUT_LINK} className="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-6 px-12 rounded-2xl text-2xl md:text-3xl transition-colors mb-12 shadow-xl shadow-primary/20 w-full md:w-auto">
+      <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-6 px-12 rounded-2xl text-2xl md:text-3xl transition-colors mb-12 shadow-xl shadow-primary/20 w-full md:w-auto">
         Get the Full Code — ₹2,999
       </a>
 
@@ -801,7 +801,7 @@ const ExitIntentPopup = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
           <p className="text-danger font-bold text-lg mb-1">🔥 Special Offer: Get 20% OFF today!</p>
           <p className="text-sm text-gray-400">Use code <span className="text-white font-mono font-bold bg-[#2a303c] px-2 py-1 rounded">TQ20</span> at checkout.</p>
         </div>
-        <a href={CHECKOUT_LINK} className="inline-block bg-danger hover:bg-red-600 text-white font-bold py-4 px-8 rounded-xl text-xl transition-colors w-full shadow-lg shadow-danger/20">
+        <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block bg-danger hover:bg-red-600 text-white font-bold py-4 px-8 rounded-xl text-xl transition-colors w-full shadow-lg shadow-danger/20">
           Claim My Discount Now
         </a>
         <button onClick={onClose} className="mt-4 text-sm text-gray-500 hover:text-gray-300 underline underline-offset-4">
