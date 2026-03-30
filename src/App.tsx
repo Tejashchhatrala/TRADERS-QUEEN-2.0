@@ -43,7 +43,12 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className="md:hidden text-white rounded-md p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+        >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -297,7 +302,7 @@ const ChartProof = () => {
                   <>
                     <button
                       onClick={goToPrevious}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-20"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-opacity z-20"
                       aria-label="Previous screenshot"
                     >
                       <ChevronLeft size={24} />
@@ -305,7 +310,7 @@ const ChartProof = () => {
 
                     <button
                       onClick={goToNext}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-20"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-opacity z-20"
                       aria-label="Next screenshot"
                     >
                       <ChevronRight size={24} />
@@ -316,7 +321,7 @@ const ChartProof = () => {
                         <button
                           key={idx}
                           onClick={() => setCurrentIndex(idx)}
-                          className={`w-2 h-2 rounded-full transition-all ${
+                          className={`w-2 h-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 focus-visible:ring-offset-black/30 transition-all ${
                             idx === currentIndex ? 'bg-primary w-4' : 'bg-white/50 hover:bg-white/80'
                           }`}
                           aria-label={`Go to screenshot ${idx + 1}`}
@@ -880,12 +885,16 @@ const ExitIntentPopup = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
   if (!isOpen) return null;
   
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4" role="dialog" aria-modal="true" aria-labelledby="popup-title">
       <div className="bg-[#13161c] border border-danger/50 rounded-2xl p-8 max-w-lg w-full relative shadow-[0_0_50px_rgba(242,54,69,0.2)] text-center animate-in fade-in zoom-in duration-300">
-        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors rounded-md p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-danger"
+          aria-label="Close popup"
+        >
           <X size={24} />
         </button>
-        <h2 className="text-3xl font-display font-bold text-white mb-4">Wait! Don't Leave Empty-Handed.</h2>
+        <h2 id="popup-title" className="text-3xl font-display font-bold text-white mb-4">Wait! Don't Leave Empty-Handed.</h2>
         <p className="text-gray-300 mb-6 text-lg">
           Every day you trade with a repainting indicator is a day you risk your capital. 
           <span className="text-danger font-bold block mt-2">Over 2,400 traders have already switched to TQ 2.0 ZR.</span>
