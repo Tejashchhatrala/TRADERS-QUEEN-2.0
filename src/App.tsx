@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { 
   Menu, X, CheckCircle2, XCircle, Lock, Unlock, 
   TrendingUp, BarChart2, Cloud, CandlestickChart, 
-  Globe, Bell, ShieldCheck, Mail, CreditCard, Play, MessageCircle, ChevronLeft, ChevronRight
+  Globe, Bell, ShieldCheck, Mail, CreditCard, Play, MessageCircle, ChevronLeft, ChevronRight, ChevronDown
 } from 'lucide-react';
 
 const screenshotModules = import.meta.glob('./assets/screenshots/*.{png,jpg,jpeg,webp}', { eager: true });
@@ -782,16 +782,19 @@ const FAQ = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Everything You Want to Know Before You Buy.</h2>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-[#e5e4e1] pb-12 last:border-0">
-              <h3 className="text-2xl font-bold mb-4">{faq.q}</h3>
-              <p className="text-[#4a4a4a] text-lg whitespace-pre-line leading-relaxed">
+            <details key={index} name="faq-accordion" className="group border-b border-[#e5e4e1] last:border-0">
+              <summary className="flex justify-between items-center font-bold text-xl md:text-2xl cursor-pointer list-none py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg transition-colors hover:text-primary [&::-webkit-details-marker]:hidden">
+                {faq.q}
+                <ChevronDown className="text-[#7a8390] group-open:rotate-180 transition-transform duration-300 shrink-0 ml-4" size={24} />
+              </summary>
+              <p className="text-[#4a4a4a] text-lg whitespace-pre-line leading-relaxed pb-8 pt-2 animate-in fade-in slide-in-from-top-2 duration-300">
                 {faq.a.split('`').map((part, i) => 
                   i % 2 === 1 ? <code key={i} className="bg-[#e8e6df] px-1.5 py-0.5 rounded text-sm font-mono text-primary font-bold">{part}</code> : part
                 )}
               </p>
-            </div>
+            </details>
           ))}
         </div>
       </div>
