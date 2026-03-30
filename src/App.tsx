@@ -13,7 +13,7 @@ const screenshots = Object.entries(screenshotModules).map(([path, module]: [stri
   const caption = nameWithoutExt.replace(/^[0-9.\-_]+/, '').trim();
   return {
     src: module.default,
-    caption: caption || 'Traders Queen 2.0 Chart'
+    caption: caption || 'Traders Queen 2.0 ZR Chart'
   };
 });
 
@@ -25,11 +25,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0c0f]/90 backdrop-blur-md border-b border-[#1e232b]">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="text-xl font-display font-bold text-white">Traders Queen 2.0</div>
+        <div className="text-xl font-display font-bold text-white">Traders Queen 2.0 Zero Repaint</div>
         
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#why-tq-2" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Why TQ 2.0</a>
+          <a href="#why-tq-2" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Why TQ 2.0 ZR</a>
           <a href="#how-it-works" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">How It Works</a>
           <a href="#what-you-get" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">What You Get</a>
           <a href="#reviews" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Reviews</a>
@@ -51,7 +51,7 @@ const Navbar = () => {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="md:hidden bg-[#0a0c0f] border-b border-[#1e232b] px-6 py-4 flex flex-col gap-4">
-          <a href="#why-tq-2" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">Why TQ 2.0</a>
+          <a href="#why-tq-2" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">Why TQ 2.0 ZR</a>
           <a href="#how-it-works" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">How It Works</a>
           <a href="#what-you-get" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">What You Get</a>
           <a href="#reviews" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">Reviews</a>
@@ -98,7 +98,7 @@ const Hero = () => {
           <span className="text-danger">That Chart Was Lying.</span>
         </h1>
         <p className="text-xl text-muted mb-10 max-w-3xl mx-auto leading-relaxed">
-          90% of indicators sold in the Indian market repaint — they rewrite their own history after the candle closes to look accurate. Traders Queen 2.0 doesn't. And we'll prove it: the complete source code is yours to open, read, and verify. One payment. No subscription. No black box.
+          90% of indicators sold in the Indian market repaint — they rewrite their own history after the candle closes to look accurate. Traders Queen 2.0 Zero Repaint doesn't. And we'll prove it: the complete source code is yours to open, read, and verify. One payment. No subscription. No black box.
         </p>
         
         <div className="mb-8">
@@ -120,7 +120,7 @@ const Hero = () => {
         <div className="bg-[#13161c] border border-[#1e232b] p-8 rounded-2xl text-left max-w-3xl mx-auto relative shadow-xl">
           <div className="absolute -top-6 -left-4 text-6xl text-primary opacity-20 font-display font-bold">"</div>
           <p className="text-xl italic mb-6 text-gray-300 leading-relaxed relative z-10">
-            I paid ₹18,000 across 14 months for a locked indicator. When the service shut down, everything was gone. I bought Traders Queen 2.0 for ₹2,999. The code is still on my computer. It still works.
+            I paid ₹18,000 across 14 months for a locked indicator. When the service shut down, everything was gone. I bought Traders Queen 2.0 ZR for ₹2,999. The code is still on my computer. It still works.
           </p>
           <p className="font-bold text-white text-lg">— Karan V., NSE F&O Trader · Surat</p>
         </div>
@@ -176,7 +176,7 @@ const Problem = () => (
       </div>
 
       <p className="text-center text-2xl font-bold text-white max-w-3xl mx-auto">
-        We built Traders Queen 2.0 because we were tired of it too. And we do none of this.
+        We built Traders Queen 2.0 Zero Repaint because we were tired of it too. And we do none of this.
       </p>
     </div>
   </section>
@@ -189,7 +189,7 @@ const Solution = () => (
         <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">The Difference</p>
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1a1a1a]">One Indicator. Open Code. Yours Forever.</h2>
         <p className="text-xl text-[#4a4a4a] max-w-3xl mx-auto leading-relaxed">
-          Traders Queen 2.0 is a professionally built Pine Script v6 indicator for TradingView. It gives you the complete source code — every single line — so you can open the file, read the logic, and confirm every claim we make before you place a single live trade.
+          Traders Queen 2.0 Zero Repaint is a professionally built Pine Script v6 indicator for TradingView. It gives you the complete source code — every single line — so you can open the file, read the logic, and confirm every claim we make before you place a single live trade.
           <br/><br/>
           This is not a pitch. It is a technical fact you can verify yourself the moment you receive the file.
         </p>
@@ -208,7 +208,7 @@ const Solution = () => (
           <div className="text-7xl font-display font-bold text-[#e0ded8] leading-none shrink-0">02</div>
           <div>
             <h3 className="text-3xl font-bold mb-4">One Payment of ₹2,999. Yours Forever.</h3>
-            <p className="text-[#4a4a4a] text-lg leading-relaxed">Pay once. Use forever. No renewal reminder. No plan expiry. No access wall. If we shut down tomorrow, your code still works — because it lives on your computer, not our server. The math is simple: ₹999/month for two years is ₹23,976. Traders Queen 2.0 is ₹2,999. Once.</p>
+            <p className="text-[#4a4a4a] text-lg leading-relaxed">Pay once. Use forever. No renewal reminder. No plan expiry. No access wall. If we shut down tomorrow, your code still works — because it lives on your computer, not our server. The math is simple: ₹999/month for two years is ₹23,976. Traders Queen 2.0 ZR is ₹2,999. Once.</p>
           </div>
         </div>
 
@@ -331,7 +331,7 @@ const ChartProof = () => {
         </div>
 
         <p className="text-xl text-muted max-w-4xl mx-auto text-center leading-relaxed">
-          Traders Queen 2.0 isn't just a trend indicator. It's a comprehensive trading system designed for the realities of the Indian market. Whether you're navigating choppy <strong>sideways filters</strong>, trading across <strong>multiple markets and asset classes</strong>, engaging in <strong>Option buying or selling</strong>, or switching between <strong>different time frames</strong>, the logic adapts. Every chart screenshot you see above showcases the exact performance you get in live markets.
+          Traders Queen 2.0 Zero Repaint isn't just a trend indicator. It's a comprehensive trading system designed for the realities of the Indian market. Whether you're navigating choppy <strong>sideways filters</strong>, trading across <strong>multiple markets and asset classes</strong>, engaging in <strong>Option buying or selling</strong>, or switching between <strong>different time frames</strong>, the logic adapts. Every chart screenshot you see above showcases the exact performance you get in live markets.
         </p>
       </div>
     </section>
@@ -355,7 +355,7 @@ const Features = () => (
           </div>
           <h3 className="text-xl font-bold mb-2">Automatic Entry, Stop Loss & Three Take Profits</h3>
           <p className="text-sm font-semibold text-primary mb-4 italic">Know your full risk before you touch a button.</p>
-          <p className="text-[#4a4a4a] text-sm mb-6 leading-relaxed">The moment a confirmed Buy CALL or Buy PUT signal fires, TQ 2.0 draws your exact entry price, your stop loss level, and three take-profit targets at 1R, 2R, and 3R — calculated automatically from your ATR settings.</p>
+          <p className="text-[#4a4a4a] text-sm mb-6 leading-relaxed">The moment a confirmed Buy CALL or Buy PUT signal fires, TQ 2.0 ZR draws your exact entry price, your stop loss level, and three take-profit targets at 1R, 2R, and 3R — calculated automatically from your ATR settings.</p>
           <ul className="text-sm text-[#4a4a4a] space-y-2 font-mono bg-[#f8f8f8] p-4 rounded-lg border border-[#f0f0f0]">
             <li className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-primary"></div><span className="font-bold">TP1</span> — Fast partial booking</li>
             <li className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-primary"></div><span className="font-bold">TP2</span> — Trend continuation</li>
@@ -452,7 +452,7 @@ const HowItWorks = () => (
         <div className="flex-1 relative z-10 text-center md:text-left">
           <div className="w-24 h-24 mx-auto md:mx-0 bg-[#13161c] border-2 border-[#2a303c] rounded-full flex items-center justify-center text-4xl font-display font-bold text-white mb-8">3</div>
           <h3 className="text-2xl font-bold mb-4 text-white">Copy Levels and Execute</h3>
-          <p className="text-muted leading-relaxed">TQ 2.0 has already drawn your Entry, SL, and all three TP levels. Copy them directly into your broker terminal — Zerodha, Upstox, Groww, AngelOne. Set your targets and stop. Walk away. No emotions. No screen-watching. Just execution.</p>
+          <p className="text-muted leading-relaxed">TQ 2.0 ZR has already drawn your Entry, SL, and all three TP levels. Copy them directly into your broker terminal — Zerodha, Upstox, Groww, AngelOne. Set your targets and stop. Walk away. No emotions. No screen-watching. Just execution.</p>
         </div>
       </div>
     </div>
@@ -472,7 +472,7 @@ const Testimonials = () => (
         <div className="md:col-span-2 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-[#e5e4e1]">
           <div className="text-yellow-500 tracking-widest mb-6 text-xl">★★★★★</div>
           <p className="text-xl md:text-3xl text-[#1a1a1a] italic mb-8 leading-relaxed font-medium">
-            "I paid for a subscription-based indicator for 14 months. ₹18,000 gone. The code was never mine. When the service shut down, everything disappeared. I bought Traders Queen 2.0 six months ago for ₹2,999. The code is still on my computer. It still works. Best decision I made as a trader."
+            "I paid for a subscription-based indicator for 14 months. ₹18,000 gone. The code was never mine. When the service shut down, everything disappeared. I bought Traders Queen 2.0 ZR six months ago for ₹2,999. The code is still on my computer. It still works. Best decision I made as a trader."
           </p>
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-[#f0f0f0] rounded-full flex items-center justify-center text-xl font-bold text-[#7a8390]">K</div>
@@ -511,7 +511,7 @@ const Testimonials = () => (
         <div className="bg-white p-8 rounded-3xl shadow-sm border border-[#e5e4e1]">
           <div className="text-yellow-500 tracking-widest mb-4">★★★★★</div>
           <p className="text-lg text-[#4a4a4a] italic mb-8 leading-relaxed">
-            "I work a full-time job. I cannot watch charts from 9:15 to 3:30. TQ 2.0 sends the alert to my phone, I open Upstox, I punch in the Entry and SL it already calculated, and I go back to work. That workflow is worth more than any number of signals."
+            "I work a full-time job. I cannot watch charts from 9:15 to 3:30. TQ 2.0 ZR sends the alert to my phone, I open Upstox, I punch in the Entry and SL it already calculated, and I go back to work. That workflow is worth more than any number of signals."
           </p>
           <div>
             <p className="font-bold text-lg">Ankit M.</p>
@@ -549,7 +549,7 @@ const Comparison = () => (
             <tr>
               <th className="p-6 border-b border-[#1e232b]"></th>
               <th className="p-6 border-b border-[#1e232b] text-muted font-bold text-xl w-1/3">Subscription Indicator</th>
-              <th className="p-6 border-b border-primary text-primary font-bold text-xl bg-[#089981]/10 rounded-t-2xl w-1/3">Traders Queen 2.0</th>
+              <th className="p-6 border-b border-primary text-primary font-bold text-xl bg-[#089981]/10 rounded-t-2xl w-1/3">Traders Queen 2.0 ZR</th>
             </tr>
           </thead>
           <tbody className="text-lg">
@@ -619,7 +619,7 @@ const Offer = () => (
     <div className="max-w-5xl mx-auto relative z-10">
       <div className="text-center mb-16">
         <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">What You Get Today</p>
-        <h2 className="text-4xl md:text-6xl font-bold mb-10">Traders Queen 2.0 — Lifetime Code License</h2>
+        <h2 className="text-4xl md:text-6xl font-bold mb-10">Traders Queen 2.0 Zero Repaint — Lifetime Code License</h2>
         <div className="inline-block bg-[#13161c] border border-primary/30 rounded-3xl p-10 mb-12 shadow-[0_0_50px_rgba(8,153,129,0.15)]">
           <div className="text-6xl md:text-8xl font-bold text-white mb-6">₹2,999</div>
           <p className="text-xl md:text-2xl text-primary font-medium">One Time · No Renewal · No Subscription · Yours Forever</p>
@@ -668,7 +668,7 @@ const Offer = () => (
         <ShieldCheck size={80} className="text-primary shrink-0" />
         <div>
           <h4 className="text-2xl font-bold text-white mb-4">Our one condition:</h4>
-          <p className="text-gray-300 text-lg leading-relaxed">If TQ 2.0 repaints on a confirmed closed bar even once — show us the screenshot and we will refund you in full. We have never issued one. The architecture makes it technically impossible. But we put this in writing because you deserve to buy without risk.</p>
+          <p className="text-gray-300 text-lg leading-relaxed">If TQ 2.0 ZR repaints on a confirmed closed bar even once — show us the screenshot and we will refund you in full. We have never issued one. The architecture makes it technically impossible. But we put this in writing because you deserve to buy without risk.</p>
         </div>
       </div>
 
@@ -729,11 +729,11 @@ const FAQ = () => {
     },
     {
       q: "I'm not a coder. Can I still use this?",
-      a: "Yes. You paste the code into TradingView's Pine Script Editor exactly once — that takes less than two minutes. After that, TQ 2.0 works exactly like any other TradingView indicator. The Hindi video guide walks you through every step from start to finish. No coding knowledge required at any point after setup."
+      a: "Yes. You paste the code into TradingView's Pine Script Editor exactly once — that takes less than two minutes. After that, TQ 2.0 ZR works exactly like any other TradingView indicator. The Hindi video guide walks you through every step from start to finish. No coding knowledge required at any point after setup."
     },
     {
       q: "Does it work on Nifty, BankNifty, stocks, and MCX?",
-      a: "Yes. TQ 2.0 works on any instrument available on TradingView — NSE Futures, Nifty options, BankNifty options, equities, MCX commodities, and crypto. It has been specifically tested on Indian market instruments."
+      a: "Yes. TQ 2.0 ZR works on any instrument available on TradingView — NSE Futures, Nifty options, BankNifty options, equities, MCX commodities, and crypto. It has been specifically tested on Indian market instruments."
     },
     {
       q: "Will I get updates if TradingView releases a new Pine Script version?",
@@ -741,7 +741,7 @@ const FAQ = () => {
     },
     {
       q: "Does it work on the free TradingView plan?",
-      a: "Yes. TQ 2.0 works on TradingView's free plan. You do not need a paid TradingView subscription to use it."
+      a: "Yes. TQ 2.0 ZR works on TradingView's free plan. You do not need a paid TradingView subscription to use it."
     },
     {
       q: "Can I use it on the TradingView mobile app?",
@@ -749,11 +749,11 @@ const FAQ = () => {
     },
     {
       q: "A competitor is selling a similar indicator for ₹499/month. Why should I pay ₹2,999?",
-      a: "₹499/month is ₹5,988/year. Over two years that is ₹11,976 — and you own nothing. If the seller shuts down, your access disappears. If you want to verify their zero-repaint claim, you cannot — the code is locked.\n\nTraders Queen 2.0 is ₹2,999 once. You own the code permanently. You can verify every claim. The math is yours to calculate."
+      a: "₹499/month is ₹5,988/year. Over two years that is ₹11,976 — and you own nothing. If the seller shuts down, your access disappears. If you want to verify their zero-repaint claim, you cannot — the code is locked.\n\nTraders Queen 2.0 ZR is ₹2,999 once. You own the code permanently. You can verify every claim. The math is yours to calculate."
     },
     {
       q: "What is the refund policy?",
-      a: "One condition: if TQ 2.0 repaints on a confirmed closed bar even once, show us a screenshot and we will refund you in full. We have never issued one. The architecture makes it technically impossible. Beyond that, because we deliver a digital file immediately upon payment, we do not offer refunds for change of mind — the same way you cannot return a software licence once downloaded."
+      a: "One condition: if TQ 2.0 ZR repaints on a confirmed closed bar even once, show us a screenshot and we will refund you in full. We have never issued one. The architecture makes it technically impossible. Beyond that, because we deliver a digital file immediately upon payment, we do not offer refunds for change of mind — the same way you cannot return a software licence once downloaded."
     },
     {
       q: "Can I resell the code after I buy it?",
@@ -827,7 +827,7 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
         <div>
-          <div className="text-2xl font-display font-bold text-white mb-2">Traders Queen 2.0</div>
+          <div className="text-2xl font-display font-bold text-white mb-2">Traders Queen 2.0 Zero Repaint</div>
           <p className="text-muted">Professional tools. Honest terms. Open code.</p>
         </div>
         
@@ -864,12 +864,12 @@ const Footer = () => (
 
       <div className="border-t border-[#1e232b] pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div className="text-sm text-muted">
-          <p className="mb-1">© 2026 Traders Queen. All rights reserved.</p>
+          <p className="mb-1">© 2024 zerorepaint.in. All rights reserved.</p>
           <p>Personal use licence only. Redistribution prohibited.</p>
         </div>
         
         <div className="text-xs text-[#4a5568] max-w-3xl text-left md:text-right leading-relaxed">
-          ⚠️ Risk Disclaimer: Trading in financial markets involves substantial risk of loss. Traders Queen 2.0 is a decision-support tool and does not constitute financial advice. Past signal performance does not guarantee future results. Trade only with capital you can afford to lose. You are solely responsible for your trading decisions.
+          ⚠️ Risk Disclaimer: Trading in financial markets involves substantial risk of loss. Traders Queen 2.0 ZR is a decision-support tool and does not constitute financial advice. Past signal performance does not guarantee future results. Trade only with capital you can afford to lose. You are solely responsible for your trading decisions.
         </div>
       </div>
     </div>
@@ -888,7 +888,7 @@ const ExitIntentPopup = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
         <h2 className="text-3xl font-display font-bold text-white mb-4">Wait! Don't Leave Empty-Handed.</h2>
         <p className="text-gray-300 mb-6 text-lg">
           Every day you trade with a repainting indicator is a day you risk your capital. 
-          <span className="text-danger font-bold block mt-2">Over 2,400 traders have already switched to TQ 2.0.</span>
+          <span className="text-danger font-bold block mt-2">Over 2,400 traders have already switched to TQ 2.0 ZR.</span>
         </p>
         <div className="bg-danger/10 border border-danger/20 rounded-xl p-4 mb-6">
           <p className="text-danger font-bold text-lg mb-1">🔥 Special Offer: Get 20% OFF today!</p>
