@@ -50,9 +50,9 @@ export const Footer = () => {
           </div>
           
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="https://wa.me/919879737819" target="_blank" rel="noopener noreferrer" className="hover:text-[#00c9a7] transition-colors font-bold text-gray-400">WhatsApp Support</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="https://wa.me/919879737819" target="_blank" rel="noopener noreferrer" className="hover:text-[#00c9a7] transition-colors font-bold text-gray-400 rounded-md px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a]">WhatsApp Support</a>
+            <a href="#" className="hover:text-white transition-colors rounded-md px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a]">Terms of Service</a>
+            <a href="#" className="hover:text-white transition-colors rounded-md px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a]">Privacy Policy</a>
           </div>
 
           <div>

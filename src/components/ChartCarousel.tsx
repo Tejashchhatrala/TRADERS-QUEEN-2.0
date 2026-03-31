@@ -42,7 +42,7 @@ export const ChartCarousel = () => {
         <div className="text-center mb-16">
           <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">See It For Yourself</p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-            Proof Before You <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">Pay.</span>
+            See It Live Before You <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">Buy.</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Every screenshot is exactly what you see live—calculated on closed bars. Zero repainting. 
@@ -132,16 +132,18 @@ export const ChartCarousel = () => {
             )}
           </div>
           {hasMultipleImages && screenshots.length > 0 && (
-            <div className="md:hidden flex justify-center items-center gap-3 mt-6">
+            <div className="md:hidden flex justify-center items-center gap-1 mt-6">
               {screenshots.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#13161c] transition-all ${
-                    idx === currentIndex ? 'bg-primary w-6 h-2.5' : 'bg-[#2a303c] hover:bg-[#3a404c] w-2.5 h-2.5'
-                  }`}
+                  className="p-3 focus:outline-none group"
                   aria-label={`Go to screenshot ${idx + 1}`}
-                />
+                >
+                  <span className={`block rounded-full group-focus-visible:ring-2 group-focus-visible:ring-primary transition-all ${
+                    idx === currentIndex ? 'bg-[#e8442a] w-6 h-2.5' : 'bg-[#2a303c] group-hover:bg-[#3a404c] w-2.5 h-2.5'
+                  }`} />
+                </button>
               ))}
             </div>
           )}

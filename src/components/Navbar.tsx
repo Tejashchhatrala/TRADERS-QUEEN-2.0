@@ -22,6 +22,13 @@ export const Navbar = () => {
 
   return (
     <>
+      {/* Skip to content link — visible only on keyboard focus for a11y */}
+      <a
+        href="#main-content"
+        className="fixed top-0 left-1/2 -translate-x-1/2 z-[60] bg-[#e8442a] text-white font-bold py-3 px-6 rounded-b-lg text-sm -translate-y-full focus:translate-y-0 transition-transform duration-200 outline-none shadow-lg"
+      >
+        Skip to main content
+      </a>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#1f1f1f]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="text-xl font-display font-black text-white flex items-center gap-2">
@@ -31,13 +38,13 @@ export const Navbar = () => {
           
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-6">
-            <a href="#hero" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Start</a>
-            <a href="#the-trap" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">The Traps</a>
-            <a href="#sideways-filter" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Weekly Expiry</a>
-            <a href="#features" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Features</a>
-            <a href="#proof" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Open Source</a>
-            <a href="#reviews" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Reviews</a>
-            <a href="#faq" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">FAQ</a>
+            <a href="#hero" className="text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a] focus-visible:text-white">Start</a>
+            <a href="#the-trap" className="text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a] focus-visible:text-white">The Traps</a>
+            <a href="#sideways-filter" className="text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a] focus-visible:text-white">Weekly Expiry</a>
+            <a href="#features" className="text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a] focus-visible:text-white">Features</a>
+            <a href="#proof" className="text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a] focus-visible:text-white">Your Code</a>
+            <a href="#reviews" className="text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a] focus-visible:text-white">Reviews</a>
+            <a href="#faq" className="text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a] focus-visible:text-white">FAQ</a>
           </div>
 
           <div className="hidden lg:block">
@@ -65,7 +72,7 @@ export const Navbar = () => {
             <a href="#the-trap" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">The Traps</a>
             <a href="#sideways-filter" onClick={() => setIsOpen(false)} className="text-gray-300 py-2 text-[#e8442a] font-bold">Weekly Expiry Guide</a>
             <a href="#features" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">Features</a>
-            <a href="#proof" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">Open Source Proof</a>
+            <a href="#proof" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">Verify It</a>
             <a href="#reviews" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">Reviews</a>
             <a href="#faq" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">FAQ</a>
             <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block text-center bg-[#e8442a] hover:bg-[#d03d25] text-white font-bold py-3 px-6 rounded-lg w-full mt-2 transition-colors">

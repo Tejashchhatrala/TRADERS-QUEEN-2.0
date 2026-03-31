@@ -37,7 +37,7 @@ export const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 px-6 bg-[#0a0a0a] border-y border-[#1f1f1f]">
+    <section id="faq" className="py-16 md:py-24 px-6 bg-[#0a0a0a] border-y border-[#1f1f1f]">
       <div className="max-w-4xl mx-auto">
         <motion.div
            initial={{ opacity: 0, y: 30 }}
@@ -45,8 +45,7 @@ export const FAQ = () => {
            viewport={{ once: true }}
            className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">Full Transparency.</h2>
-          <p className="text-gray-400">Everything you want to know before committing.</p>
+          <h2 className="text-4xl font-bold mb-2 text-white">Full Transparency.</h2>
         </motion.div>
 
         <div className="space-y-4">
@@ -60,13 +59,17 @@ export const FAQ = () => {
               className="bg-[#111] border border-[#1f1f1f] rounded-2xl overflow-hidden hover:border-[#333] transition-colors"
             >
               <button
-                className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none"
+                id={`faq-question-${idx}`}
+                aria-expanded={openIndex === idx}
+                aria-controls={`faq-answer-${idx}`}
+                className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a] focus-visible:bg-[#1a1a1a] transition-colors hover:bg-[#151515]"
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
               >
                 <span className="text-white font-bold pr-8">{faq.q}</span>
                 <ChevronDown 
                   className={`text-[#e8442a] transition-transform duration-300 flex-shrink-0 ${openIndex === idx ? 'rotate-180' : ''}`} 
                   size={20} 
+                  aria-hidden="true"
                 />
               </button>
               <AnimatePresence>
@@ -77,7 +80,12 @@ export const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-6 text-[#e0e0e0] leading-relaxed border-t border-[#1f1f1f] pt-4 mt-2">
+                    <div 
+                      id={`faq-answer-${idx}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${idx}`}
+                      className="px-6 pb-6 text-[#e0e0e0] leading-relaxed border-t border-[#1f1f1f] pt-4 mt-2"
+                    >
                       {faq.a}
                     </div>
                   </motion.div>
@@ -86,6 +94,21 @@ export const FAQ = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Transition CTA Phase */}
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           className="text-center mt-16 bg-[#111] p-8 md:p-10 rounded-3xl border border-[#1f1f1f] shadow-xl max-w-2xl mx-auto"
+        >
+          <p className="text-xl text-white font-bold mb-2">Still unsure about something?</p>
+          <p className="text-gray-400 mb-6 text-sm">Don't risk your capital until you are 100% confident.</p>
+          <a href="https://wa.me/919879737819" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-transparent hover:bg-[#e8442a]/10 border border-[#e8442a] text-[#e8442a] font-bold py-3 px-8 rounded-xl transition-all group w-full sm:w-auto">
+            Message us on WhatsApp before you buy <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </motion.div>
+
       </div>
     </section>
   );

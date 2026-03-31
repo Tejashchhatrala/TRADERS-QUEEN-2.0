@@ -10,6 +10,9 @@ export const Hero = () => {
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const handleMouseMove = (e: React.MouseEvent) => {
+    // Disable 3D tilt on mobile/tablets to prevent touch-drag ghosting
+    if (window.innerWidth < 1024) return;
+    
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
     setMousePosition({
@@ -26,7 +29,7 @@ export const Hero = () => {
     <section
       id="hero"
       onMouseMove={handleMouseMove}
-      className="min-h-[100vh] pt-32 pb-20 px-6 relative overflow-hidden flex flex-col justify-center perspective-[1000px] bg-[#0a0a0a]"
+      className="min-h-[100vh] pt-32 pb-16 md:pb-24 px-6 relative overflow-hidden flex flex-col justify-center perspective-[1000px] bg-[#0a0a0a]"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,68,42,0.08)_0%,rgba(10,10,10,1)_60%)] pointer-events-none" />
       
@@ -43,7 +46,7 @@ export const Hero = () => {
 
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         
-        <motion.div style={{ opacity }} className="text-left mt-8 lg:mt-0">
+        <motion.div style={{ opacity }} className="text-center sm:text-left mt-0 lg:mt-0 order-2 lg:order-1 flex flex-col">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,47 +93,31 @@ export const Hero = () => {
             <div className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-[#00c9a7]" /> Weekly Expiry Proof</div>
             <div className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-[#00c9a7]" /> Entry/SL/3TPs Drawn</div>
             <div className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-[#00c9a7]" /> Sideways Filter</div>
-            <div className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-[#00c9a7]" /> Full Open Code</div>
+            <div className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-[#00c9a7]" /> Full Source Code</div>
           </motion.div>
         </motion.div>
 
-        {/* 3D Visual Simulator omitted to save space, but keeping structure so layout remains identical to previous design */}
+        {/* Hero Image / Screenshot */}
         <motion.div
-          className="relative hidden lg:block h-[500px] xl:h-[600px] w-full mt-10 lg:mt-0"
-          style={{ rotateX: mouseY, rotateY: mouseX, transformStyle: "preserve-3d" }}
+           className="relative block h-[250px] sm:h-[400px] lg:h-[500px] xl:h-[600px] w-full mt-10 lg:mt-0 perspective-[1000px] order-1 lg:order-2"
         >
-          <div className="absolute inset-0 top-[15%] left-[5%] w-[90%] h-[70%] bg-[#111]/80 backdrop-blur-xl border border-[#1f1f1f] rounded-3xl shadow-2xl" style={{ transform: 'translateZ(-20px)' }} />
-
-          {/* Main Chart Simulator Panel */}
-          <div className="absolute inset-0 top-[5%] left-[0%] w-[100%] h-[80%] bg-[#111] border border-[#1f1f1f] rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.6)] flex flex-col overflow-hidden" style={{ transform: 'translateZ(20px)' }}>
-            <div className="h-10 border-b border-[#1f1f1f] bg-[#0a0a0a] flex items-center px-4 gap-4">
-               <div className="flex gap-1.5">
-                 <div className="w-3 h-3 rounded-full bg-[#e84242]"></div>
-                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                 <div className="w-3 h-3 rounded-full bg-[#00c9a7]"></div>
-               </div>
-               <div className="text-xs font-mono text-gray-500">NIFTY50 • 5m • TQ 2.0</div>
-            </div>
-            
-            <div className="flex-1 relative p-6 bg-[#0a0a0a]">
-              {/* Fake Chart Element representation */}
-               <motion.div className="w-full flex items-center justify-between mb-8 border-b border-[#00c9a7]/30 pb-1" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 4, repeat: Infinity }}>
-                 <span className="text-[10px] text-[#00c9a7] font-mono bg-[#00c9a7]/10 px-2 py-0.5 rounded">TP3 : 24,150.00</span>
-               </motion.div>
-               <motion.div className="w-full flex items-center justify-between mb-8 border-b border-[#00c9a7]/30 pb-1" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 4, delay: 0.5, repeat: Infinity }}>
-                 <span className="text-[10px] text-[#00c9a7] font-mono bg-[#00c9a7]/10 px-2 py-0.5 rounded">TP2 : 24,100.00</span>
-               </motion.div>
-               <div className="w-full flex items-center justify-between mb-8 border-b border-[#00c9a7]/30 pb-1">
-                 <span className="text-[10px] text-[#00c9a7] font-mono bg-[#00c9a7]/10 px-2 py-0.5 rounded">TP1 : 24,050.00</span>
-               </div>
-               <div className="w-full flex items-center justify-between mb-12 border-b-2 border-dashed border-white/50 pb-1">
-                 <span className="text-[10px] text-white font-mono bg-white/10 px-2 py-0.5 rounded">ENTRY: 23,980.00</span>
-               </div>
-               <div className="w-full flex items-center justify-between border-b border-[#e84242]/50 pb-1">
-                 <span className="text-[10px] text-[#e84242] font-mono bg-[#e84242]/10 px-2 py-0.5 rounded">STOP LOSS: 23,940.00</span>
-               </div>
-            </div>
-          </div>
+          <motion.div 
+            className="w-full h-full relative"
+            style={{ rotateX: mouseY, rotateY: mouseX, transformStyle: "preserve-3d" }}
+          >
+             <div className="absolute inset-0 top-[10%] left-[5%] w-[90%] h-[80%] bg-[#e8442a]/10 backdrop-blur-xl rounded-3xl shadow-[0_0_50px_rgba(232,68,42,0.1)]" style={{ transform: 'translateZ(-30px)' }} />
+             
+             <img 
+               src="/hero.png" 
+               alt="Traders Queen Indicator Dashboard" 
+               className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-[#1f1f1f] bg-[#0a0a0a]"
+               style={{ transform: 'translateZ(20px)' }}
+               onError={(e) => {
+                 // Fallback placeholder if image is missing
+                 e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%230a0a0a'/%3E%3Crect width='798' height='598' x='1' y='1' fill='none' stroke='%231f1f1f' stroke-width='2' rx='15' /%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='20' font-weight='bold' fill='%23e8442a'%3E[HERO SCREENSHOT HERE]%3C/text%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='14' fill='%23888'%3EPlace a file named 'hero.png' inside the 'public' folder%3C/text%3E%3C/svg%3E";
+               }}
+             />
+          </motion.div>
         </motion.div>
       </div>
     </section>

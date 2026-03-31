@@ -4,7 +4,7 @@ import { Activity, ShieldOff, Equal } from 'lucide-react';
 
 export const SidewaysFilter = () => {
   return (
-    <section id="sideways-filter" className="py-24 px-6 bg-[#0d0d0d] border-y border-[#1f1f1f]">
+    <section id="sideways-filter" className="py-16 md:py-24 px-6 bg-[#0d0d0d] border-y border-[#1f1f1f]">
       <div className="max-w-6xl mx-auto">
         <motion.div
            initial={{ opacity: 0, y: 30 }}

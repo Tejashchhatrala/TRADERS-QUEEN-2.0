@@ -32,7 +32,7 @@ export const Testimonials = () => {
   ];
 
   return (
-    <section id="reviews" className="py-24 px-6 bg-[#0a0a0a]">
+    <section id="reviews" className="py-16 md:py-24 px-6 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

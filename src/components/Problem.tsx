@@ -4,7 +4,7 @@ import { AlertCircle, XCircle, Lock, ArrowLeftRight } from 'lucide-react';
 
 export const Problem = () => {
   return (
-    <section id="the-trap" className="py-24 md:py-32 px-6 bg-[#0a0a0a] relative overflow-hidden">
+    <section id="the-trap" className="py-16 md:py-24 lg:py-32 px-6 bg-[#0a0a0a] relative overflow-hidden">
       
       {/* Background Gradients */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#e8442a]/5 rounded-full blur-[150px] pointer-events-none" />
