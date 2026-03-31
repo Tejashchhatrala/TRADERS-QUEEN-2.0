@@ -73,13 +73,18 @@ export const Testimonials = () => {
                 <div>
                   <h4 className="text-white font-bold text-sm flex items-center gap-2">
                     {review.name}
-                    <span className="text-[#00c9a7] text-[10px] uppercase font-bold tracking-wider flex items-center gap-1 bg-[#00c9a7]/10 px-1.5 py-0.5 rounded border border-[#00c9a7]/20 relative group cursor-default">
+                    <button
+                      type="button"
+                      aria-label="Verified: WhatsApp review on file"
+                      className="text-[#00c9a7] text-[10px] uppercase font-bold tracking-wider flex items-center gap-1 bg-[#00c9a7]/10 px-1.5 py-0.5 rounded border border-[#00c9a7]/20 relative group cursor-help focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00c9a7]"
+                    >
                       <Star size={8} fill="currentColor" /> Verified
                       {/* Tooltip */}
-                      <span className="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-36 bg-[#111] text-gray-300 text-[9px] p-2 rounded border border-[#333] z-10 normal-case tracking-normal text-center shadow-xl">
+                      <span className="opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-visible:opacity-100 group-focus-visible:visible absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-36 bg-[#111] text-gray-300 text-[9px] p-2 rounded border border-[#333] z-10 normal-case tracking-normal text-center shadow-xl transition-all duration-200 translate-y-1 group-hover:translate-y-0 group-focus-visible:translate-y-0 pointer-events-none">
                         WhatsApp review on file
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#333]" />
                       </span>
-                    </span>
+                    </button>
                   </h4>
                   <p className="text-[#888] text-xs font-mono mt-0.5">{review.role}</p>
                 </div>
