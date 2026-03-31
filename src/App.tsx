@@ -261,6 +261,15 @@ const ChartProof = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Built for Every Market Condition</h2>
         </div>
 
+        {/* Mobile-only caption above the image */}
+        {screenshots.length > 0 && (
+          <div className="md:hidden text-center mb-6">
+            <span className="inline-block bg-[#13161c] text-white px-5 py-2 rounded-full font-bold shadow-lg text-sm border border-[#2a303c] uppercase tracking-wide">
+              {screenshots[currentIndex].caption}
+            </span>
+          </div>
+        )}
+
         <div className="bg-[#13161c] p-4 rounded-2xl border border-[#1e232b] mb-10 shadow-2xl">
           <div
             className="aspect-video bg-[#1a1e24] rounded-xl flex items-center justify-center border border-[#2a303c] relative overflow-hidden group"
@@ -290,7 +299,7 @@ const ChartProof = () => {
                       alt={item.caption}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute top-4 left-4 right-4 text-center z-20 pointer-events-none">
+                    <div className="hidden md:block absolute top-4 left-4 right-4 text-center z-20 pointer-events-none">
                        <span className="inline-block bg-black/70 backdrop-blur-md text-white px-6 py-2 rounded-full font-bold shadow-lg text-lg border border-white/10 uppercase tracking-wide">
                          {item.caption}
                        </span>
@@ -316,7 +325,7 @@ const ChartProof = () => {
                       <ChevronRight size={24} />
                     </button>
 
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                    <div className="hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 items-center gap-2 z-20 bg-black/30 px-3 py-1.5 rounded-full backdrop-blur-sm">
                       {screenshots.map((_, idx) => (
                         <button
                           key={idx}
@@ -333,6 +342,22 @@ const ChartProof = () => {
               </>
             )}
           </div>
+
+          {/* Mobile-only pagination below the image */}
+          {hasMultipleImages && screenshots.length > 0 && (
+            <div className="md:hidden flex justify-center items-center gap-2 mt-6">
+              {screenshots.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`w-2.5 h-2.5 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 focus-visible:ring-offset-[#13161c] transition-all ${
+                    idx === currentIndex ? 'bg-primary w-5' : 'bg-[#2a303c] hover:bg-[#3a404c]'
+                  }`}
+                  aria-label={`Go to screenshot ${idx + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         <p className="text-xl text-muted max-w-4xl mx-auto text-center leading-relaxed">
