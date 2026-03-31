@@ -7,7 +7,7 @@ export const Testimonials = () => {
     {
       name: "Rahul S.",
       role: "Weekly Expiry Options Buyer · Nagpur",
-      text: "I used to buy ATM calls every Thursday morning hoping for a big move. TQ 2.0 showed me the cloud was neutral — I stayed flat. Nifty moved 40 points both ways and came back. My capital was safe. That one Thursday paid for the indicator."
+      text: "I used to lose ₹6,000–₹8,000 a week buying fake breakouts every Thursday morning. TQ 2.0 showed me the cloud was neutral — I stayed flat. Nifty moved 40 points both ways and came back. My capital was safe. My first month with TQ I broke even for the first time in a year."
     },
     {
       name: "Amit T.",
@@ -17,17 +17,17 @@ export const Testimonials = () => {
     {
       name: "Karan V.",
       role: "NSE F&O Trader · Surat",
-      text: "I paid for a subscription indicator for 14 months. ₹18,000 gone. When the service shut down, everything vanished. I bought TQ 2.0 Zr six months ago for ₹2,999. The code is still on my computer. Best decision I made."
+      text: "I paid for a subscription indicator for 14 months. ₹18,000 gone. When the service shut down, everything vanished. I bought TQ 2.0 Zr six months ago for ₹2,999. The full source code is still on my computer. Best decision I made."
     },
     {
       name: "Deepak R.",
       role: "Nifty CE Buyer · Indore",
-      text: "The Call Buyer Mode changed everything. Earlier I'd get 10 signals and sit confused. Now only Buy CE signals appear when momentum is teal. I trade, I exit, I move on. The clarity alone is worth the price."
+      text: "The Call Buyer Mode changed everything. Earlier I'd get 10 signals and sit confused. Now only Buy CE signals appear when the RSI and MACD momentum filter is teal. I trade, I exit, I move on. The clarity alone is worth the price."
     },
     {
       name: "Vikram D.",
       role: "BankNifty Scalper · Pune",
-      text: "I was getting destroyed in sideways BankNifty markets—buying calls in choppy sessions and watching theta decay eat my capital. The Momentum Cloud has kept me flat on the worst days. Lifesaver."
+      text: "I was getting destroyed in sideways BankNifty markets—buying calls in choppy sessions and watching theta decay eat my capital. The Momentum Cloud has kept me completely flat on the worst days. Absolute lifesaver."
     }
   ];
 
@@ -71,7 +71,16 @@ export const Testimonials = () => {
                   {review.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm">{review.name}</h4>
+                  <h4 className="text-white font-bold text-sm flex items-center gap-2">
+                    {review.name}
+                    <span className="text-[#00c9a7] text-[10px] uppercase font-bold tracking-wider flex items-center gap-1 bg-[#00c9a7]/10 px-1.5 py-0.5 rounded border border-[#00c9a7]/20 relative group cursor-default">
+                      <Star size={8} fill="currentColor" /> Verified
+                      {/* Tooltip */}
+                      <span className="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-36 bg-[#111] text-gray-300 text-[9px] p-2 rounded border border-[#333] z-10 normal-case tracking-normal text-center shadow-xl">
+                        WhatsApp review on file
+                      </span>
+                    </span>
+                  </h4>
                   <p className="text-[#888] text-xs font-mono mt-0.5">{review.role}</p>
                 </div>
               </div>

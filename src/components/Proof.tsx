@@ -80,6 +80,37 @@ export const Proof = () => {
           </motion.div>
         </div>
 
+        {/* Founder Bio Block */}
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           className="max-w-4xl mx-auto bg-[#111] rounded-3xl p-8 md:p-12 mb-20 border border-[#1f1f1f] shadow-2xl flex flex-col md:flex-row gap-8 items-center"
+        >
+          <div className="w-32 h-32 shrink-0 rounded-full bg-[#1a1a1a] border-4 border-[#1f1f1f] overflow-hidden flex items-center justify-center relative shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+            {/* Fallback image if photo is missing */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] flex items-center justify-center">
+              <span className="text-4xl">🧑‍💻</span>
+            </div>
+            <img 
+              src="/tejas.jpg" 
+              alt="Tejas - Founder" 
+              className="w-full h-full object-cover relative z-10"
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+            />
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-2">A Message From The Creator</h3>
+            <p className="text-[#00c9a7] font-bold text-sm mb-4 uppercase tracking-wider">Built by Tejas — F&O Trader since 2019, Ahmedabad</p>
+            <p className="text-gray-300 leading-relaxed mb-6 italic text-lg">
+              "I didn't build TQ 2.0 to sell it. I built it because I lost ₹4 Lakhs buying fake breakouts and bleeding theta in sideways markets. I was tired of subscription tools that hid their code and fired false signals. If you want to talk to a real person before trusting this system with your capital, message my personal WhatsApp."
+            </p>
+            <a href="https://wa.me/919879737819" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#e8442a] font-bold hover:underline">
+              Message me on WhatsApp →
+            </a>
+          </div>
+        </motion.div>
+
         {/* Urgency Alert */}
         <div className="max-w-3xl mx-auto mb-10 bg-[#e8442a]/10 border border-[#e8442a]/30 rounded-2xl p-4 md:p-5 text-center shadow-[0_0_30px_rgba(232,68,42,0.1)]">
           <p className="text-[#e8442a] font-bold text-sm md:text-base leading-relaxed">
@@ -117,10 +148,11 @@ export const Proof = () => {
                  <div className="col-span-1 text-center text-[#00c9a7] font-mono font-bold text-lg">₹2,999 once</div>
                </div>
 
-               <div className="grid grid-cols-3 p-6 hover:bg-[#151515] transition-colors items-center">
-                 <div className="col-span-1 text-white font-medium">What you get</div>
-                 <div className="col-span-1 text-center text-gray-400 text-sm">Rented access</div>
-                 <div className="col-span-1 text-center text-white font-bold text-sm">Code you own</div>
+               <div className="grid grid-cols-3 p-6 bg-[#1a1a1a] border-y border-[#333] items-center relative shadow-inner">
+                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#00c9a7]" />
+                 <div className="col-span-1 text-white font-bold text-lg">Code Ownership</div>
+                 <div className="col-span-1 text-center text-gray-500 font-bold uppercase tracking-widest text-sm">Never (Rented)</div>
+                 <div className="col-span-1 text-center text-[#00c9a7] font-bold text-lg uppercase tracking-widest bg-[#00c9a7]/10 py-1 rounded inline-block mx-4">Forever (Yours)</div>
                </div>
 
                <div className="grid grid-cols-3 p-6 hover:bg-[#151515] transition-colors items-center">

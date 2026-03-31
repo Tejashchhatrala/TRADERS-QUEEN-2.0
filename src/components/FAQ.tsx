@@ -7,20 +7,20 @@ export const FAQ = () => {
 
   const faqs = [
     {
+      q: "I'm an Option Buyer. Will this help me in sideways markets?",
+      a: "Yes. This is the core reason TQ 2.0 Zr was built. The MACD Momentum Cloud sits in the background. If the cloud is neutral (⚫), the indicator is telling you the market is choppy and directionless. You stay out."
+    },
+    {
       q: "Does it work on weekly expiry Thursday and Wednesday trades?",
       a: "Yes. TQ 2.0 ZR works on any timeframe — 5-minute, 15-minute, or hourly charts for Thursday Nifty and Wednesday BankNifty expiry. The Momentum Cloud is especially useful on expiry days to identify whether directional premium is worth buying at all or if theta decay is imminent."
     },
     {
       q: "I trade from Zerodha or Upstox on mobile. Will this work?",
-      a: "Yes. TradingView works on mobile. TQ 2.0 ZR sends alerts directly to your phone via TradingView's native alert system. Open the alert, copy the Entry/SL/TP levels into your Zerodha or Upstox terminal, and you're done — no chart-watching required."
+      a: "Yes. TradingView works on mobile. TQ 2.0 ZR sends alerts directly to your phone via TradingView's native alert system. Open the alert, copy the Entry/SL/TP levels into your Zerodha terminal, and you're done — no chart-watching required."
     },
     {
       q: "How do I actually know it doesn't repaint?",
-      a: "Because you get the full open-source Pine Script code. You can literally print the code and see that we use `barmerge.lookahead_off` and base all signals on confirmed closed bars. It is technically impossible for the signal to move once the bar closes."
-    },
-    {
-      q: "I'm an Option Buyer. Will this help me in sideways markets?",
-      a: "Yes. This is the core reason TQ 2.0 Zr was built. The MACD Momentum Cloud sits in the background. If the cloud is neutral (⚫), the indicator is telling you the market is choppy and directionless. You stay out."
+      a: "Because you get the full source code. You can literally print the code and see that we enforce absolute strict bar closing. It is technically impossible for the signal to move once the bar closes."
     },
     {
       q: "I only want to buy CE options. Can it hide PE signals?",

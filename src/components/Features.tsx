@@ -7,38 +7,38 @@ export const Features = () => {
   const features = [
     {
       icon: <Cloud size={28} />,
-      title: "MACD Momentum Cloud",
-      subtitle: "Sideways Market Filter",
+      title: "Stay out of choppy markets",
+      subtitle: "MACD Momentum Filter",
       desc: "Our #1 capital-saving feature. A dynamic cloud sits in the background of your chart to tell you when NOT to trade. Teal for calls, red for puts, neutral to stay flat."
     },
     {
       icon: <BarChart2 size={28} />,
-      title: "CE/PE Mode Filters",
-      subtitle: "Call Only / Put Only",
+      title: "Ignore the noise, trade one direction",
+      subtitle: "Call Only / Put Only Modes",
       desc: "Only buy CALL options? Turn on Call Buyer Mode and only bullish setups appear. Filter out all irrelevant noise so you can make decisions faster."
     },
     {
       icon: <Target size={28} />,
-      title: "Auto Risk Entry Engine",
+      title: "Never guess your Stop Loss again",
       subtitle: "Entry, SL & Targets on Chart",
       desc: "Everything is on the chart the moment a signal fires. TQ 2.0 calculates your exact Entry, Stop Loss, and TP1/TP2/TP3 automatically. No manual math."
     },
     {
       icon: <Zap size={28} />,
-      title: "Instant Alerts",
-      subtitle: "Signal Comes to You",
+      title: "Get the exact trade on WhatsApp",
+      subtitle: "Instant Native Alerts",
       desc: "You don't need to watch the chart all day. Connect TradingView's native alerts to WhatsApp via webhook, automate it in Zapier, or get phone notifications."
     },
     {
       icon: <Activity size={28} />,
-      title: "Heikin Ashi Engine",
-      subtitle: "Smoothed Signals, Standard Display",
+      title: "Filter out the fake price spikes",
+      subtitle: "Heikin Ashi Signal Engine",
       desc: "Signal calculations run on Heikin Ashi candles to filter noise effectively. But your chart continues to display regular Japanese candlesticks, so everything looks normal."
     },
     {
       icon: <Hash size={28} />,
-      title: "Multi-Timeframe Logic",
-      subtitle: "External Symbol Support",
+      title: "Confirm trades across timeframes",
+      subtitle: "Multi-Timeframe Logic",
       desc: "Want Nifty50 signals while watching a BankNifty chart? Or 15m trend data on your 1m scalping chart? One toggle enables multi-timeframe confirmation."
     }
   ];

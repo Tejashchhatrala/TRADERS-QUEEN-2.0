@@ -49,7 +49,7 @@ export const Navbar = () => {
 
           <div className="hidden lg:block">
             <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="relative group inline-block bg-[#e8442a] hover:bg-[#d03d25] text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-all overflow-hidden shadow-[0_0_15px_rgba(232,68,42,0.4)]">
-              <span className="relative z-10">Get the Code — ₹2,999</span>
+              <span className="relative z-10">Get TQ 2.0 — Start Trading Smarter — ₹2,999</span>
               <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
             </a>
           </div>
@@ -76,7 +76,7 @@ export const Navbar = () => {
             <a href="#reviews" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">Reviews</a>
             <a href="#faq" onClick={() => setIsOpen(false)} className="text-gray-300 py-2">FAQ</a>
             <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block text-center bg-[#e8442a] hover:bg-[#d03d25] text-white font-bold py-3 px-6 rounded-lg w-full mt-2 transition-colors">
-              Get the Code — ₹2,999
+              Get TQ 2.0 — Start Trading Smarter — ₹2,999
             </a>
           </div>
         )}
