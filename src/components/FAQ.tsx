@@ -7,33 +7,37 @@ export const FAQ = () => {
 
   const faqs = [
     {
+      q: "Does it work on weekly expiry Thursday and Wednesday trades?",
+      a: "Yes. TQ 2.0 ZR works on any timeframe — 5-minute, 15-minute, or hourly charts for Thursday Nifty and Wednesday BankNifty expiry. The Momentum Cloud is especially useful on expiry days to identify whether directional premium is worth buying at all or if theta decay is imminent."
+    },
+    {
+      q: "I trade from Zerodha or Upstox on mobile. Will this work?",
+      a: "Yes. TradingView works on mobile. TQ 2.0 ZR sends alerts directly to your phone via TradingView's native alert system. Open the alert, copy the Entry/SL/TP levels into your Zerodha or Upstox terminal, and you're done — no chart-watching required."
+    },
+    {
       q: "How do I actually know it doesn't repaint?",
-      a: "Because you get the full open-source Pine Script code. You can literally open the code and see that we use `barmerge.lookahead_off` and base all signals on confirmed closed bars (e.g., `close[1]`). The math is transparent. It is technically impossible for the signal to move once the bar closes."
+      a: "Because you get the full open-source Pine Script code. You can literally print the code and see that we use `barmerge.lookahead_off` and base all signals on confirmed closed bars. It is technically impossible for the signal to move once the bar closes."
     },
     {
       q: "I'm an Option Buyer. Will this help me in sideways markets?",
-      a: "Yes. This is the core reason TQ 2.0 Zr was built. The MACD Momentum Cloud sits in the background. If the cloud is flat/neutral, the indicator is telling you to stay out of the market. It prevents you from taking trades where theta decay will eat your premium."
+      a: "Yes. This is the core reason TQ 2.0 Zr was built. The MACD Momentum Cloud sits in the background. If the cloud is neutral (⚫), the indicator is telling you the market is choppy and directionless. You stay out."
     },
     {
-      q: "I only want to buy Calls (CE). Can it filter Puts?",
-      a: "Yes. The indicator includes a Call Buyer Mode and a Put Buyer Mode. If you turn on Call Buyer Mode, all bearish 'Buy PUT' signals vanish from your screen. You will only see setups relevant to your specific strategy."
-    },
-    {
-      q: "Can I use it on the free TradingView plan?",
-      a: "Absolutely. TQ 2.0 Zr uses standard Pine Script v6 arrays and calculations. It works perfectly on the basic, free tier of TradingView."
+      q: "I only want to buy CE options. Can it hide PE signals?",
+      a: "Yes. The indicator includes a Call Buyer Mode and a Put Buyer Mode. If you turn on Call Mode, all bearish 'Buy PUT' signals vanish from your chart."
     },
     {
       q: "When will I get the source code?",
-      a: "The full `.pine` file will be delivered to your email inbox automatically within 2 hours of your payment."
+      a: "The full `.pine` script configuration file will be delivered to your email inbox automatically within 2 hours of payment success."
     },
     {
       q: "What is the refund policy?",
-      a: "We have a strictly verifiable guarantee: If the indicator repaints on a confirmed closed bar even once, show us the screenshot and we will refund your ₹2,999 in full. We put this in writing because the architecture makes repainting technically impossible."
+      a: "If the indicator repaints on a confirmed closed bar even once, show us the screenshot and we will refund your ₹2,999 full without any deductions. We can guarantee this because the architecture makes repainting impossible."
     }
   ];
 
   return (
-    <section id="faq" className="py-24 px-6 bg-[#0a0c0f]">
+    <section id="faq" className="py-24 px-6 bg-[#0a0a0a] border-y border-[#1f1f1f]">
       <div className="max-w-4xl mx-auto">
         <motion.div
            initial={{ opacity: 0, y: 30 }}
@@ -52,8 +56,8 @@ export const FAQ = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-[#13161c] border border-[#1e232b] rounded-2xl overflow-hidden hover:border-[#2a303c] transition-colors"
+              transition={{ delay: idx * 0.05 }}
+              className="bg-[#111] border border-[#1f1f1f] rounded-2xl overflow-hidden hover:border-[#333] transition-colors"
             >
               <button
                 className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none"
@@ -61,7 +65,7 @@ export const FAQ = () => {
               >
                 <span className="text-white font-bold pr-8">{faq.q}</span>
                 <ChevronDown 
-                  className={`text-primary transition-transform duration-300 flex-shrink-0 ${openIndex === idx ? 'rotate-180' : ''}`} 
+                  className={`text-[#e8442a] transition-transform duration-300 flex-shrink-0 ${openIndex === idx ? 'rotate-180' : ''}`} 
                   size={20} 
                 />
               </button>
@@ -73,7 +77,7 @@ export const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-6 text-gray-400 leading-relaxed border-t border-[#1e232b] pt-4 mt-2">
+                    <div className="px-6 pb-6 text-[#e0e0e0] leading-relaxed border-t border-[#1f1f1f] pt-4 mt-2">
                       {faq.a}
                     </div>
                   </motion.div>

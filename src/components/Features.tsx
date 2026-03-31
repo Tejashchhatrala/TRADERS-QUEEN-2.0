@@ -3,60 +3,61 @@ import { motion } from 'motion/react';
 import { Cloud, BarChart2, Hash, Zap, Target, Activity } from 'lucide-react';
 
 export const Features = () => {
+  // Reordered specifically to match Indian ICP priority from the brief
   const features = [
     {
-      icon: <Target size={28} />,
-      title: "Auto Risk Entry Engine",
-      subtitle: "Entry, SL & Targets on Chart",
-      desc: "Instant level generation calculated via ATR the millisecond a signal fires. Know your exact risk before you trade. Don't guess where to put your SL."
-    },
-    {
       icon: <Cloud size={28} />,
-      title: "Momentum Cloud Filter",
-      subtitle: "Avoid Sideways Chop",
-      desc: "A background cloud visually dictates momentum. Teal for trend (Buy CE), Red for puts (Buy PE), neutral to stay flat. Don't bleed theta in chop."
+      title: "MACD Momentum Cloud",
+      subtitle: "Sideways Market Filter",
+      desc: "Our #1 capital-saving feature. A dynamic cloud sits in the background of your chart to tell you when NOT to trade. Teal for calls, red for puts, neutral to stay flat."
     },
     {
       icon: <BarChart2 size={28} />,
       title: "CE/PE Mode Filters",
       subtitle: "Call Only / Put Only",
-      desc: "Filter out opposite side noise. See only bullish setups if you're a CE buyer. Keep your chart ruthlessly clean for faster execution."
+      desc: "Only buy CALL options? Turn on Call Buyer Mode and only bullish setups appear. Filter out all irrelevant noise so you can make decisions faster."
+    },
+    {
+      icon: <Target size={28} />,
+      title: "Auto Risk Entry Engine",
+      subtitle: "Entry, SL & Targets on Chart",
+      desc: "Everything is on the chart the moment a signal fires. TQ 2.0 calculates your exact Entry, Stop Loss, and TP1/TP2/TP3 automatically. No manual math."
+    },
+    {
+      icon: <Zap size={28} />,
+      title: "Instant Alerts",
+      subtitle: "Signal Comes to You",
+      desc: "You don't need to watch the chart all day. Connect TradingView's native alerts to WhatsApp via webhook, automate it in Zapier, or get phone notifications."
     },
     {
       icon: <Activity size={28} />,
       title: "Heikin Ashi Engine",
-      subtitle: "Smoothed Signals, Standard Polish",
-      desc: "Calculates trends using smoothed Heikin Ashi data, but plots safely on your standard Japanese candlestick chart for visual familiarity."
+      subtitle: "Smoothed Signals, Standard Display",
+      desc: "Signal calculations run on Heikin Ashi candles to filter noise effectively. But your chart continues to display regular Japanese candlesticks, so everything looks normal."
     },
     {
       icon: <Hash size={28} />,
       title: "Multi-Timeframe Logic",
-      subtitle: "Higher Timeframe Overlay",
-      desc: "Want true trend? Overlay 15m trend data directly on a 1m scalping chart. View Nifty signals while watching BankNifty options."
-    },
-    {
-      icon: <Zap size={28} />,
-      title: "Webhook Automations",
-      subtitle: "Instant Notifications",
-      desc: "Connect native TradingView JSON alerts to WhatsApp, Telegram, Zapier, or direct broker API execution (Zerodha/Upstox/AngelOne)."
+      subtitle: "External Symbol Support",
+      desc: "Want Nifty50 signals while watching a BankNifty chart? Or 15m trend data on your 1m scalping chart? One toggle enables multi-timeframe confirmation."
     }
   ];
 
   return (
-    <section id="features" className="py-24 px-6 bg-[#0a0c0f]">
+    <section id="features" className="py-24 px-6 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           className="text-center mb-20"
         >
-          <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">Pro-Grade Tools</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-            Engineered to Secure Capital.
+          <p className="text-[#e8442a] font-bold tracking-widest uppercase text-sm mb-4">The Full System</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Every Signal Comes With a<br className="hidden md:block"/> Complete Trade Plan.
           </h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed px-4">
-            Everything you need built directly into one indicator so you never have to second-guess a trade plan again.
+            No manual math. No second-guessing. A comprehensive trading system designed specifically for the realities of the Indian market.
           </p>
         </motion.div>
 
@@ -68,15 +69,15 @@ export const Features = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="bg-[#13161c] p-8 rounded-3xl border border-[#1e232b] hover:border-primary/50 transition-all group shadow-lg flex flex-col h-full"
+              whileHover={{ y: -5 }}
+              className="bg-[#111] p-8 rounded-3xl border border-[#1f1f1f] hover:border-[#e8442a]/50 transition-all group shadow-lg flex flex-col h-full"
             >
-              <div className="w-14 h-14 bg-[#1a1e24] border border-[#2a303c] rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-inner">
+              <div className="w-14 h-14 bg-[#1a1a1a] border border-[#333] rounded-2xl flex items-center justify-center mb-6 text-[#00c9a7] group-hover:scale-110 group-hover:bg-[#00c9a7] group-hover:text-black transition-all duration-300 shadow-inner">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-bold mb-1 text-white">{feature.title}</h3>
-              <p className="text-[11px] font-mono text-primary mb-4 uppercase tracking-wider bg-primary/10 inline-block px-2 py-0.5 rounded border border-primary/20 mr-auto">{feature.subtitle}</p>
-              <p className="text-gray-400 text-sm leading-relaxed flex-1">{feature.desc}</p>
+              <p className="text-[11px] font-mono text-[#00c9a7] mb-4 uppercase tracking-wider bg-[#00c9a7]/10 inline-block px-2 py-0.5 rounded border border-[#00c9a7]/20 mr-auto">{feature.subtitle}</p>
+              <p className="text-[#e0e0e0] text-sm leading-relaxed flex-1">{feature.desc}</p>
             </motion.div>
           ))}
         </div>
