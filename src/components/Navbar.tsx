@@ -49,10 +49,12 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white rounded-md p-2 focus:outline-none"
+            aria-label={isOpen ? "Close main menu" : "Open main menu"}
+            aria-expanded={isOpen}
+            className="lg:hidden text-white rounded-md p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e8442a] transition-colors hover:bg-white/10"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
 
