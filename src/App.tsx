@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { 
   Menu, X, CheckCircle2, XCircle, Lock, Unlock, 
   TrendingUp, BarChart2, Cloud, CandlestickChart, 
@@ -71,65 +71,232 @@ const Navbar = () => {
 };
 
 const Hero = () => {
-  return (
-    <section className="pt-40 pb-20 px-6 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <motion.div 
-        className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px] pointer-events-none"
-        animate={{ 
-          x: [0, 50, 0], 
-          y: [0, 30, 0],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#067a67]/10 blur-[120px] pointer-events-none"
-        animate={{ 
-          x: [0, -40, 0], 
-          y: [0, -50, 0],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-      />
-      
-      {/* Background subtle chart pattern */}
-      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#089981 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-      
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <p className="text-primary font-bold tracking-widest uppercase text-sm mb-6">For Nifty · BankNifty · Options Buyers · TradingView</p>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
-          They Showed You a Perfect Chart.<br/>
-          <span className="text-danger">That Chart Was Lying.</span>
-        </h1>
-        <p className="text-xl text-muted mb-10 max-w-3xl mx-auto leading-relaxed">
-          90% of indicators sold in the Indian market repaint — they rewrite their own history after the candle closes to look accurate. Traders Queen 2.0 Zero Repaint doesn't. And we'll prove it: the complete source code is yours to open, read, and verify. One payment. No subscription. No black box.
-        </p>
-        
-        <div className="mb-8">
-          <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-4 px-8 rounded-xl text-xl transition-colors w-full md:w-auto shadow-lg shadow-primary/20">
-            Get the Full Source Code — ₹2,999
-          </a>
-          <p className="text-sm text-muted mt-4">Delivered to your inbox within 2 hours · No subscription · No renewal · Yours forever</p>
-        </div>
-        
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-muted mb-16">
-          <div className="flex items-center gap-2">
-             <Lock size={16} /> Secure payment via Razorpay · UPI · GPay · PhonePe · Cards
-          </div>
-          <div className="flex items-center gap-2">
-             <Unlock size={16} /> Full .pine file delivered to email · Not invite-only · Not locked
-          </div>
-        </div>
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
 
-        <div className="bg-[#13161c] border border-[#1e232b] p-8 rounded-2xl text-left max-w-3xl mx-auto relative shadow-xl">
-          <div className="absolute -top-6 -left-4 text-6xl text-primary opacity-20 font-display font-bold">"</div>
-          <p className="text-xl italic mb-6 text-gray-300 leading-relaxed relative z-10">
-            I paid ₹18,000 across 14 months for a locked indicator. When the service shut down, everything was gone. I bought Traders Queen 2.0 ZR for ₹2,999. The code is still on my computer. It still works.
-          </p>
-          <p className="font-bold text-white text-lg">— Karan V., NSE F&O Trader · Surat</p>
-        </div>
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  // Mouse parallax effect for 3D illustration
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    setMousePosition({
+      x: (clientX / innerWidth - 0.5) * 40,
+      y: (clientY / innerHeight - 0.5) * 40
+    });
+  };
+
+  const springConfig = { damping: 20, stiffness: 100 };
+  const mouseX = useSpring(mousePosition.x, springConfig);
+  const mouseY = useSpring(mousePosition.y, springConfig);
+
+  return (
+    <section
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      className="min-h-screen pt-40 pb-20 px-6 relative overflow-hidden flex flex-col justify-center perspective-[1000px]"
+    >
+      {/* Deep Space Background gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(8,153,129,0.05)_0%,rgba(10,12,15,1)_100%)] pointer-events-none"></div>
+
+      {/* Abstract Glowing 3D Orbs/Nodes */}
+      <motion.div 
+        style={{ y: y1 }}
+        className="absolute top-[10%] left-[5%] w-[30vw] h-[30vw] rounded-full bg-primary/20 blur-[150px] pointer-events-none mix-blend-screen"
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.5, 0.8, 0.5],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        style={{ y: y2 }}
+        className="absolute bottom-[5%] right-[5%] w-[25vw] h-[25vw] rounded-full bg-danger/10 blur-[150px] pointer-events-none mix-blend-screen"
+        animate={{ 
+          scale: [1, 1.3, 1],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      />
+      
+      {/* Technical Grid Pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #ffffff 1px, transparent 1px),
+            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
+        }}
+      ></div>
+
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
+        
+        {/* Text Content */}
+        <motion.div
+          style={{ opacity }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-left"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#13161c] border border-primary/20 text-primary font-bold tracking-widest uppercase text-xs mb-8 shadow-[0_0_20px_rgba(8,153,129,0.1)]"
+          >
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+            Pine Script v6 Verified
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-5xl md:text-7xl font-bold mb-6 leading-[1.1] tracking-tight text-white"
+          >
+            They Showed You a Perfect Chart.<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-danger to-red-400">That Chart Was Lying.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-xl text-muted mb-10 max-w-2xl leading-relaxed"
+          >
+            90% of indicators sold in the Indian market repaint. They rewrite their own history. <strong className="text-white font-medium">Traders Queen 2.0 Zero Repaint doesn't.</strong>
+            <br/><br/>
+            We prove it: the complete source code is yours to open, read, and verify. One payment. No black box.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="mb-8 flex flex-col sm:flex-row gap-4 items-center sm:items-start"
+          >
+            <a
+              href={CHECKOUT_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-bold py-4 px-8 rounded-xl text-xl transition-all w-full sm:w-auto shadow-[0_0_30px_rgba(8,153,129,0.3)] hover:shadow-[0_0_50px_rgba(8,153,129,0.5)] overflow-hidden"
+            >
+              <span className="relative z-10 flex items-center gap-2">Get Full Source Code <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform"/></span>
+              {/* Shine effect */}
+              <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"></div>
+            </a>
+            <div className="text-left text-sm text-muted py-2 flex flex-col justify-center">
+              <span className="text-white font-bold block mb-1">₹2,999 One-Time</span>
+              <span>Delivered instantly</span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7, duration: 1 }}
+            className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted"
+          >
+            <div className="flex items-center gap-2">
+               <ShieldCheck size={16} className="text-primary" /> 100% Zero-Repaint Verified
+            </div>
+            <div className="flex items-center gap-2">
+               <Unlock size={16} className="text-primary" /> Full .pine File
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* 3D Abstract UI Illustration */}
+        <motion.div
+          className="relative hidden lg:block h-[600px] w-full"
+          style={{
+            rotateX: mouseY,
+            rotateY: mouseX,
+            transformStyle: "preserve-3d"
+          }}
+        >
+          {/* Base Platform */}
+          <div className="absolute inset-0 top-[20%] left-[10%] w-[80%] h-[60%] bg-[#13161c]/80 backdrop-blur-xl border border-[#1e232b] rounded-3xl shadow-2xl" style={{ transform: 'translateZ(-50px)' }}></div>
+
+          {/* Main "Chart" Glass Panel */}
+          <div className="absolute inset-0 top-[10%] left-[5%] w-[90%] h-[80%] bg-[#1a1e24]/60 backdrop-blur-2xl border border-white/5 rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col" style={{ transform: 'translateZ(0px)' }}>
+            {/* Mock Header */}
+            <div className="h-12 border-b border-white/5 flex items-center px-4 gap-2">
+              <div className="w-3 h-3 rounded-full bg-danger/80"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+              <div className="w-3 h-3 rounded-full bg-primary/80"></div>
+              <div className="ml-4 px-2 py-1 rounded bg-white/5 text-[10px] font-mono text-muted">TQ_2.0_ZR_Source.pine</div>
+            </div>
+            {/* Mock Code Lines */}
+            <div className="p-6 space-y-3 flex-1 opacity-60">
+              <div className="w-3/4 h-3 bg-primary/20 rounded"></div>
+              <div className="w-1/2 h-3 bg-white/10 rounded ml-4"></div>
+              <div className="w-5/6 h-3 bg-white/10 rounded ml-4"></div>
+              <div className="w-2/3 h-3 bg-white/10 rounded"></div>
+              <div className="w-1/3 h-3 bg-danger/20 rounded ml-4 mt-6"></div>
+              <div className="w-1/2 h-3 bg-white/10 rounded ml-8"></div>
+            </div>
+          </div>
+
+          {/* Floating "Signal" Cards */}
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[20%] right-[-5%] bg-[#0a0c0f] border border-primary/30 p-4 rounded-xl shadow-xl flex items-center gap-4"
+            style={{ transform: 'translateZ(50px)' }}
+          >
+            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+              <TrendingUp size={20} />
+            </div>
+            <div>
+              <div className="text-xs text-muted mb-1">Confirmed Signal</div>
+              <div className="text-white font-bold text-sm">BUY CALL @ 48200</div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            animate={{ y: [0, 15, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-[25%] left-[-10%] bg-[#0a0c0f] border border-[#1e232b] p-4 rounded-xl shadow-xl flex items-center gap-4"
+            style={{ transform: 'translateZ(80px)' }}
+          >
+            <div className="w-2 h-10 rounded-full bg-gradient-to-b from-primary to-transparent"></div>
+            <div>
+              <div className="text-white font-bold text-sm mb-1 font-mono">barmerge.lookahead_off</div>
+              <div className="text-xs text-primary">Zero Repaint Lock Active</div>
+            </div>
+          </motion.div>
+
+        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted"
+      >
+        <span className="text-xs uppercase tracking-widest">Scroll to discover</span>
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-5 h-8 border-2 border-muted rounded-full flex justify-center p-1"
+        >
+          <div className="w-1 h-2 bg-muted rounded-full"></div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
@@ -148,82 +315,154 @@ const SocialProof = () => (
   </div>
 );
 
-const Problem = () => (
-  <section id="why-tq-2" className="py-24 px-6 bg-[#0a0c0f]">
-    <div className="max-w-5xl mx-auto">
-      <div className="text-center mb-16">
-        <p className="text-danger font-bold tracking-widest uppercase text-sm mb-4">Why Most Traders Keep Losing</p>
-        <h2 className="text-4xl md:text-5xl font-bold mb-8">You Didn't Make a Bad Trade.<br/>Your Indicator Made It For You.</h2>
-        <div className="text-lg text-muted max-w-3xl mx-auto space-y-6 text-left md:text-center leading-relaxed">
-          <p>Here is what happened the last time you lost on a signal.</p>
-          <p>You saw the setup. It looked clean. You entered the trade. It went wrong. You opened the chart afterward to understand what happened — and the signal had moved. Or it was just gone. The chart looked like you had made an obvious mistake that no serious trader would make.</p>
-          <p>But you didn't make that mistake. <strong className="text-white font-semibold">The indicator rewrote its own history after the candle closed.</strong> This is called repainting — and it is not a glitch. It is how most indicators in this market are built. The backtest looks perfect because the signals are allowed to move backward to wherever they "should" have appeared. You are trading against a chart that is lying to you in real time.</p>
-          <p>And it gets worse.</p>
-        </div>
-      </div>
+const Problem = () => {
+  return (
+    <section id="why-tq-2" className="py-32 px-6 bg-[#0a0c0f] relative">
+      {/* Visual connection line */}
+      <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-danger/20 to-transparent z-0 hidden md:block"></div>
 
-      <div className="grid md:grid-cols-3 gap-6 mb-16">
-        <div className="bg-[#13161c] p-8 rounded-2xl border border-[#1e232b] hover:border-danger/30 transition-colors">
-          <XCircle className="text-danger mb-6" size={36} />
-          <h3 className="text-xl font-bold mb-4 text-white">The Repainting Trap</h3>
-          <p className="text-muted leading-relaxed">A signal appears on a live candle. You enter the trade. The candle closes against you. You check the chart — the signal has moved or disappeared entirely. On the seller's screenshot, it shows up perfectly at the right place. You never knew it was never really there.</p>
-        </div>
-        <div className="bg-[#13161c] p-8 rounded-2xl border border-[#1e232b] hover:border-danger/30 transition-colors">
-          <Lock className="text-danger mb-6" size={36} />
-          <h3 className="text-xl font-bold mb-4 text-white">The Black Box Trap</h3>
-          <p className="text-muted leading-relaxed">The code is locked. You get a TradingView "invite-only" link — you cannot see inside, cannot verify anything, cannot even check if the zero-repaint claim is true. The day the seller shuts down, stops their subscription, or disappears, your access is gone. You owned nothing.</p>
-        </div>
-        <div className="bg-[#13161c] p-8 rounded-2xl border border-[#1e232b] hover:border-danger/30 transition-colors">
-          <TrendingUp className="text-danger mb-6" size={36} />
-          <h3 className="text-xl font-bold mb-4 text-white">The Subscription Trap</h3>
-          <p className="text-muted leading-relaxed">₹999/month. ₹1,999/month. That is ₹12,000 to ₹24,000 per year — for a rented tool with no code, no proof, and no permanence. Over two years: ₹24,000 to ₹48,000 gone. And you have nothing to show for it that you actually own.</p>
-        </div>
-      </div>
+      <div className="max-w-5xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-24"
+        >
+          <p className="text-danger font-bold tracking-widest uppercase text-sm mb-4">The Repainting Epidemic</p>
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">You Didn't Make a Bad Trade.<br/>Your Chart Lied to You.</h2>
+          <p className="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+            Every time a signal vanishes after you lose money, it's not a glitch. It's built into the system. It's called repainting, and it's how most indicators fake perfect backtests.
+          </p>
+        </motion.div>
 
-      <p className="text-center text-2xl font-bold text-white max-w-3xl mx-auto">
-        We built Traders Queen 2.0 Zero Repaint because we were tired of it too. And we do none of this.
-      </p>
-    </div>
-  </section>
-);
+        <div className="space-y-24 md:space-y-32">
+          {/* Scroll Story 1 */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col md:flex-row items-center gap-12"
+          >
+            <div className="flex-1 order-2 md:order-1 relative group w-full">
+              {/* Abstract Visual */}
+              <div className="aspect-square md:aspect-[4/3] rounded-3xl bg-[#13161c] border border-[#1e232b] overflow-hidden relative flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-danger/5 to-transparent"></div>
+                {/* Visualizing "Disappearing Signal" */}
+                <motion.div
+                  animate={{ opacity: [1, 1, 0, 0, 1] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="w-16 h-16 rounded-full bg-danger/20 flex items-center justify-center text-danger border border-danger/50 shadow-[0_0_30px_rgba(242,54,69,0.3)] absolute top-1/3 right-1/3"
+                >
+                  BUY
+                </motion.div>
+                <svg className="w-full h-full opacity-30" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <path d="M0 80 Q 25 20, 50 50 T 100 20" stroke="currentColor" fill="none" strokeWidth="2" strokeDasharray="5,5" className="text-white" />
+                  <path d="M0 80 Q 25 80, 50 50 T 100 80" stroke="#f23645" fill="none" strokeWidth="2" />
+                </svg>
+              </div>
+            </div>
+            <div className="flex-1 order-1 md:order-2">
+              <div className="w-16 h-16 rounded-2xl bg-danger/10 flex items-center justify-center text-danger mb-6">
+                <XCircle size={32} />
+              </div>
+              <h3 className="text-3xl font-bold mb-4 text-white">The Disappearing Signal</h3>
+              <p className="text-xl text-muted leading-relaxed">
+                You enter on a signal. The market moves against you. You check the chart—<strong className="text-white">the signal is gone.</strong> It rewrote its own history to look perfect on a screenshot. You are trading a ghost.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Scroll Story 2 */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col md:flex-row items-center gap-12"
+          >
+            <div className="flex-1 relative">
+              <div className="w-16 h-16 rounded-2xl bg-[#2a303c]/30 flex items-center justify-center text-gray-400 mb-6">
+                <Lock size={32} />
+              </div>
+              <h3 className="text-3xl font-bold mb-4 text-white">The Black Box Trap</h3>
+              <p className="text-xl text-muted leading-relaxed">
+                "Invite-only" scripts mean you cannot read the code. You cannot verify their claims. When the seller disappears or shuts down their server, your access is revoked. You own absolutely nothing.
+              </p>
+            </div>
+            <div className="flex-1 relative w-full">
+              {/* Abstract Visual */}
+              <div className="aspect-square md:aspect-[4/3] rounded-3xl bg-[#13161c] border border-[#1e232b] overflow-hidden relative flex items-center justify-center">
+                <div className="w-32 h-32 bg-[#0a0c0f] border border-[#2a303c] rounded-xl flex items-center justify-center relative shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
+                  <Lock className="text-[#2a303c]" size={48} />
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 rounded-xl border border-dashed border-gray-600/30"
+                  ></motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-32 text-center"
+        >
+          <div className="inline-block p-[1px] rounded-full bg-gradient-to-r from-transparent via-primary to-transparent mb-6">
+            <div className="px-6 py-2 bg-[#0a0c0f] rounded-full text-sm font-bold tracking-widest uppercase text-primary">The Alternative</div>
+          </div>
+          <p className="text-3xl md:text-4xl font-display font-bold text-white max-w-3xl mx-auto leading-tight">
+            We built TQ 2.0 Zero Repaint to break this exact cycle. No hidden code. No monthly fees.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 const Solution = () => (
-  <section className="py-24 px-6 bg-[#f5f4f1] text-[#1a1a1a]">
-    <div className="max-w-5xl mx-auto">
-      <div className="text-center mb-20">
-        <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">The Difference</p>
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1a1a1a]">One Indicator. Open Code. Yours Forever.</h2>
+  <section className="py-24 px-6 bg-[#f5f4f1] text-[#1a1a1a] relative overflow-hidden">
+    <div className="max-w-5xl mx-auto relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-20"
+      >
+        <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">The Solution</p>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1a1a1a]">Radical Transparency.</h2>
         <p className="text-xl text-[#4a4a4a] max-w-3xl mx-auto leading-relaxed">
-          Traders Queen 2.0 Zero Repaint is a professionally built Pine Script v6 indicator for TradingView. It gives you the complete source code — every single line — so you can open the file, read the logic, and confirm every claim we make before you place a single live trade.
-          <br/><br/>
-          This is not a pitch. It is a technical fact you can verify yourself the moment you receive the file.
+          We don't sell a black box. We hand you the raw Pine Script v6 source code.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="space-y-16">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-          <div className="text-7xl font-display font-bold text-[#e0ded8] leading-none shrink-0">01</div>
-          <div>
-            <h3 className="text-3xl font-bold mb-4">You Get the Full Pine Script Source Code</h3>
-            <p className="text-[#4a4a4a] text-lg leading-relaxed">The complete .pine file. In your hands. Not locked on a TradingView server. Not hidden behind a subscription. You can read it, understand it, and verify that signals run on confirmed closed-bar data — because that is exactly what the code shows. This is what real ownership looks like.</p>
-          </div>
-        </div>
-        
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-          <div className="text-7xl font-display font-bold text-[#e0ded8] leading-none shrink-0">02</div>
-          <div>
-            <h3 className="text-3xl font-bold mb-4">One Payment of ₹2,999. Yours Forever.</h3>
-            <p className="text-[#4a4a4a] text-lg leading-relaxed">Pay once. Use forever. No renewal reminder. No plan expiry. No access wall. If we shut down tomorrow, your code still works — because it lives on your computer, not our server. The math is simple: ₹999/month for two years is ₹23,976. Traders Queen 2.0 ZR is ₹2,999. Once.</p>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-          <div className="text-7xl font-display font-bold text-[#e0ded8] leading-none shrink-0">03</div>
-          <div>
-            <h3 className="text-3xl font-bold mb-4">Zero Repaint. Provable Right Now, Before You Pay.</h3>
-            <p className="text-[#4a4a4a] text-lg mb-4 leading-relaxed">We don't ask you to trust us. We show you the code. The indicator uses <code className="bg-[#e8e6df] px-2 py-1 rounded text-sm font-mono text-primary font-bold">barmerge.lookahead_off</code> and confirmed prior-bar data (<code className="bg-[#e8e6df] px-2 py-1 rounded text-sm font-mono text-primary font-bold">expr[1]</code>) throughout its entire signal chain. Any Pine Script developer can verify this in under five minutes. The signal you see at bar close is the signal that stays — today, tomorrow, and six months from now.</p>
-          </div>
-        </div>
+      <div className="grid md:grid-cols-3 gap-8">
+        {[
+          { num: "01", title: "Open Source Code", desc: "The complete .pine file is yours. Read it, understand it, verify it." },
+          { num: "02", title: "One-Time ₹2,999", desc: "No subscriptions. No renewals. If we disappear, your code still works." },
+          { num: "03", title: "Provable Zero Repaint", desc: "Built with request.security() and confirmed prior-bar data. Technically impossible to repaint." }
+        ].map((item, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: idx * 0.2 }}
+            whileHover={{ y: -10 }}
+            className="bg-white p-10 rounded-3xl shadow-sm border border-[#e5e4e1] relative overflow-hidden group"
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+            <div className="text-6xl font-display font-bold text-[#e0ded8] mb-8 group-hover:text-primary transition-colors">{item.num}</div>
+            <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+            <p className="text-[#4a4a4a] text-lg leading-relaxed">{item.desc}</p>
+          </motion.div>
+        ))}
       </div>
     </div>
   </section>
@@ -368,126 +607,204 @@ const ChartProof = () => {
   );
 };
 
-const Features = () => (
-  <section id="what-you-get" className="py-24 px-6 bg-[#f5f4f1] text-[#1a1a1a]">
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-16">
-        <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">The Full System</p>
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">Every Signal Comes With a Complete Trade Plan.</h2>
-        <p className="text-xl text-[#4a4a4a]">No manual math. No second-guessing. Everything is on the chart the moment a signal fires.</p>
-      </div>
+const Features = () => {
+  const features = [
+    {
+      icon: <TrendingUp size={28} />,
+      title: "Auto Risk Engine",
+      subtitle: "Entry, SL & 3x Take Profits",
+      desc: "Instant level generation calculated via ATR the millisecond a signal fires. Know your exact risk before you trade."
+    },
+    {
+      icon: <BarChart2 size={28} />,
+      title: "Options Buyer Modes",
+      subtitle: "Call Only / Put Only",
+      desc: "Filter out noise. See only bullish setups if you're a CE buyer. Keep your chart ruthlessly clean."
+    },
+    {
+      icon: <Cloud size={28} />,
+      title: "Momentum Cloud",
+      subtitle: "Visual Trend Filter",
+      desc: "A glowing background cloud visually dictates MACD momentum. Blue for calls, red for puts, neutral to stay flat."
+    },
+    {
+      icon: <CandlestickChart size={28} />,
+      title: "Heikin Ashi Engine",
+      subtitle: "Standard Display",
+      desc: "Calculates signals using smoothed Heikin Ashi data, but plots on your standard Japanese candlestick chart."
+    },
+    {
+      icon: <Globe size={28} />,
+      title: "Multi-Timeframe",
+      subtitle: "External Data Support",
+      desc: "Overlay 15m trend data on a 1m scalping chart. View Nifty signals while watching BankNifty."
+    },
+    {
+      icon: <Bell size={28} />,
+      title: "Webhook Automations",
+      subtitle: "Instant Notifications",
+      desc: "Native TradingView JSON alerts ready for WhatsApp, Telegram, Zapier, or direct broker API execution."
+    }
+  ];
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Feature 1 */}
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e5e4e1] hover:shadow-md transition-shadow">
-          <div className="w-14 h-14 bg-[#e6f5f2] rounded-xl flex items-center justify-center mb-6 text-primary">
-            <TrendingUp size={28} />
-          </div>
-          <h3 className="text-xl font-bold mb-2">Automatic Entry, Stop Loss & Three Take Profits</h3>
-          <p className="text-sm font-semibold text-primary mb-4 italic">Know your full risk before you touch a button.</p>
-          <p className="text-[#4a4a4a] text-sm mb-6 leading-relaxed">The moment a confirmed Buy CALL or Buy PUT signal fires, TQ 2.0 ZR draws your exact entry price, your stop loss level, and three take-profit targets at 1R, 2R, and 3R — calculated automatically from your ATR settings.</p>
-          <ul className="text-sm text-[#4a4a4a] space-y-2 font-mono bg-[#f8f8f8] p-4 rounded-lg border border-[#f0f0f0]">
-            <li className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-primary"></div><span className="font-bold">TP1</span> — Fast partial booking</li>
-            <li className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-primary"></div><span className="font-bold">TP2</span> — Trend continuation</li>
-            <li className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-primary"></div><span className="font-bold">TP3</span> — Full move capture</li>
-          </ul>
-        </div>
+  return (
+    <section id="what-you-get" className="py-24 px-6 bg-[#0a0c0f]">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">Pro-Grade Features</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Engineered for Execution.</h2>
+        </motion.div>
 
-        {/* Feature 2 */}
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e5e4e1] hover:shadow-md transition-shadow">
-          <div className="w-14 h-14 bg-[#e6f5f2] rounded-xl flex items-center justify-center mb-6 text-primary">
-            <BarChart2 size={28} />
-          </div>
-          <h3 className="text-xl font-bold mb-2">Call Buyer Mode & Put Buyer Mode</h3>
-          <p className="text-sm font-semibold text-primary mb-4 italic">See only what's relevant to how you trade.</p>
-          <p className="text-[#4a4a4a] text-sm leading-relaxed">If you only buy CALL options, switch to Call Buyer Mode — only bullish signals labeled "Buy CALL" appear. If you only buy PUTs, Put Buyer Mode filters every bearish setup labeled "Buy PUT." Every irrelevant signal is removed from your screen. You make the decision faster. You waste less premium on the wrong direction.</p>
-        </div>
-
-        {/* Feature 3 */}
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e5e4e1] hover:shadow-md transition-shadow">
-          <div className="w-14 h-14 bg-[#e6f5f2] rounded-xl flex items-center justify-center mb-6 text-primary">
-            <Cloud size={28} />
-          </div>
-          <h3 className="text-xl font-bold mb-2">MACD Momentum Cloud</h3>
-          <p className="text-sm font-semibold text-primary mb-4 italic">Know when not to trade.</p>
-          <p className="text-[#4a4a4a] text-sm mb-6 leading-relaxed">A dynamic cloud sits in the background of your chart. When MACD momentum is bullish, the cloud turns teal. When bearish, it turns red. When the market is going nowhere, the cloud tells you to stay flat and protect your capital.</p>
-          <ul className="text-sm text-[#4a4a4a] space-y-2 font-mono bg-[#f8f8f8] p-4 rounded-lg border border-[#f0f0f0]">
-            <li className="flex items-center gap-2">🔵 Teal → Buy CALL bias</li>
-            <li className="flex items-center gap-2">🔴 Red → Buy PUT bias</li>
-            <li className="flex items-center gap-2">⚫ Neutral → Stay flat</li>
-          </ul>
-        </div>
-
-        {/* Feature 4 */}
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e5e4e1] hover:shadow-md transition-shadow">
-          <div className="w-14 h-14 bg-[#e6f5f2] rounded-xl flex items-center justify-center mb-6 text-primary">
-            <CandlestickChart size={28} />
-          </div>
-          <h3 className="text-xl font-bold mb-2">Heikin Ashi Logic, Regular Candle Display</h3>
-          <p className="text-sm font-semibold text-primary mb-4 italic">Smoother signals. Normal-looking charts.</p>
-          <p className="text-[#4a4a4a] text-sm leading-relaxed">Signal calculations run on Heikin Ashi candles — which filter out noise and false signals more effectively than standard candles. But your chart continues to display regular Japanese candlesticks, so everything looks and feels normal to you.</p>
-        </div>
-
-        {/* Feature 5 */}
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e5e4e1] hover:shadow-md transition-shadow">
-          <div className="w-14 h-14 bg-[#e6f5f2] rounded-xl flex items-center justify-center mb-6 text-primary">
-            <Globe size={28} />
-          </div>
-          <h3 className="text-xl font-bold mb-2">External Symbol & Higher Timeframe Support</h3>
-          <p className="text-sm font-semibold text-primary mb-4 italic">Use Nifty structure to trade BankNifty.</p>
-          <p className="text-[#4a4a4a] text-sm leading-relaxed">Want Nifty50 signals while watching a BankNifty chart? Want higher timeframe trend confirmation displayed on your intraday scalping chart? One toggle enables it. Multi-timeframe analysis built in — no workarounds, no extra indicators.</p>
-        </div>
-
-        {/* Feature 6 */}
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-[#e5e4e1] hover:shadow-md transition-shadow">
-          <div className="w-14 h-14 bg-[#e6f5f2] rounded-xl flex items-center justify-center mb-6 text-primary">
-            <Bell size={28} />
-          </div>
-          <h3 className="text-xl font-bold mb-2">Instant Alerts — Signal Comes to You</h3>
-          <p className="text-sm font-semibold text-primary mb-4 italic">You don't need to watch the chart all day.</p>
-          <p className="text-[#4a4a4a] text-sm leading-relaxed">Every confirmed signal fires an instant alert through TradingView's native alert system. Connect it to WhatsApp via webhook, automate it through Zapier or N8N, or receive it as a phone notification. The signal arrives at bar close — confirmed, permanent, and ready to act on.</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="bg-[#13161c] p-8 rounded-3xl border border-[#1e232b] hover:border-primary/50 transition-all group shadow-lg"
+            >
+              <div className="w-14 h-14 bg-[#1a1e24] border border-[#2a303c] rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-1 text-white">{feature.title}</h3>
+              <p className="text-xs font-mono text-primary mb-4 uppercase tracking-wider">{feature.subtitle}</p>
+              <p className="text-muted text-sm leading-relaxed">{feature.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
-const HowItWorks = () => (
-  <section id="how-it-works" className="py-24 px-6 bg-[#0a0c0f]">
-    <div className="max-w-5xl mx-auto">
-      <div className="text-center mb-20">
-        <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">The 3-Step Routine</p>
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">Open Chart. See Signal. Execute Trade.</h2>
+const HowItWorks = () => {
+  return (
+    <section id="how-it-works" className="py-32 px-6 bg-[#13161c] relative border-y border-[#1e232b]">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-24"
+        >
+          <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">Execution Framework</p>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">Systematic Trading in 3 Steps.</h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-12 relative">
+          {/* Animated Connecting Path (Desktop) */}
+          <div className="hidden md:block absolute top-24 left-[15%] right-[15%] h-px bg-[#2a303c] z-0">
+            <motion.div
+              className="h-full bg-primary"
+              initial={{ width: "0%" }}
+              whileInView={{ width: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            />
+          </div>
+
+          {/* Step 1 */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative z-10 text-center md:text-left flex flex-col items-center md:items-start group"
+          >
+            {/* Visual Icon */}
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <motion.div
+                className="absolute inset-0 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-colors"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
+              <div className="w-32 h-32 bg-[#0a0c0f] border-2 border-primary rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(8,153,129,0.3)] relative z-10">
+                <motion.div
+                  className="w-16 h-8 bg-primary/20 rounded border border-primary flex items-center justify-center text-primary font-bold text-sm"
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  BUY
+                </motion.div>
+              </div>
+            </div>
+            <div className="text-primary font-mono font-bold text-sm mb-4">STEP 01</div>
+            <h3 className="text-2xl font-bold mb-4 text-white">Wait for Confirmation</h3>
+            <p className="text-muted leading-relaxed">
+              A clear label appears. The candle closes. The signal locks in permanently. No repainting, no second-guessing.
+            </p>
+          </motion.div>
+
+          {/* Step 2 */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative z-10 text-center md:text-left flex flex-col items-center md:items-start group"
+          >
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <motion.div
+                className="absolute inset-0 bg-[#3b82f6]/10 rounded-full blur-2xl group-hover:bg-[#3b82f6]/20 transition-colors"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+              />
+              <div className="w-32 h-32 bg-[#0a0c0f] border-2 border-[#2a303c] rounded-full flex items-center justify-center relative z-10 overflow-hidden">
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#3b82f6]/40 to-transparent"
+                  animate={{ height: ['30%', '70%', '30%'] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <Cloud className="text-[#3b82f6] relative z-10" size={40} />
+              </div>
+            </div>
+            <div className="text-gray-400 font-mono font-bold text-sm mb-4">STEP 02</div>
+            <h3 className="text-2xl font-bold mb-4 text-white">Filter with Momentum</h3>
+            <p className="text-muted leading-relaxed">
+              Check the background cloud. Is it teal for calls? Red for puts? If momentum disagrees, you stay flat and protect capital.
+            </p>
+          </motion.div>
+
+          {/* Step 3 */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="relative z-10 text-center md:text-left flex flex-col items-center md:items-start group"
+          >
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <motion.div
+                className="absolute inset-0 bg-yellow-500/10 rounded-full blur-2xl group-hover:bg-yellow-500/20 transition-colors"
+                animate={{ scale: [1, 1.3, 1] }}
+                transition={{ duration: 5, repeat: Infinity, delay: 2 }}
+              />
+              <div className="w-32 h-32 bg-[#0a0c0f] border-2 border-[#2a303c] rounded-full flex flex-col items-center justify-center relative z-10 gap-2">
+                <div className="w-16 h-1 bg-yellow-500 rounded"></div>
+                <div className="w-16 h-1 bg-white/20 rounded"></div>
+                <div className="w-16 h-1 bg-white/20 rounded"></div>
+                <div className="w-16 h-1 bg-danger rounded"></div>
+              </div>
+            </div>
+            <div className="text-gray-400 font-mono font-bold text-sm mb-4">STEP 03</div>
+            <h3 className="text-2xl font-bold mb-4 text-white">Execute the Plan</h3>
+            <p className="text-muted leading-relaxed">
+              Copy the auto-generated Entry, Stop Loss, and Take Profit levels to your broker. Walk away. Let the system work.
+            </p>
+          </motion.div>
+        </div>
       </div>
-
-      <div className="flex flex-col md:flex-row gap-12 relative">
-        {/* Connecting line for desktop */}
-        <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-[#1e232b] z-0"></div>
-        
-        {/* Step 1 */}
-        <div className="flex-1 relative z-10 text-center md:text-left">
-          <div className="w-24 h-24 mx-auto md:mx-0 bg-[#13161c] border-2 border-primary rounded-full flex items-center justify-center text-4xl font-display font-bold text-white mb-8 shadow-[0_0_30px_rgba(8,153,129,0.2)]">1</div>
-          <h3 className="text-2xl font-bold mb-4 text-white">Wait for the Signal</h3>
-          <p className="text-muted leading-relaxed">A "Buy CALL" or "Buy PUT" label appears on your chart. This signal is confirmed at bar close — meaning the candle has fully closed and the signal is permanent. It will not move. It will not disappear. You can act on it with confidence.</p>
-        </div>
-
-        {/* Step 2 */}
-        <div className="flex-1 relative z-10 text-center md:text-left">
-          <div className="w-24 h-24 mx-auto md:mx-0 bg-[#13161c] border-2 border-[#2a303c] rounded-full flex items-center justify-center text-4xl font-display font-bold text-white mb-8">2</div>
-          <h3 className="text-2xl font-bold mb-4 text-white">Check the Cloud</h3>
-          <p className="text-muted leading-relaxed">Before entering, glance at the Momentum Cloud in the background. If you are considering a CALL, the cloud should be teal. If it is red or neutral, stay flat — the momentum is not with you. This one check eliminates most bad trades before they happen.</p>
-        </div>
-
-        {/* Step 3 */}
-        <div className="flex-1 relative z-10 text-center md:text-left">
-          <div className="w-24 h-24 mx-auto md:mx-0 bg-[#13161c] border-2 border-[#2a303c] rounded-full flex items-center justify-center text-4xl font-display font-bold text-white mb-8">3</div>
-          <h3 className="text-2xl font-bold mb-4 text-white">Copy Levels and Execute</h3>
-          <p className="text-muted leading-relaxed">TQ 2.0 ZR has already drawn your Entry, SL, and all three TP levels. Copy them directly into your broker terminal — Zerodha, Upstox, Groww, AngelOne. Set your targets and stop. Walk away. No emotions. No screen-watching. Just execution.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Testimonials = () => (
   <section id="reviews" className="py-24 px-6 bg-[#f5f4f1] text-[#1a1a1a]">
@@ -566,60 +883,60 @@ const Testimonials = () => (
 );
 
 const Comparison = () => (
-  <section className="py-24 px-6 bg-[#0a0c0f]">
-    <div className="max-w-5xl mx-auto">
-      <div className="text-center mb-16">
-        <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">Do the Math</p>
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">₹2,999 Once. Or ₹23,976 Every Two Years for Something You'll Never Own.</h2>
-      </div>
+  <section className="py-24 px-6 bg-[#0a0c0f] relative overflow-hidden">
+    <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
-      <div className="overflow-x-auto pb-4">
-        <table className="w-full text-left border-collapse min-w-[700px]">
-          <thead>
-            <tr>
-              <th className="p-6 border-b border-[#1e232b]"></th>
-              <th className="p-6 border-b border-[#1e232b] text-muted font-bold text-xl w-1/3">Subscription Indicator</th>
-              <th className="p-6 border-b border-primary text-primary font-bold text-xl bg-[#089981]/10 rounded-t-2xl w-1/3">Traders Queen 2.0 ZR</th>
-            </tr>
-          </thead>
-          <tbody className="text-lg">
-            <tr>
-              <td className="p-6 border-b border-[#1e232b] font-bold text-white">Year 1 cost</td>
-              <td className="p-6 border-b border-[#1e232b] text-muted">₹11,988 <span className="text-sm font-normal">(at ₹999/mo)</span></td>
-              <td className="p-6 border-b border-[#1e232b] text-white font-bold bg-[#089981]/5">₹2,999</td>
-            </tr>
-            <tr>
-              <td className="p-6 border-b border-[#1e232b] font-bold text-white">Year 2 cost</td>
-              <td className="p-6 border-b border-[#1e232b] text-muted">₹11,988 additional</td>
-              <td className="p-6 border-b border-[#1e232b] text-white font-bold bg-[#089981]/5">₹0</td>
-            </tr>
-            <tr>
-              <td className="p-6 border-b border-[#1e232b] font-bold text-white">Total at 2 years</td>
-              <td className="p-6 border-b border-[#1e232b] text-danger font-bold text-xl">₹23,976</td>
-              <td className="p-6 border-b border-[#1e232b] text-primary font-bold text-xl bg-[#089981]/5">₹2,999</td>
-            </tr>
-            <tr>
-              <td className="p-6 border-b border-[#1e232b] font-bold text-white">Code ownership</td>
-              <td className="p-6 border-b border-[#1e232b] text-muted"><div className="flex items-center gap-3"><XCircle size={20} className="text-danger shrink-0"/> Never</div></td>
-              <td className="p-6 border-b border-[#1e232b] text-white bg-[#089981]/5"><div className="flex items-center gap-3"><CheckCircle2 size={20} className="text-primary shrink-0"/> Forever</div></td>
-            </tr>
-            <tr>
-              <td className="p-6 border-b border-[#1e232b] font-bold text-white">Works if seller shuts down</td>
-              <td className="p-6 border-b border-[#1e232b] text-muted"><div className="flex items-center gap-3"><XCircle size={20} className="text-danger shrink-0"/> Gone</div></td>
-              <td className="p-6 border-b border-[#1e232b] text-white bg-[#089981]/5"><div className="flex items-center gap-3"><CheckCircle2 size={20} className="text-primary shrink-0"/> Still works</div></td>
-            </tr>
-            <tr>
-              <td className="p-6 border-b border-[#1e232b] font-bold text-white">Repaint verifiable</td>
-              <td className="p-6 border-b border-[#1e232b] text-muted"><div className="flex items-center gap-3"><XCircle size={20} className="text-danger shrink-0"/> Black box</div></td>
-              <td className="p-6 border-b border-[#1e232b] text-white bg-[#089981]/5"><div className="flex items-center gap-3"><CheckCircle2 size={20} className="text-primary shrink-0"/> Open source</div></td>
-            </tr>
-            <tr>
-              <td className="p-6 border-b border-[#1e232b] font-bold text-white">One-time payment</td>
-              <td className="p-6 border-b border-[#1e232b] text-muted"><div className="flex items-center gap-3"><XCircle size={20} className="text-danger shrink-0"/> Monthly forever</div></td>
-              <td className="p-6 border-b border-[#1e232b] text-white bg-[#089981]/5 rounded-b-2xl"><div className="flex items-center gap-3"><CheckCircle2 size={20} className="text-primary shrink-0"/> Pay once</div></td>
-            </tr>
-          </tbody>
-        </table>
+    <div className="max-w-6xl mx-auto relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">The Math is Simple</p>
+        <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">Stop Renting. Start Owning.</h2>
+      </motion.div>
+
+      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* The Old Way */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="bg-[#13161c] border border-danger/20 rounded-3xl p-8 md:p-12 relative overflow-hidden group hover:border-danger/40 transition-colors"
+        >
+          <div className="absolute top-0 right-0 w-32 h-32 bg-danger/5 rounded-full blur-3xl group-hover:bg-danger/10 transition-colors"></div>
+          <div className="text-danger font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2"><XCircle size={16}/> The Old Way</div>
+          <h3 className="text-3xl font-bold text-white mb-2">Subscription Trap</h3>
+          <div className="text-5xl font-display font-bold text-muted mb-8 line-through decoration-danger decoration-4">₹23,976<span className="text-lg text-gray-500 font-body">/2 yrs</span></div>
+
+          <ul className="space-y-6 text-lg text-gray-400">
+            <li className="flex items-center gap-4"><X size={24} className="text-danger shrink-0" /> Pay every single month</li>
+            <li className="flex items-center gap-4"><X size={24} className="text-danger shrink-0" /> Black box "invite-only" code</li>
+            <li className="flex items-center gap-4"><X size={24} className="text-danger shrink-0" /> Zero proof against repainting</li>
+            <li className="flex items-center gap-4"><X size={24} className="text-danger shrink-0" /> Access gone if seller quits</li>
+          </ul>
+        </motion.div>
+
+        {/* The TQ 2.0 Way */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-br from-[#089981]/20 to-[#13161c] border border-primary/50 rounded-3xl p-8 md:p-12 relative overflow-hidden group shadow-[0_0_50px_rgba(8,153,129,0.15)] hover:shadow-[0_0_80px_rgba(8,153,129,0.25)] transition-shadow"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors"></div>
+          <div className="text-primary font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2"><CheckCircle2 size={16}/> Traders Queen 2.0</div>
+          <h3 className="text-3xl font-bold text-white mb-2">Lifetime Ownership</h3>
+          <div className="text-5xl font-display font-bold text-white mb-8">₹2,999<span className="text-lg text-primary font-body ml-2">Forever</span></div>
+
+          <ul className="space-y-6 text-lg text-gray-200 relative z-10">
+            <li className="flex items-center gap-4"><CheckCircle2 size={24} className="text-primary shrink-0" /> Pay exactly once</li>
+            <li className="flex items-center gap-4"><CheckCircle2 size={24} className="text-primary shrink-0" /> Full .pine source code provided</li>
+            <li className="flex items-center gap-4"><CheckCircle2 size={24} className="text-primary shrink-0" /> Provable zero repaint logic</li>
+            <li className="flex items-center gap-4"><CheckCircle2 size={24} className="text-primary shrink-0" /> Code lives on your machine</li>
+          </ul>
+        </motion.div>
       </div>
     </div>
   </section>
@@ -909,58 +1226,9 @@ const Footer = () => (
   </footer>
 );
 
-const ExitIntentPopup = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
-  if (!isOpen) return null;
-  
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-      <div className="bg-[#13161c] border border-danger/50 rounded-2xl p-8 max-w-lg w-full relative shadow-[0_0_50px_rgba(242,54,69,0.2)] text-center animate-in fade-in zoom-in duration-300">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors rounded-md p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-danger"
-          aria-label="Close popup"
-        >
-          <X size={24} />
-        </button>
-        <h2 id="popup-title" className="text-3xl font-display font-bold text-white mb-4">Wait! Don't Leave Empty-Handed.</h2>
-        <p className="text-gray-300 mb-6 text-lg">
-          Every day you trade with a repainting indicator is a day you risk your capital. 
-          <span className="text-danger font-bold block mt-2">Over 2,400 traders have already switched to TQ 2.0 ZR.</span>
-        </p>
-        <div className="bg-danger/10 border border-danger/20 rounded-xl p-4 mb-6">
-          <p className="text-danger font-bold text-lg mb-1">🔥 Special Offer: Get 20% OFF today!</p>
-          <p className="text-sm text-gray-400">Use code <span className="text-white font-mono font-bold bg-[#2a303c] px-2 py-1 rounded">TQ20</span> at checkout.</p>
-        </div>
-        <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block bg-danger hover:bg-red-600 text-white font-bold py-4 px-8 rounded-xl text-xl transition-colors w-full shadow-lg shadow-danger/20">
-          Claim My Discount Now
-        </a>
-        <button onClick={onClose} className="mt-4 text-sm text-gray-500 hover:text-gray-300 underline underline-offset-4">
-          No thanks, I prefer losing money to repainting indicators.
-        </button>
-      </div>
-    </div>
-  );
-};
-
 export default function App() {
-  const [showExitPopup, setShowExitPopup] = useState(false);
-  const [hasSeenPopup, setHasSeenPopup] = useState(false);
-
-  useEffect(() => {
-    const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !hasSeenPopup) {
-        setShowExitPopup(true);
-        setHasSeenPopup(true);
-      }
-    };
-
-    document.addEventListener('mouseleave', handleMouseLeave);
-    return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, [hasSeenPopup]);
-
   return (
     <div className="min-h-screen bg-[#0a0c0f] text-[#e8eaed] font-body selection:bg-primary/30 selection:text-white">
-      <ExitIntentPopup isOpen={showExitPopup} onClose={() => setShowExitPopup(false)} />
       <Navbar />
       <Hero />
       <SocialProof />
