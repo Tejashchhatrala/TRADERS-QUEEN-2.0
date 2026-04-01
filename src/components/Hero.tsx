@@ -29,9 +29,9 @@ export const Hero = () => {
     <section
       id="hero"
       onMouseMove={handleMouseMove}
-      className="min-h-[100vh] pt-32 pb-16 md:pb-24 px-6 relative overflow-hidden flex flex-col justify-center perspective-[1000px] bg-[#0a0a0a]"
+      className="min-h-[100vh] pt-32 pb-16 md:pb-24 px-6 relative overflow-hidden flex flex-col justify-center perspective-[1000px] bg-surface-base"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,68,42,0.08)_0%,rgba(10,10,10,1)_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,68,42,0.08)_0%,var(--color-surface-base)_60%)] pointer-events-none" />
       
       {/* Grid Pattern */}
       <div
@@ -49,9 +49,9 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#111] border border-[#1f1f1f] text-gray-300 font-bold tracking-widest uppercase text-xs mb-8 shadow-xl"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-raised border border-border-subtle text-text-base font-bold tracking-widest uppercase text-xs mb-8 shadow-xl"
         >
-          <div className="w-2 h-2 rounded-full bg-[#e8442a] animate-pulse" />
+          <div className="w-2 h-2 rounded-full bg-brand-red animate-pulse" />
           For Nifty · BankNifty · Options Buyers · Weekly Expiry
         </motion.div>
 
@@ -64,9 +64,9 @@ export const Hero = () => {
 
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl leading-relaxed"
+          className="text-lg md:text-xl text-text-muted mb-10 max-w-3xl leading-relaxed"
         >
-          I built TQ 2.0 Zr because I lost ₹4 Lakhs trading directionless markets. It's the only TradingView system with a <strong className="text-white font-medium">momentum cloud</strong> that tells you exactly when <strong className="text-[#e8442a]">NOT</strong> to trade, saving your capital from theta decay.
+          I built TQ 2.0 Zr because I lost ₹4 Lakhs trading directionless markets. It's the only TradingView system with a <strong className="text-white font-medium">momentum cloud</strong> that tells you exactly when <strong className="text-brand-red">NOT</strong> to trade, saving your capital from theta decay.
         </motion.p>
 
         <motion.div
@@ -77,24 +77,24 @@ export const Hero = () => {
             href={CHECKOUT_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group flex items-center justify-center bg-[#e8442a] hover:bg-[#d03d25] text-white font-bold py-4 px-8 rounded-xl text-lg md:text-xl transition-all w-full sm:w-auto shadow-[0_0_30px_rgba(232,68,42,0.3)] hover:shadow-[0_0_50px_rgba(232,68,42,0.5)] overflow-hidden"
+            className="relative group flex items-center justify-center bg-brand-red hover:bg-brand-red-hover text-white font-bold py-4 px-8 rounded-xl text-lg md:text-xl transition-all w-full sm:w-auto shadow-[0_0_30px_var(--color-brand-red)] hover:shadow-[0_0_50px_var(--color-brand-red)] overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-2">Get TQ 2.0 — ₹2,999 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
             <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
           </a>
           <a
             href="#proof"
-            className="flex items-center justify-center bg-[#111] hover:bg-[#1a1a1a] border border-[#333] text-white font-bold py-4 px-8 rounded-xl text-lg md:text-xl transition-all w-full sm:w-auto"
+            className="flex items-center justify-center bg-surface-raised hover:bg-surface-elevated border border-border-strong text-white font-bold py-4 px-8 rounded-xl text-lg md:text-xl transition-all w-full sm:w-auto"
           >
             View Live Proof
           </a>
         </motion.div>
 
         {/* Social Proof Badges / Trust Bar */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1 }} className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm md:text-[15px] text-gray-400 font-medium">
-          <div className="flex items-center gap-1.5"><CheckCircle2 size={18} className="text-[#00c9a7]" /> Zero Repaint</div>
-          <div className="flex items-center gap-1.5"><CheckCircle2 size={18} className="text-[#00c9a7]" /> Weekly Expiry Proof</div>
-          <div className="flex items-center gap-1.5"><CheckCircle2 size={18} className="text-[#00c9a7]" /> Full Source Code</div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1 }} className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm md:text-[15px] text-text-muted font-medium">
+          <div className="flex items-center gap-1.5"><CheckCircle2 size={18} className="text-brand-teal" /> Zero Repaint</div>
+          <div className="flex items-center gap-1.5"><CheckCircle2 size={18} className="text-brand-teal" /> Weekly Expiry Proof</div>
+          <div className="flex items-center gap-1.5"><CheckCircle2 size={18} className="text-brand-teal" /> Full Source Code</div>
         </motion.div>
       </div>
 
@@ -105,12 +105,12 @@ export const Hero = () => {
       >
          <div className="relative w-full aspect-[21/9] flex items-center justify-center">
             {/* Soft glow behind the chart */}
-            <div className="absolute inset-0 top-[20%] left-[10%] w-[80%] h-[60%] bg-[#00c9a7]/5 blur-[100px] pointer-events-none" />
+            <div className="absolute inset-0 top-[20%] left-[10%] w-[80%] h-[60%] bg-brand-teal/5 blur-[100px] pointer-events-none" />
             
             <img 
               src="/hero-chart-transparent.png" 
               alt="GainzAlgo Style Transparent Chart" 
-              className="absolute inset-0 w-full h-full object-contain filter drop-shadow-[0_0_30px_rgba(0,198,167,0.15)]"
+              className="absolute inset-0 w-full h-full object-contain filter drop-shadow-[0_0_30px_var(--color-brand-teal)]"
               style={{ transform: `rotateX(${-mousePosition.y * 0.5}deg) rotateY(${mousePosition.x * 0.5}deg)` }}
               onError={(e) => {
                 e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='800' viewBox='0 0 1920 800'%3E%3Crect width='1920' height='800' fill='transparent'/%3E%3Crect width='1918' height='798' x='1' y='1' fill='none' stroke='%23333' stroke-width='2' stroke-dasharray='10,10' rx='20' /%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='32' font-weight='bold' fill='%2300c9a7'%3E[UPLOAD TRANSPARENT CHART PNG HERE]%3C/text%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%23888'%3EPath: public/hero-chart-transparent.png (Recommended Size: 1920x800px)%3C/text%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%23666'%3EHide chart background in TradingView, leave only candles and signals%3C/text%3E%3C/svg%3E";
@@ -119,8 +119,8 @@ export const Hero = () => {
          </div>
          
          {/* Trusted By Strip */}
-         <div className="w-full mt-12 py-8 border-t border-b border-[#1f1f1f] bg-[#0a0a0a]/50 backdrop-blur-md flex flex-col items-center">
-            <p className="text-gray-500 font-bold tracking-widest uppercase text-xs mb-6 text-center">Compatible With Your Favorite Platforms</p>
+         <div className="w-full mt-12 py-8 border-t border-b border-border-subtle bg-surface-base/50 backdrop-blur-md flex flex-col items-center">
+            <p className="text-text-subtle font-bold tracking-widest uppercase text-xs mb-6 text-center">Compatible With Your Favorite Platforms</p>
             <div className="flex flex-wrap justify-center items-center gap-10 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                {/* TradingView */}
                <div className="flex items-center gap-2 font-bold text-xl text-white">

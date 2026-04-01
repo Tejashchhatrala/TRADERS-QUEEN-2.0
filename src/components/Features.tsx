@@ -44,7 +44,7 @@ export const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-16 md:py-24 px-6 bg-[#0a0a0a]">
+    <section id="features" className="py-16 md:py-24 px-6 bg-surface-base">
       <div className="max-w-6xl mx-auto">
         <motion.div
            initial={{ opacity: 0, y: 30 }}
@@ -52,11 +52,11 @@ export const Features = () => {
            viewport={{ once: true }}
            className="text-center mb-20"
         >
-          <p className="text-[#e8442a] font-bold tracking-widest uppercase text-sm mb-4">The Full System</p>
+          <p className="text-brand-red font-bold tracking-widest uppercase text-sm mb-4">The Full System</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Every Signal Comes With a<br className="hidden md:block"/> Complete Trade Plan.
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed px-4">
+          <p className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed px-4">
             No manual math. No second-guessing. A comprehensive trading system designed specifically for the realities of the Indian market.
           </p>
         </motion.div>
@@ -70,14 +70,14 @@ export const Features = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-[#111] p-8 rounded-3xl border border-[#1f1f1f] hover:border-[#e8442a]/50 transition-all group shadow-lg flex flex-col h-full"
+              className="bg-surface-raised p-8 rounded-3xl border border-border-subtle hover:border-brand-red/50 transition-all group shadow-lg flex flex-col h-full"
             >
-              <div className="w-14 h-14 bg-[#1a1a1a] border border-[#333] rounded-2xl flex items-center justify-center mb-6 text-[#00c9a7] group-hover:scale-110 group-hover:bg-[#00c9a7] group-hover:text-black transition-all duration-300 shadow-inner">
+              <div className="w-14 h-14 bg-surface-elevated border border-border-strong rounded-2xl flex items-center justify-center mb-6 text-brand-teal group-hover:scale-110 group-hover:bg-brand-teal group-hover:text-black transition-all duration-300 shadow-inner">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-bold mb-1 text-white">{feature.title}</h3>
-              <p className="text-[11px] font-mono text-[#00c9a7] mb-4 uppercase tracking-wider bg-[#00c9a7]/10 inline-block px-2 py-0.5 rounded border border-[#00c9a7]/20 mr-auto">{feature.subtitle}</p>
-              <p className="text-[#e0e0e0] text-sm leading-relaxed flex-1">{feature.desc}</p>
+              <p className="text-[11px] font-sans text-brand-teal mb-4 uppercase tracking-wider bg-brand-teal/10 inline-block px-2 py-0.5 rounded border border-brand-teal/20 mr-auto">{feature.subtitle}</p>
+              <p className="text-text-base text-sm leading-relaxed flex-1">{feature.desc}</p>
             </motion.div>
           ))}
         </div>
