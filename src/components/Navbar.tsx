@@ -48,7 +48,7 @@ export const Navbar = () => {
           </div>
 
           <div className="hidden lg:block">
-            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="relative group inline-block bg-brand-red hover:bg-brand-red-hover text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-all overflow-hidden shadow-[0_0_15px_var(--color-brand-red)]">
+            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="relative group inline-block bg-brand-red hover:bg-brand-red-hover text-white font-bold py-2.5 px-6 rounded-lg text-sm transition-all overflow-hidden shadow-[0_0_15px_var(--color-brand-red)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base">
               <span className="relative z-10">Get TQ 2.0 — Start Trading Smarter — ₹2,999</span>
               <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
             </a>
@@ -75,7 +75,7 @@ export const Navbar = () => {
             <a href="#proof" onClick={() => setIsOpen(false)} className="text-text-base py-2">Verify It</a>
             <a href="#reviews" onClick={() => setIsOpen(false)} className="text-text-base py-2">Reviews</a>
             <a href="#faq" onClick={() => setIsOpen(false)} className="text-text-base py-2">FAQ</a>
-            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block text-center bg-brand-red hover:bg-brand-red-hover text-white font-bold py-3 px-6 rounded-lg w-full mt-2 transition-colors">
+            <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block text-center bg-brand-red hover:bg-brand-red-hover text-white font-bold py-3 px-6 rounded-lg w-full mt-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base">
               Get TQ 2.0 — Start Trading Smarter — ₹2,999
             </a>
           </div>
@@ -85,7 +85,7 @@ export const Navbar = () => {
       {/* Sticky Mobile CTA Bar (Bottom) */}
       <div className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-black border-t border-border-subtle p-4 flex items-center justify-between transition-transform duration-300 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] ${showSticky ? 'translate-y-0' : 'translate-y-full'}`}>
          <div className="text-white font-bold text-sm">₹2,999 Once.<br/><span className="text-text-muted text-xs font-normal">Yours Forever.</span></div>
-         <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="bg-brand-red text-white font-bold py-2.5 px-6 rounded-lg text-sm shadow-[0_0_15px_var(--color-brand-red)]">
+         <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="bg-brand-red text-white font-bold py-2.5 px-6 rounded-lg text-sm shadow-[0_0_15px_var(--color-brand-red)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-black">
            Buy Now →
          </a>
       </div>
