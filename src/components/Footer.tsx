@@ -28,7 +28,7 @@ export const Footer = () => {
                 href={CHECKOUT_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group inline-flex items-center justify-center bg-brand-red hover:bg-[#d03d25] text-white font-bold py-4 px-10 rounded-xl text-xl transition-all w-full sm:w-auto shadow-[0_0_30px_var(--color-brand-red)]/30 hover:shadow-[0_0_50px_var(--color-brand-red)]/50 overflow-hidden"
+                className="relative group inline-flex items-center justify-center bg-brand-red hover:bg-[#d03d25] text-white font-bold py-4 px-10 rounded-xl text-xl transition-all w-full sm:w-auto shadow-[0_0_30px_var(--color-brand-red)]/30 hover:shadow-[0_0_50px_var(--color-brand-red)]/50 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 <span className="relative z-10">Get the Full Code — ₹2,999</span>
                 <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
