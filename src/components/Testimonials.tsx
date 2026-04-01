@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Star } from 'lucide-react';
+import { Star, CheckCircle2 } from 'lucide-react';
 
 export const Testimonials = () => {
   const reviews = [
@@ -85,6 +85,35 @@ export const Testimonials = () => {
                 </div>
               </div>
             </motion.div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Verified Profits Section */}
+      <div className="max-w-6xl mx-auto mt-32">
+        <div className="text-center mb-16">
+          <p className="text-[#00c9a7] font-bold tracking-widest uppercase text-sm mb-4">Results</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Profits made by traders using TQ 2.0 </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">Screenshots submitted by our users from their verified broker accounts like Upstox and Zerodha showing consistent returns.</p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pb-10">
+          {[1,2,3,4,5,6,7,8].map((num) => (
+             <div key={num} className="bg-[#111] border border-[#1f1f1f] rounded-2xl aspect-[4/5] relative overflow-hidden group">
+               <img 
+                 src={`/profit-${num}.jpg`}
+                 alt={`Trader Profit Proof ${num}`}
+                 className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 bg-[#0a0a0a]"
+                 onError={(e) => {
+                   e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23111'/%3E%3Crect width='398' height='498' x='1' y='1' fill='none' stroke='%23333' stroke-width='2' stroke-dasharray='10,10' rx='15' /%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='%2300c9a7'%3E[PROFIT SCREENSHOT]%3C/text%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='12' fill='%23888'%3Epublic/profit-" + num + ".jpg%3C/text%3E%3Ctext x='50%25' y='62%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='10' fill='%23555'%3E(Size: 800x1000px portrait)%3C/text%3E%3C/svg%3E";
+                 }}
+               />
+               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 flex flex-col justify-end h-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                 <div className="flex items-center gap-1.5 text-[#00c9a7] text-[10px] font-bold uppercase tracking-widest">
+                   <CheckCircle2 size={12} /> Verified Source
+                 </div>
+               </div>
+             </div>
           ))}
         </div>
       </div>
