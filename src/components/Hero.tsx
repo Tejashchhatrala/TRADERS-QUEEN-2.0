@@ -63,7 +63,7 @@ export const Hero = () => {
           </a>
           <a
             href="#features"
-            className="flex items-center justify-center bg-surface-raised hover:bg-surface-elevated border border-border-strong text-text-strong font-medium py-4 px-8 rounded-xl text-lg transition-all w-full sm:w-auto"
+            className="flex items-center justify-center bg-surface-raised hover:bg-surface-elevated border border-border-strong text-text-strong font-medium py-4 px-8 rounded-xl text-lg transition-all w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base"
           >
             See What's Included
           </a>
