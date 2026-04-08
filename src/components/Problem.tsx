@@ -1,86 +1,74 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { AlertCircle, XCircle, Lock, ArrowLeftRight } from 'lucide-react';
+import { MessageCircle, Youtube, Clock } from 'lucide-react';
 
 export const Problem = () => {
   return (
-    <section id="the-trap" className="py-16 md:py-24 lg:py-32 px-6 bg-surface-base relative overflow-hidden">
+    <section id="the-trap" className="py-16 md:py-24 px-6 bg-surface-elevated relative overflow-hidden">
       
-      {/* Background Gradients */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-red/5 rounded-full blur-[150px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-24"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16 md:mb-20"
         >
-           <p className="text-brand-red font-bold tracking-widest uppercase text-xs md:text-sm mb-4">Why Most Traders Keep Losing</p>
-           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-             You Didn't Make a Bad Trade.<br/>
-             <span className="text-text-muted">Your Indicator Made It For You.</span>
+           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-text-strong">
+             Sound Familiar? You're Not Alone.
            </h2>
-           <p className="text-lg md:text-xl text-text-muted max-w-3xl mx-auto leading-relaxed px-4">
-             Most Indian retail traders are losing their capital because of four massive traps built into standard indicators.
+           <p className="text-lg md:text-xl text-text-base max-w-2xl mx-auto">
+             Most part-time traders face these exact problems. We built this tool to solve them.
            </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           
-           {/* Trap 1: Sideways Market Trap (NEW) */}
-           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="md:col-span-2 bg-surface-raised p-8 md:p-12 rounded-3xl border border-border-strong hover:border-brand-red/50 transition-all flex flex-col md:flex-row items-start md:items-center gap-8 shadow-[0_0_40px_var(--color-brand-red)] relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/5 rounded-full blur-[80px] pointer-events-none" />
-            <div className="w-20 h-20 shrink-0 rounded-2xl bg-brand-red/10 flex items-center justify-center text-brand-red border border-brand-red/20">
-              <ArrowLeftRight size={40} />
-            </div>
-            <div className="flex-1 relative z-10">
-              <h3 className="text-3xl font-bold mb-4 text-white">The Sideways Market Trap</h3>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                You bought a CALL on Thursday morning. The indicator gave a "Buy" signal. The market moved 30 points... and chopped around for 3 hours. Your premium decayed from ₹80 to ₹18. The indicator wasn't technically wrong — it just didn't tell you the market was directionless. <strong className="text-white">You paid for theta decay.</strong> TQ 2.0 Zr's Momentum Cloud exists to prevent exactly this.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Trap 2: Repainting */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-surface-raised p-8 md:p-10 rounded-3xl border border-border-subtle hover:border-brand-red/30 transition-all flex flex-col h-full shadow-lg relative overflow-hidden"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-surface-base p-8 rounded-2xl border border-border-subtle hover:shadow-lg transition-all flex flex-col h-full"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent pointer-events-none" />
-            <div className="w-16 h-16 rounded-2xl bg-brand-red/10 flex items-center justify-center text-brand-red mb-8 border border-brand-red/20 relative z-10">
-              <XCircle size={32} />
+            <div className="w-14 h-14 rounded-xl bg-brand-red/10 flex items-center justify-center text-brand-red mb-6 border border-brand-red/20">
+              <MessageCircle size={28} />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-white relative z-10">The Repainting Trap</h3>
-            <p className="text-text-base leading-relaxed flex-1 relative z-10">
-              A signal appears on a live candle. You enter the trade. The candle closes against you. You check the chart — the signal has moved or disappeared entirely. On the seller's screenshot, it shows up perfectly at the right place. You never knew it was never really there.
+            <h3 className="text-xl font-bold mb-4 text-text-strong">Telegram Tips Failed You</h3>
+            <p className="text-text-base leading-relaxed flex-1">
+              You joined paid groups, followed tips on WhatsApp and Telegram. You lost ₹5,000... ₹10,000... maybe more. The calls were wrong, the timing was bad, and nobody took responsibility.
             </p>
           </motion.div>
 
-          {/* Trap 3: The Black Box */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-surface-raised p-8 md:p-10 rounded-3xl border border-border-subtle hover:border-text-subtle/30 transition-all flex flex-col h-full shadow-lg"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-surface-base p-8 rounded-2xl border border-border-subtle hover:shadow-lg transition-all flex flex-col h-full"
           >
-            <div className="w-16 h-16 rounded-2xl bg-surface-base flex items-center justify-center text-text-subtle mb-8 border border-border-subtle shadow-inner">
-              <Lock size={32} />
+            <div className="w-14 h-14 rounded-xl bg-brand-red/10 flex items-center justify-center text-brand-red mb-6 border border-brand-red/20">
+              <Youtube size={28} />
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-white">The Black Box Trap</h3>
+            <h3 className="text-xl font-bold mb-4 text-text-strong">YouTube Videos Lied</h3>
             <p className="text-text-base leading-relaxed flex-1">
-              The code is locked. You get a TradingView "invite-only" link — you cannot see inside, cannot verify anything, cannot even check if the zero-repaint claim is true. The day the seller shuts down, stops their subscription, or disappears, your access is gone. You owned nothing.
+              Every video promises a "99% accurate indicator." You tried 50 of them. They looked perfect in the video — but in real trading, the signals changed, disappeared, or came too late.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="bg-surface-base p-8 rounded-2xl border border-border-subtle hover:shadow-lg transition-all flex flex-col h-full"
+          >
+            <div className="w-14 h-14 rounded-xl bg-brand-teal/10 flex items-center justify-center text-brand-teal mb-6 border border-brand-teal/20">
+              <Clock size={28} />
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-text-strong">No Time to Watch Charts</h3>
+            <p className="text-text-base leading-relaxed flex-1">
+              You have a job, a business, a family. You can't sit in front of a screen for 6 hours waiting for a trade. You need something that tells you when to act — and sends you an alert.
             </p>
           </motion.div>
 
