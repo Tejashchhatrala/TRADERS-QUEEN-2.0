@@ -77,7 +77,7 @@ export const Hero = () => {
             href={CHECKOUT_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group flex items-center justify-center bg-brand-red hover:bg-brand-red-hover text-white font-bold py-4 px-8 rounded-xl text-lg md:text-xl transition-all w-full sm:w-auto shadow-[0_0_30px_var(--color-brand-red)] hover:shadow-[0_0_50px_var(--color-brand-red)] overflow-hidden"
+            className="relative group flex items-center justify-center bg-brand-red hover:bg-brand-red-hover text-white font-bold py-4 px-8 rounded-xl text-lg md:text-xl transition-all w-full sm:w-auto shadow-[0_0_30px_var(--color-brand-red)] hover:shadow-[0_0_50px_var(--color-brand-red)] overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base"
           >
             <span className="relative z-10 flex items-center gap-2">Get TQ 2.0 — ₹2,999 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
             <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
