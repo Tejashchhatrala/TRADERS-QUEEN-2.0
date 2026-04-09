@@ -15,11 +15,11 @@ export const Footer = () => {
            <div>
              <h3 className="font-bold text-text-strong mb-4">Quick Links</h3>
              <ul className="space-y-2 text-text-muted text-sm">
-               <li><a href="#features" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Features</a></li>
-               <li><a href="#how-it-works" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">How It Works</a></li>
-               <li><a href="#reviews" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Testimonials</a></li>
-               <li><a href="#pricing" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Pricing</a></li>
-               <li><a href="#faq" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">FAQ</a></li>
+               <li><a href="/#features" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Features</a></li>
+               <li><a href="/#how-it-works" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">How It Works</a></li>
+               <li><a href="/#reviews" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Testimonials</a></li>
+               <li><a href="/#pricing" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Pricing</a></li>
+               <li><a href="/#faq" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">FAQ</a></li>
              </ul>
            </div>
 
