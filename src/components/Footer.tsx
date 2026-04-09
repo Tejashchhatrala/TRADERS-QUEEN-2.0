@@ -42,9 +42,9 @@ export const Footer = () => {
            <div>
              <h3 className="font-bold text-text-strong mb-4">Legal</h3>
              <ul className="space-y-2 text-text-muted text-sm">
-               <li><a href="#" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Terms of Service</a></li>
-               <li><a href="#" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Privacy Policy</a></li>
-               <li><a href="#" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Refund Policy</a></li>
+               <li><a href="/?page=terms" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Terms of Service</a></li>
+               <li><a href="/?page=privacy" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Privacy Policy</a></li>
+               <li><a href="/?page=refund" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Refund Policy</a></li>
              </ul>
            </div>
         </div>

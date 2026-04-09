@@ -48,12 +48,12 @@ export const Navbar = () => {
           
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-6">
-            <a href="#hero" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Home</a>
-            <a href="#features" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Features</a>
-            <a href="#how-it-works" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">How It Works</a>
-            <a href="#pricing" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Pricing</a>
-            <a href="#reviews" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Reviews</a>
-            <a href="#faq" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">FAQ</a>
+            <a href="/#hero" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Home</a>
+            <a href="/#features" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Features</a>
+            <a href="/#how-it-works" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">How It Works</a>
+            <a href="/#pricing" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Pricing</a>
+            <a href="/#reviews" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Reviews</a>
+            <a href="/#faq" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">FAQ</a>
           </div>
 
           <div className="hidden lg:block">
@@ -77,12 +77,12 @@ export const Navbar = () => {
         {/* Mobile Nav */}
         {isOpen && (
           <div className="lg:hidden bg-surface-base border-b border-border-subtle px-6 py-4 flex flex-col gap-2 shadow-xl">
-            <a href="#hero" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Home</a>
-            <a href="#features" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Features</a>
-            <a href="#how-it-works" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">How It Works</a>
-            <a href="#pricing" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Pricing</a>
-            <a href="#reviews" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Reviews</a>
-            <a href="#faq" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">FAQ</a>
+            <a href="/#hero" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Home</a>
+            <a href="/#features" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Features</a>
+            <a href="/#how-it-works" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">How It Works</a>
+            <a href="/#pricing" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Pricing</a>
+            <a href="/#reviews" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Reviews</a>
+            <a href="/#faq" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">FAQ</a>
             <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block text-center bg-brand-teal hover:bg-brand-teal/90 text-white font-bold py-3 px-6 rounded-lg w-full mt-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base">
               Buy Now — ₹2,999
             </a>
