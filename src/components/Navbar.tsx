@@ -35,25 +35,30 @@ export const Navbar = () => {
       {/* Skip to content link — visible only on keyboard focus for a11y */}
       <a
         href="#main-content"
-        className="fixed top-0 left-1/2 -translate-x-1/2 z-[60] bg-brand-red text-white font-bold py-3 px-6 rounded-b-lg text-sm -translate-y-full focus:translate-y-0 transition-transform duration-200 outline-none shadow-lg"
+        className="fixed top-0 left-1/2 -translate-x-1/2 z-[60] bg-brand-teal text-white font-bold py-3 px-6 rounded-b-lg text-sm -translate-y-full focus:translate-y-0 transition-transform duration-200 outline-none shadow-lg"
       >
         Skip to main content
       </a>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-base/90 backdrop-blur-md border-b border-border-subtle">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="text-xl font-display font-black text-text-strong flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-brand-red flex items-center justify-center text-xs font-bold text-white">TQ</div>
-            Traders Queen <span className="text-brand-red font-sans text-sm ml-1 bg-brand-red/10 px-1.5 py-0.5 rounded">2.0</span>
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded bg-brand-teal flex items-center justify-center text-xs font-bold text-white shrink-0">TQ</div>
+            <div className="flex flex-col">
+              <div className="text-xl font-display font-black text-text-strong leading-none flex items-center">
+                Traders Queen <span className="text-brand-teal font-sans text-sm ml-1 bg-brand-teal/10 px-1.5 py-0.5 rounded">2.0</span>
+              </div>
+              <span className="block text-[10px] font-sans font-medium text-text-muted leading-none mt-1 tracking-wide uppercase">Premium TradingView Indicator</span>
+            </div>
           </div>
           
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-6">
-            <a href="/#hero" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Home</a>
-            <a href="/#features" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Features</a>
-            <a href="/#how-it-works" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">How It Works</a>
-            <a href="/#pricing" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Pricing</a>
-            <a href="/#reviews" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">Reviews</a>
-            <a href="/#faq" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:text-text-strong">FAQ</a>
+            <a href="/#hero" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:text-text-strong">Home</a>
+            <a href="/#features" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:text-text-strong">Features</a>
+            <a href="/#how-it-works" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:text-text-strong">How It Works</a>
+            <a href="/#pricing" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:text-text-strong">Pricing</a>
+            <a href="/#reviews" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:text-text-strong">Reviews</a>
+            <a href="/#faq" className="text-sm font-medium text-text-muted hover:text-text-strong transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:text-text-strong">FAQ</a>
           </div>
 
           <div className="hidden lg:block">
