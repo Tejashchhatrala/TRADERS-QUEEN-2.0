@@ -66,14 +66,14 @@ export const TestimonialsNew = () => {
              {/* Navigation Buttons */}
              <button
                onClick={prevSlide}
-               className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-text-strong rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm transition-all"
+               className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-text-strong rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
                aria-label="Previous slide"
              >
                <ChevronLeft size={20} />
              </button>
              <button
                onClick={nextSlide}
-               className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-text-strong rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm transition-all"
+               className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-text-strong rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
                aria-label="Next slide"
              >
                <ChevronRight size={20} />
@@ -85,7 +85,7 @@ export const TestimonialsNew = () => {
                  <button
                    key={idx}
                    onClick={() => setCurrentIndex(idx)}
-                   className={`w-2 h-2 rounded-full transition-all ${idx === currentIndex ? 'bg-brand-teal w-6' : 'bg-text-muted hover:bg-text-strong'}`}
+                   className={`w-2 h-2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base ${idx === currentIndex ? 'bg-brand-teal w-6' : 'bg-text-muted hover:bg-text-strong'}`}
                    aria-label={`Go to slide ${idx + 1}`}
                  />
                ))}

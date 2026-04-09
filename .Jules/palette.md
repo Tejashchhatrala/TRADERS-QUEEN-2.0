@@ -4,3 +4,7 @@
 ## 2025-04-08 - Mobile Navigation Menu Keyboard and Focus Accessibility
 **Learning:** Custom mobile menus often lack built-in accessibility features compared to native elements. Specifically, keyboard users must have a way to close menus using the `Escape` key, and navigation items must have distinct hover and `focus-visible` states to communicate interactivity visually and aid keyboard navigation.
 **Action:** When creating or reviewing custom modal, overlay, or menu components, always ensure an `Escape` keydown listener is present to dismiss the overlay, and that all interactive elements within have clear `focus-visible` outlines and semantic HTML.
+
+## 2025-04-10 - Hover Opacity and Keyboard Focus Visibility
+**Learning:** Found interactive elements (carousel buttons) that were hidden by default (`opacity-0`) and only shown on hover (`group-hover:opacity-100`). While `focus-visible` ring classes were applied, the buttons remained invisible during keyboard navigation because opacity wasn't updated on focus.
+**Action:** When using hover-based opacity for interactive elements, always pair `group-hover:opacity-100` (or similar) with `focus-visible:opacity-100` so the element and its focus ring become visible when a keyboard user tabs to it.
