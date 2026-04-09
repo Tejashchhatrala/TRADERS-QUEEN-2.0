@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { Problem } from './components/Problem';
-import { WhatYouGet } from './components/WhatYouGet';
-import { Features } from './components/Features';
-import { HowItWorks } from './components/HowItWorks';
-import { Markets } from './components/Markets';
-import { Testimonials } from './components/Testimonials';
-import { Pricing } from './components/Pricing';
+import { ProofSection } from './components/ProofSection';
+import { DemoVideo } from './components/DemoVideo';
+import { TrustStack } from './components/TrustStack';
+import { BeforeAfter } from './components/BeforeAfter';
+import { TestimonialsNew } from './components/TestimonialsNew';
+import { Guarantee } from './components/Guarantee';
+import { VisualFeatures } from './components/VisualFeatures';
+import { FinalCTA } from './components/FinalCTA';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
 import { TermsOfService } from './components/TermsOfService';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { RefundPolicy } from './components/RefundPolicy';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<string>('');
@@ -45,13 +47,14 @@ function App() {
         return (
           <>
             <Hero />
-            <Problem />
-            <WhatYouGet />
-            <Features />
-            <HowItWorks />
-            <Markets />
-            <Testimonials />
-            <Pricing />
+            <ProofSection />
+            <DemoVideo />
+            <TrustStack />
+            <BeforeAfter />
+            <TestimonialsNew />
+            <Guarantee />
+            <VisualFeatures />
+            <FinalCTA />
             <FAQ />
           </>
         );
@@ -65,6 +68,7 @@ function App() {
         {renderContent()}
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
