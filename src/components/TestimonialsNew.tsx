@@ -29,7 +29,7 @@ export const TestimonialsNew = () => {
   };
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 px-6 bg-surface-elevated overflow-hidden">
+    <section id="reviews" className="py-16 md:py-24 px-6 bg-surface-elevated overflow-hidden">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
            initial={{ opacity: 0, y: 30 }}

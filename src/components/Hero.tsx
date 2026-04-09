@@ -7,7 +7,7 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-[90vh] pt-32 pb-16 md:pb-24 px-6 relative overflow-hidden flex flex-col justify-center bg-surface-base"
+      className="pt-32 pb-12 md:pb-16 px-6 relative overflow-hidden flex flex-col justify-center bg-surface-base"
     >
       {/* Soft minimal gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-surface-elevated to-surface-base pointer-events-none" />
@@ -44,14 +44,14 @@ export const Hero = () => {
 
         <motion.p
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-lg md:text-xl text-text-base mb-10 max-w-2xl leading-relaxed"
+          className="text-lg md:text-xl text-text-base mb-8 max-w-2xl leading-relaxed"
         >
           Traders Queen 2.0 is a TradingView tool that shows you exactly when to buy and sell — on stocks, gold, crypto, or options. No Monthly Fees. No Fake Signals. You Own It Forever.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mb-12"
+          className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mb-10"
         >
            <a
             href={CHECKOUT_LINK}
@@ -93,9 +93,9 @@ export const Hero = () => {
       {/* Clean Chart Display */}
       <motion.div
          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }}
-         className="w-full max-w-6xl mx-auto mt-16 relative z-10"
+         className="w-full max-w-6xl mx-auto mt-12 relative z-10"
       >
-         <div className="relative w-full aspect-[16/9] md:aspect-[21/9] flex items-center justify-center bg-surface-raised border border-border-subtle rounded-2xl overflow-hidden shadow-xl">
+         <div className="relative w-full aspect-[16/9] lg:aspect-[24/9] flex items-center justify-center bg-surface-raised border border-border-subtle rounded-2xl overflow-hidden shadow-xl">
             <img 
               src="/hero-chart-transparent.png" 
               alt="Traders Queen 2.0 Chart Interface"

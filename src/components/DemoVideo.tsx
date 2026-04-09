@@ -4,7 +4,7 @@ import { PlayCircle } from 'lucide-react';
 
 export const DemoVideo = () => {
   return (
-    <section id="demo" className="py-16 md:py-24 px-6 bg-surface-base">
+    <section id="how-it-works" className="py-16 md:py-24 px-6 bg-surface-base">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
            initial={{ opacity: 0, y: 30 }}

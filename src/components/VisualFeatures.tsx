@@ -27,7 +27,7 @@ const visualFeatures = [
 
 export const VisualFeatures = () => {
   return (
-    <section id="visual-features" className="py-16 md:py-24 px-6 bg-surface-elevated">
+    <section id="features" className="py-16 md:py-24 px-6 bg-surface-elevated">
       <div className="max-w-6xl mx-auto">
         <motion.div
            initial={{ opacity: 0, y: 30 }}
