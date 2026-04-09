@@ -20,6 +20,16 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
   return (
     <>
       {/* Skip to content link — visible only on keyboard focus for a11y */}
@@ -66,13 +76,13 @@ export const Navbar = () => {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="lg:hidden bg-surface-base border-b border-border-subtle px-6 py-4 flex flex-col gap-4 shadow-xl">
-            <a href="#hero" onClick={() => setIsOpen(false)} className="text-text-base py-2">Home</a>
-            <a href="#features" onClick={() => setIsOpen(false)} className="text-text-base py-2">Features</a>
-            <a href="#how-it-works" onClick={() => setIsOpen(false)} className="text-text-base py-2">How It Works</a>
-            <a href="#pricing" onClick={() => setIsOpen(false)} className="text-text-base py-2">Pricing</a>
-            <a href="#reviews" onClick={() => setIsOpen(false)} className="text-text-base py-2">Reviews</a>
-            <a href="#faq" onClick={() => setIsOpen(false)} className="text-text-base py-2">FAQ</a>
+          <div className="lg:hidden bg-surface-base border-b border-border-subtle px-6 py-4 flex flex-col gap-2 shadow-xl">
+            <a href="#hero" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Home</a>
+            <a href="#features" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Features</a>
+            <a href="#how-it-works" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">How It Works</a>
+            <a href="#pricing" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Pricing</a>
+            <a href="#reviews" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">Reviews</a>
+            <a href="#faq" onClick={() => setIsOpen(false)} className="text-text-base py-2 px-3 rounded-md hover:bg-surface-elevated hover:text-text-strong transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">FAQ</a>
             <a href={CHECKOUT_LINK} target="_blank" rel="noopener noreferrer" className="inline-block text-center bg-brand-teal hover:bg-brand-teal/90 text-white font-bold py-3 px-6 rounded-lg w-full mt-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base">
               Buy Now — ₹2,999
             </a>
