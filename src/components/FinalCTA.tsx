@@ -70,18 +70,6 @@ export const FinalCTA = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* Mobile Sticky CTA */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full p-4 bg-surface-base/90 backdrop-blur-md border-t border-border-subtle z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
-        <a
-          href="https://superprofile.bio/vp/69c0fe2898385800138423c6?checkout=true"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full bg-brand-teal hover:bg-brand-teal/90 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 text-lg shadow-lg"
-        >
-          Buy Now — ₹2,999
-        </a>
-      </div>
     </section>
   );
 };
