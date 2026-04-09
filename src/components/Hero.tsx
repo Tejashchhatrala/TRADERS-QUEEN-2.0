@@ -62,7 +62,7 @@ export const Hero = () => {
             <span className="flex items-center gap-2">Buy Now — ₹2,999 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" /></span>
           </a>
           <a
-            href="#features"
+            href="/#features"
             className="flex items-center justify-center bg-surface-raised hover:bg-surface-elevated border border-border-strong text-text-strong font-medium py-4 px-8 rounded-xl text-lg transition-all w-full sm:w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base"
           >
             See What's Included
