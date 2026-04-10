@@ -4,7 +4,7 @@ import { ShoppingCart, MessageCircle } from 'lucide-react';
 
 export const FinalCTA = () => {
   return (
-    <section className="py-20 md:py-32 px-6 bg-surface-base relative overflow-hidden">
+    <section id="pricing" className="py-20 md:py-32 px-6 bg-surface-base relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-brand-teal/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
