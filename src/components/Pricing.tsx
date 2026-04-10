@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, Award, FileCode2 } from 'lucide-react';
+import { CheckCircle2, FileCode2 } from 'lucide-react';
 import { CHECKOUT_LINK } from './Navbar';
+import { fadeUp, staggerContainer, staggerItem, scaleReveal, viewport } from '../lib/animations';
 
 export const Pricing = () => {
   return (
@@ -11,9 +12,10 @@ export const Pricing = () => {
 
         {/* Pricing Comparison Table */}
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="mb-24"
         >
           <div className="text-center mb-16">
@@ -25,35 +27,42 @@ export const Pricing = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-surface-elevated border border-border-subtle p-8 rounded-2xl flex flex-col items-center text-center">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          >
+            <motion.div variants={staggerItem} className="bg-surface-elevated border border-border-subtle p-8 rounded-2xl flex flex-col items-center text-center">
                <h3 className="text-lg font-bold text-text-strong mb-2">Telegram Signal Group</h3>
                <p className="text-2xl font-bold text-text-muted mb-1">₹1,000–2,000<span className="text-sm font-normal">/mo</span></p>
                <p className="text-text-muted text-sm">₹12,000–24,000/year</p>
-            </div>
+            </motion.div>
 
-            <div className="bg-surface-elevated border border-border-subtle p-8 rounded-2xl flex flex-col items-center text-center">
+            <motion.div variants={staggerItem} className="bg-surface-elevated border border-border-subtle p-8 rounded-2xl flex flex-col items-center text-center">
                <h3 className="text-lg font-bold text-text-strong mb-2">Paid Indicator (Monthly)</h3>
                <p className="text-2xl font-bold text-text-muted mb-1">₹500–1,500<span className="text-sm font-normal">/mo</span></p>
                <p className="text-text-muted text-sm">₹6,000–18,000/year</p>
-            </div>
+            </motion.div>
 
-            <div className="bg-surface-raised border-2 border-brand-teal p-8 rounded-2xl flex flex-col items-center text-center relative shadow-lg">
+            <motion.div variants={staggerItem} className="bg-surface-raised border-2 border-brand-teal p-8 rounded-2xl flex flex-col items-center text-center relative shadow-lg">
                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-teal text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
                   One-Time Payment
                </div>
                <h3 className="text-lg font-bold text-brand-teal mb-2">Traders Queen 2.0</h3>
                <p className="text-3xl font-bold text-text-strong mb-1">₹2,999</p>
                <p className="text-text-muted text-sm">total — forever</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
 
         {/* Pricing Card */}
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={scaleReveal}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="max-w-3xl mx-auto bg-surface-raised border border-border-subtle rounded-3xl p-8 md:p-12 shadow-xl mb-24"
         >
            <div className="text-center border-b border-border-subtle pb-8 mb-8">
@@ -90,7 +99,7 @@ export const Pricing = () => {
               href={CHECKOUT_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block w-full bg-brand-teal hover:bg-brand-teal/90 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-raised mb-4"
+              className="inline-block w-full bg-brand-teal hover:bg-brand-teal/90 text-white font-bold py-4 px-8 rounded-xl text-lg transition-micro cursor-pointer shadow-md hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-raised mb-4"
             >
               Buy Now — ₹2,999
             </a>
@@ -100,12 +109,19 @@ export const Pricing = () => {
 
         {/* Founder Bio Block */}
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="max-w-4xl mx-auto bg-surface-base rounded-3xl p-8 md:p-12 border border-border-subtle flex flex-col md:flex-row gap-8 items-center"
         >
-          <div className="w-32 h-32 shrink-0 rounded-full bg-surface-elevated border-4 border-border-subtle overflow-hidden flex items-center justify-center relative shadow-inner">
+          <motion.div
+            variants={scaleReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="w-32 h-32 shrink-0 rounded-full bg-surface-elevated border-4 border-border-subtle overflow-hidden flex items-center justify-center relative shadow-inner"
+          >
             {/* Fallback image if photo is missing */}
             <div className="absolute inset-0 bg-surface-elevated flex items-center justify-center">
               <span className="text-4xl">🧑‍💻</span>
@@ -116,7 +132,7 @@ export const Pricing = () => {
               className="w-full h-full object-cover relative z-10"
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
             />
-          </div>
+          </motion.div>
           <div>
             <h3 className="text-2xl font-bold text-text-strong mb-2">Who Made This? A Real Trader.</h3>
             <p className="text-text-base leading-relaxed mb-4">

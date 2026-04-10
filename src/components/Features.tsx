@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Activity, Target, Zap, TrendingUp, MonitorSmartphone, ShieldCheck } from 'lucide-react';
+import { fadeUp, staggerContainer, staggerItem, viewport } from '../lib/animations';
 
 export const Features = () => {
   const features = [
@@ -40,9 +41,10 @@ export const Features = () => {
     <section id="features" className="py-16 md:py-24 px-6 bg-surface-elevated">
       <div className="max-w-6xl mx-auto">
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-text-strong">
@@ -53,24 +55,27 @@ export const Features = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-surface-base p-8 rounded-2xl border border-border-subtle hover:shadow-lg transition-all group flex flex-col h-full"
+              variants={staggerItem}
+              className="bg-surface-base p-8 rounded-2xl border border-border-subtle hover:shadow-lg hover:border-border-strong transition-card group flex flex-col h-full cursor-pointer"
             >
-              <div className="w-14 h-14 bg-surface-elevated border border-border-strong rounded-xl flex items-center justify-center mb-6 text-text-strong group-hover:scale-110 group-hover:bg-brand-teal group-hover:text-white group-hover:border-brand-teal transition-all duration-300">
+              <div className="w-14 h-14 bg-surface-elevated border border-border-strong rounded-xl flex items-center justify-center mb-6 text-text-strong group-hover:bg-brand-teal group-hover:text-white group-hover:border-brand-teal transition-micro">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-bold mb-3 text-text-strong">{feature.title}</h3>
               <p className="text-text-base text-sm leading-relaxed flex-1">{feature.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

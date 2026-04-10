@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck } from 'lucide-react';
+import { fadeUp, staggerContainer, staggerItem, viewport } from '../lib/animations';
 
 const trustItems = [
   {
@@ -30,9 +31,10 @@ export const TrustStack = () => {
     <section id="trust" className="py-16 md:py-24 px-6 bg-surface-elevated">
       <div className="max-w-6xl mx-auto">
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="text-center mb-16"
         >
           <div className="inline-block px-4 py-1 bg-brand-teal/10 text-brand-teal rounded-full text-sm font-bold mb-4 uppercase tracking-wider flex items-center justify-center gap-2 mx-auto w-fit">
@@ -47,21 +49,24 @@ export const TrustStack = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="grid md:grid-cols-2 gap-8 mb-12"
+        >
           {trustItems.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-surface-base rounded-2xl overflow-hidden border border-border-subtle shadow-md group hover:shadow-xl transition-all"
+              variants={staggerItem}
+              className="bg-surface-base rounded-2xl overflow-hidden border border-border-subtle shadow-md group hover:shadow-xl hover:border-border-strong transition-card cursor-pointer"
             >
               <div className="aspect-[5/3] w-full overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:opacity-90 transition-[opacity] duration-300"
                   loading="lazy"
                 />
               </div>
@@ -73,12 +78,13 @@ export const TrustStack = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="text-center bg-surface-raised border border-border-subtle p-8 rounded-2xl max-w-2xl mx-auto"
         >
           <p className="text-2xl font-bold text-text-strong mb-2">

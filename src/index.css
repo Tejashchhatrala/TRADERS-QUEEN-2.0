@@ -38,3 +38,32 @@
     letter-spacing: -0.02em;
   }
 }
+
+/* ─── Smooth Transitions Foundation ──────────────────────────────── */
+@layer utilities {
+  /* Standard micro-interaction transition (200ms ease-out) */
+  .transition-micro {
+    transition-property: color, background-color, border-color, opacity, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1); /* ease-out */
+  }
+
+  /* Card hover transition (250ms ease-out) */
+  .transition-card {
+    transition-property: box-shadow, border-color, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

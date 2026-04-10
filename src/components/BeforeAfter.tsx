@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, XCircle, CheckCircle2 } from 'lucide-react';
+import { fadeUp, fadeLeft, fadeRight, scaleReveal, viewport } from '../lib/animations';
 
 export const BeforeAfter = () => {
   const beforeItems = [
@@ -23,9 +24,10 @@ export const BeforeAfter = () => {
     <section id="before-after" className="py-16 md:py-24 px-6 bg-surface-base">
       <div className="max-w-6xl mx-auto">
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="text-center mb-16"
         >
           <div className="inline-block px-4 py-1 bg-brand-teal/10 text-brand-teal rounded-full text-sm font-bold mb-4 uppercase tracking-wider">
@@ -41,9 +43,10 @@ export const BeforeAfter = () => {
           <div className="w-full lg:w-1/2 flex flex-col sm:flex-row gap-4">
             {/* Before Card */}
             <motion.div
-               initial={{ opacity: 0, x: -30 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
+               variants={fadeLeft}
+               initial="hidden"
+               whileInView="visible"
+               viewport={viewport}
                className="flex-1 bg-surface-raised border border-danger-base/30 rounded-2xl p-6 md:p-8"
             >
               <div className="flex items-center gap-3 mb-6 text-danger-base">
@@ -62,9 +65,10 @@ export const BeforeAfter = () => {
 
             {/* After Card */}
             <motion.div
-               initial={{ opacity: 0, x: 30 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
+               variants={fadeRight}
+               initial="hidden"
+               whileInView="visible"
+               viewport={viewport}
                className="flex-1 bg-surface-raised border border-brand-teal/30 rounded-2xl p-6 md:p-8 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-teal/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
@@ -85,9 +89,10 @@ export const BeforeAfter = () => {
 
           {/* Lifestyle Image */}
           <motion.div
-             initial={{ opacity: 0, scale: 0.95 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true }}
+             variants={scaleReveal}
+             initial="hidden"
+             whileInView="visible"
+             viewport={viewport}
              className="w-full lg:w-1/2 aspect-[5/3] rounded-2xl overflow-hidden border border-border-subtle shadow-lg"
           >
             <img
@@ -100,9 +105,10 @@ export const BeforeAfter = () => {
         </div>
 
         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="text-center"
         >
           <p className="text-2xl font-bold text-text-strong">

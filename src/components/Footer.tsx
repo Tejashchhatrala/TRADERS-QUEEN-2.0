@@ -15,11 +15,11 @@ export const Footer = () => {
            <div>
              <h3 className="font-bold text-text-strong mb-4">Quick Links</h3>
              <ul className="space-y-2 text-text-muted text-sm">
-               <li><a href="/#features" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Features</a></li>
-               <li><a href="/#how-it-works" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">How It Works</a></li>
-               <li><a href="/#reviews" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Testimonials</a></li>
-               <li><a href="/#pricing" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Pricing</a></li>
-               <li><a href="/#faq" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">FAQ</a></li>
+               <li><a href="/#features" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Features</a></li>
+               <li><a href="/#how-it-works" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">How It Works</a></li>
+               <li><a href="/#reviews" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Testimonials</a></li>
+               <li><a href="/#pricing" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Pricing</a></li>
+               <li><a href="/#faq" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">FAQ</a></li>
              </ul>
            </div>
 
@@ -27,12 +27,12 @@ export const Footer = () => {
              <h3 className="font-bold text-text-strong mb-4">Contact</h3>
              <ul className="space-y-2 text-text-muted text-sm">
                <li>
-                 <a href="https://wa.me/919879737819" target="_blank" rel="noopener noreferrer" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">
+                 <a href="https://wa.me/919879737819" target="_blank" rel="noopener noreferrer" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">
                    WhatsApp: +91 98797 37819
                  </a>
                </li>
                <li>
-                 <a href="mailto:chhatralatejash@gmail.com" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">
+                 <a href="mailto:chhatralatejash@gmail.com" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">
                    chhatralatejash@gmail.com
                  </a>
                </li>
@@ -42,9 +42,9 @@ export const Footer = () => {
            <div>
              <h3 className="font-bold text-text-strong mb-4">Legal</h3>
              <ul className="space-y-2 text-text-muted text-sm">
-               <li><a href="/?page=terms" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Terms of Service</a></li>
-               <li><a href="/?page=privacy" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Privacy Policy</a></li>
-               <li><a href="/?page=refund" className="hover:text-brand-teal transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Refund Policy</a></li>
+               <li><a href="/?page=terms" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Terms of Service</a></li>
+               <li><a href="/?page=privacy" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Privacy Policy</a></li>
+               <li><a href="/?page=refund" className="hover:text-brand-teal transition-micro cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated">Refund Policy</a></li>
              </ul>
            </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 import { CHECKOUT_LINK } from './Navbar';
+import { fadeUp, staggerContainer, staggerItem, viewport } from '../lib/animations';
 
 export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -53,30 +54,34 @@ export const FAQ = () => {
     <section id="faq" className="py-16 md:py-24 px-6 bg-surface-elevated border-y border-border-subtle">
       <div className="max-w-4xl mx-auto">
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-text-strong">Common Questions</h2>
           <p className="text-lg text-text-base">No jargon. Straight answers.</p>
         </motion.div>
 
-        <div className="space-y-4">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="space-y-4"
+        >
           {faqs.map((faq, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className="bg-surface-base border border-border-subtle rounded-2xl overflow-hidden hover:border-border-strong transition-colors"
+              variants={staggerItem}
+              className="bg-surface-base border border-border-subtle rounded-2xl overflow-hidden hover:border-border-strong transition-card"
             >
               <button
                 id={`faq-question-${idx}`}
                 aria-expanded={openIndex === idx}
                 aria-controls={`faq-answer-${idx}`}
-                className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:bg-surface-raised transition-colors hover:bg-surface-raised"
+                className="w-full text-left px-6 py-5 flex items-center justify-between cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:bg-surface-raised transition-micro hover:bg-surface-raised"
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
               >
                 <span className="text-text-strong font-bold pr-8">{faq.q}</span>
@@ -107,13 +112,14 @@ export const FAQ = () => {
               </AnimatePresence>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Transition CTA Phase */}
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="text-center mt-20"
         >
           <h2 className="text-3xl font-bold mb-4 text-text-strong">Stop Losing Money on Bad Signals.</h2>
@@ -125,7 +131,7 @@ export const FAQ = () => {
               href={CHECKOUT_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-brand-teal hover:bg-brand-teal/90 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated"
+              className="w-full sm:w-auto bg-brand-teal hover:bg-brand-teal/90 text-white font-bold py-4 px-8 rounded-xl text-lg transition-micro cursor-pointer hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-elevated"
             >
               Buy Now — ₹2,999
             </a>
@@ -133,7 +139,7 @@ export const FAQ = () => {
               href="https://wa.me/919879737819"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-transparent hover:bg-surface-raised border border-border-strong text-text-strong font-bold py-4 px-8 rounded-xl transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+              className="w-full sm:w-auto bg-transparent hover:bg-surface-raised border border-border-strong text-text-strong font-bold py-4 px-8 rounded-xl transition-micro cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
             >
               Ask Questions on WhatsApp
             </a>

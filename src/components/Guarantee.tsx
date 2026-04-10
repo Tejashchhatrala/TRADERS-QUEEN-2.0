@@ -1,15 +1,17 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldAlert } from 'lucide-react';
+import { fadeUp, scaleReveal, viewport } from '../lib/animations';
 
 export const Guarantee = () => {
   return (
     <section id="guarantee" className="py-16 md:py-24 px-6 bg-surface-base">
       <div className="max-w-4xl mx-auto">
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="bg-surface-raised border border-brand-teal/20 shadow-2xl rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
         >
           {/* Background Glow */}
@@ -26,7 +28,10 @@ export const Guarantee = () => {
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 my-10 relative z-10">
             <motion.div
-              whileHover={{ scale: 1.05 }}
+              variants={scaleReveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
               className="w-48 h-48 md:w-56 md:h-56 shrink-0 rounded-full overflow-hidden border-4 border-brand-teal shadow-xl"
             >
               <img

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShoppingCart, MessageCircle } from 'lucide-react';
+import { fadeUp, viewport } from '../lib/animations';
 
 export const FinalCTA = () => {
   return (
@@ -9,9 +10,10 @@ export const FinalCTA = () => {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-text-strong tracking-tight">
             Stop Guessing. <br className="md:hidden" /> Start Trading with Clarity.
@@ -23,10 +25,10 @@ export const FinalCTA = () => {
         </motion.div>
 
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ delay: 0.1 }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="bg-surface-raised border border-brand-teal/20 p-8 md:p-12 rounded-3xl shadow-xl max-w-2xl mx-auto mb-10"
         >
           <ul className="space-y-4 text-left max-w-sm mx-auto mb-8">
@@ -52,7 +54,7 @@ export const FinalCTA = () => {
               href="https://superprofile.bio/vp/69c0fe2898385800138423c6?checkout=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-brand-teal hover:bg-brand-teal/90 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-transform hover:scale-105 active:scale-95 shadow-lg"
+              className="w-full bg-brand-teal hover:bg-brand-teal/90 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-micro cursor-pointer shadow-lg hover:shadow-xl"
             >
               <ShoppingCart size={20} />
               Buy Now
@@ -62,7 +64,7 @@ export const FinalCTA = () => {
               href="https://wa.me/919879737819"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/50 font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95"
+              className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/50 font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-micro cursor-pointer hover:shadow-md"
             >
               <MessageCircle size={20} />
               Ask Questions on WhatsApp

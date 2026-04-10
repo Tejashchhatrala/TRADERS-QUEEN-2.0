@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, MessageSquare } from 'lucide-react';
+import { fadeUp, scaleReveal, viewport } from '../lib/animations';
 
 const testimonialsImages = [
   {
@@ -32,9 +33,10 @@ export const TestimonialsNew = () => {
     <section id="reviews" className="py-16 md:py-24 px-6 bg-surface-elevated overflow-hidden">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="mb-12"
         >
           <div className="inline-block px-4 py-1 bg-brand-teal/10 text-brand-teal rounded-full text-sm font-bold mb-4 uppercase tracking-wider flex items-center justify-center gap-2 mx-auto w-fit">
@@ -46,7 +48,13 @@ export const TestimonialsNew = () => {
           </h2>
         </motion.div>
 
-        <div className="relative mb-12 max-w-[400px] mx-auto">
+        <motion.div
+          variants={scaleReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="relative mb-12 max-w-[400px] mx-auto"
+        >
           {/* Carousel */}
           <div className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden bg-surface-base border-4 border-border-strong shadow-2xl group">
              <AnimatePresence mode="wait">
@@ -66,14 +74,14 @@ export const TestimonialsNew = () => {
              {/* Navigation Buttons */}
              <button
                onClick={prevSlide}
-               className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-text-strong rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+               className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-text-strong rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm transition-micro cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
                aria-label="Previous slide"
              >
                <ChevronLeft size={20} />
              </button>
              <button
                onClick={nextSlide}
-               className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-text-strong rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+               className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-text-strong rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm transition-micro cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
                aria-label="Next slide"
              >
                <ChevronRight size={20} />
@@ -85,18 +93,19 @@ export const TestimonialsNew = () => {
                  <button
                    key={idx}
                    onClick={() => setCurrentIndex(idx)}
-                   className={`w-2 h-2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base ${idx === currentIndex ? 'bg-brand-teal w-6' : 'bg-text-muted hover:bg-text-strong'}`}
+                   className={`w-2 h-2 rounded-full transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base ${idx === currentIndex ? 'bg-brand-teal w-6' : 'bg-text-muted hover:bg-text-strong'}`}
                    aria-label={`Go to slide ${idx + 1}`}
                  />
                ))}
              </div>
           </div>
-        </div>
+        </motion.div>
 
         <motion.p
-           initial={{ opacity: 0, y: 10 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
            className="mt-8 text-xl font-bold text-text-strong"
         >
           These are actual messages from users. <br/> No scripts. No fake reviews.
