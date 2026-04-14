@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Star } from 'lucide-react';
 
+const STARS = [0, 1, 2, 3, 4];
+
 export const Testimonials = () => {
   const reviews = [
     {
@@ -50,7 +52,7 @@ export const Testimonials = () => {
             Part-time traders just like you — using this tool every day.
           </p>
           <div className="flex justify-center gap-1 mt-6 text-yellow-500">
-            {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
+            {STARS.map((i) => <Star key={i} size={20} fill="currentColor" />)}
           </div>
         </motion.div>
 
@@ -65,7 +67,7 @@ export const Testimonials = () => {
               className="bg-surface-raised p-8 rounded-2xl border border-border-subtle hover:shadow-lg transition-all flex flex-col h-full"
             >
               <div className="flex gap-1 mb-4 text-yellow-500">
-                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                {STARS.map((i) => <Star key={i} size={14} fill="currentColor" />)}
               </div>
               <p className="text-text-base flex-1 leading-relaxed mb-8 italic">"{review.text}"</p>
               <div className="flex items-center gap-4 border-t border-border-subtle pt-6 mt-auto">
