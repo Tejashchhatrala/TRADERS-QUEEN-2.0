@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
 import { CHECKOUT_LINK } from './Navbar';
-import { heroEntrance, heroFade, scaleReveal, viewport } from '../lib/animations';
+import { heroEntrance, heroFade, scaleReveal } from '../lib/animations';
 
 export const Hero = () => {
   return (
