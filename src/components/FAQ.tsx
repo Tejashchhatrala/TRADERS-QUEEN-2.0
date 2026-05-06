@@ -9,42 +9,52 @@ export const FAQ = () => {
 
   const faqs = [
     {
+      id: "new-to-trading",
       q: "I'm new to trading. Will this work for me?",
       a: "Yes. You don't need years of experience or coding knowledge. The tool gives you clear Buy and Sell signals with exact entry, stop loss, and target levels right on the chart."
     },
     {
+      id: "tradingview-info",
       q: "What is TradingView? Do I need to pay for it?",
       a: "TradingView is a popular charting platform. You can use it entirely for free. Our tool works perfectly on the free version of TradingView."
     },
     {
+      id: "mobile-app",
       q: "Is this a mobile app?",
       a: "No, it is an indicator that runs inside TradingView. You can use TradingView's app or website on your phone, tablet, or computer to see the signals."
     },
     {
+      id: "nifty-banknifty",
       q: "I trade only Nifty/BankNifty options. Will this work?",
       a: "Yes! It automatically adjusts for Call (CE) and Put (PE) charts. You can even take signals from the main index while trading the option chart."
     },
     {
+      id: "multi-market",
       q: "I trade gold/crypto/forex. Does it work on those too?",
       a: "Yes. One tool for all markets. If the chart is available on TradingView, this indicator works on it."
     },
     {
+      id: "zero-repaint",
       q: "What does 'zero repaint' mean? Why does it matter?",
       a: "Repainting means an indicator changes its past signals to look more accurate after the fact. Our tool never repaints. Once a signal is printed on a closed candle, it stays there forever."
     },
     {
+      id: "pricing",
       q: "Is this a one-time payment? No monthly fees?",
       a: "Yes. ₹2,999 is a one-time payment. You get lifetime access to the full source code and no recurring charges."
     },
     {
+      id: "refund-policy",
       q: "What if it doesn't work? Can I get a refund?",
       a: "We offer a 100% money-back guarantee if you can prove the indicator repaints on a closed bar. We are that confident in our math."
     },
     {
+      id: "coding-requirements",
       q: "I don't know coding. Can I still use this?",
       a: "Absolutely. You get a step-by-step setup guide. It just takes copying and pasting the text into TradingView. Takes 2 minutes."
     },
     {
+      id: "telegram-comparison",
       q: "How is this different from paid Telegram groups or signal services?",
       a: "You aren't relying on someone else's timing or internet connection. You get the signals live on your own chart, and you own the code forever. No monthly fees, no missed WhatsApp messages."
     }
@@ -73,7 +83,7 @@ export const FAQ = () => {
         >
           {faqs.map((faq, idx) => (
             <motion.div
-              key={idx}
+              key={faq.id}
               variants={staggerItem}
               className="bg-surface-base border border-border-subtle rounded-2xl overflow-hidden hover:border-border-strong transition-card"
             >
