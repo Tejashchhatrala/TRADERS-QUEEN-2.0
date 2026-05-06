@@ -3,23 +3,23 @@ import { motion } from 'motion/react';
 import { ArrowRight, XCircle, CheckCircle2 } from 'lucide-react';
 import { fadeUp, fadeLeft, fadeRight, scaleReveal, viewport } from '../lib/animations';
 
+const beforeItems = [
+  "Watching charts for hours",
+  "Random entries",
+  "Missed trades",
+  "Losses from sideways market",
+  "Following others blindly"
+];
+
+const afterItems = [
+  "Alerts tell you when to act",
+  "Clear entry, SL & target",
+  "1–2 focused trades per day",
+  "Avoid bad market conditions",
+  "Full control over your trades"
+];
+
 export const BeforeAfter = () => {
-  const beforeItems = [
-    "Watching charts for hours",
-    "Random entries",
-    "Missed trades",
-    "Losses from sideways market",
-    "Following others blindly"
-  ];
-
-  const afterItems = [
-    "Alerts tell you when to act",
-    "Clear entry, SL & target",
-    "1–2 focused trades per day",
-    "Avoid bad market conditions",
-    "Full control over your trades"
-  ];
-
   return (
     <section id="before-after" className="py-16 md:py-24 px-6 bg-surface-base">
       <div className="max-w-6xl mx-auto">

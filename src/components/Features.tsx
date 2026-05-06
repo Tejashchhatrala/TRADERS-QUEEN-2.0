@@ -3,40 +3,46 @@ import { motion } from 'motion/react';
 import { Activity, Target, Zap, TrendingUp, MonitorSmartphone, ShieldCheck } from 'lucide-react';
 import { fadeUp, staggerContainer, staggerItem, viewport } from '../lib/animations';
 
-export const Features = () => {
-  const features = [
-    {
-      icon: <TrendingUp size={28} />,
-      title: "Clear Buy & Sell Signals",
-      desc: "Green arrow = Buy. Red arrow = Sell. No confusion, no guessing. The signal appears and stays — it never changes after the fact."
-    },
-    {
-      icon: <Activity size={28} />,
-      title: "Avoid Sideways Markets",
-      desc: "A colored cloud on the chart tells you if the market is trending or sideways. When the cloud is grey — don't trade. Saves you from choppy markets."
-    },
-    {
-      icon: <Target size={28} />,
-      title: "Entry, Stop Loss & Target",
-      desc: "Every signal shows you exactly where to enter, where to set your stop loss, and where your profit target is. Built right in."
-    },
-    {
-      icon: <Zap size={28} />,
-      title: "Works on Options Trading",
-      desc: "Trading Nifty or BankNifty options? The tool automatically adjusts for Call (CE) and Put (PE) charts. Take signals from the main index."
-    },
-    {
-      icon: <ShieldCheck size={28} />,
-      title: "Zero Repaint Signals",
-      desc: "Many indicators secretly change past signals to look accurate. This one doesn't. Once a signal appears, it stays."
-    },
-    {
-      icon: <MonitorSmartphone size={28} />,
-      title: "No App Needed",
-      desc: "Works directly on TradingView (free account is enough). No software to install. Works on phone, tablet, and computer."
-    }
-  ];
+interface FeatureItem {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}
 
+const features: FeatureItem[] = [
+  {
+    icon: <TrendingUp size={28} />,
+    title: "Clear Buy & Sell Signals",
+    desc: "Green arrow = Buy. Red arrow = Sell. No confusion, no guessing. The signal appears and stays — it never changes after the fact."
+  },
+  {
+    icon: <Activity size={28} />,
+    title: "Avoid Sideways Markets",
+    desc: "A colored cloud on the chart tells you if the market is trending or sideways. When the cloud is grey — don't trade. Saves you from choppy markets."
+  },
+  {
+    icon: <Target size={28} />,
+    title: "Entry, Stop Loss & Target",
+    desc: "Every signal shows you exactly where to enter, where to set your stop loss, and where your profit target is. Built right in."
+  },
+  {
+    icon: <Zap size={28} />,
+    title: "Works on Options Trading",
+    desc: "Trading Nifty or BankNifty options? The tool automatically adjusts for Call (CE) and Put (PE) charts. Take signals from the main index."
+  },
+  {
+    icon: <ShieldCheck size={28} />,
+    title: "Zero Repaint Signals",
+    desc: "Many indicators secretly change past signals to look accurate. This one doesn't. Once a signal appears, it stays."
+  },
+  {
+    icon: <MonitorSmartphone size={28} />,
+    title: "No App Needed",
+    desc: "Works directly on TradingView (free account is enough). No software to install. Works on phone, tablet, and computer."
+  }
+];
+
+export const Features = () => {
   return (
     <section id="features" className="py-16 md:py-24 px-6 bg-surface-elevated">
       <div className="max-w-6xl mx-auto">
