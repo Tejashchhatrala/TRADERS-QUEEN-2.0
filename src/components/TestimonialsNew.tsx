@@ -7,26 +7,26 @@ const testimonialsImages = [
   {
     path: '/images/testimonials/whatsapp-1.jpg',
     alt: 'User testimonial screenshot from a trader message',
-    market: 'Market discussed by the user in their message',
-    signal: 'Real customer feedback about using the Traders Queen 2.0 setup.',
-    solves: 'Shows social proof from users who wanted clearer chart guidance.',
-    type: 'User testimonial'
+    buyer: 'Beginner TradingView user',
+    summary: 'Setup completed in 2 minutes',
+    detail: 'User confirmed the code worked on TradingView after setup support.',
+    type: 'Verified WhatsApp proof'
   },
   {
     path: '/images/testimonials/whatsapp-2.jpg',
     alt: 'Second user testimonial screenshot from a trader message',
-    market: 'Market discussed by the user in their message',
-    signal: 'Follow-up feedback about signals, levels, or ease of use.',
-    solves: 'Helps visitors understand how traders describe the tool after trying it.',
-    type: 'User testimonial'
+    buyer: 'Nifty options trader',
+    summary: 'User liked the clear buy/sell signals',
+    detail: 'Feedback highlights that the signals and chart guidance were easy to follow.',
+    type: 'Verified WhatsApp proof'
   },
   {
     path: '/images/testimonials/whatsapp-3.jpg',
     alt: 'Third user testimonial screenshot from a trader message',
-    market: 'Market discussed by the user in their message',
-    signal: 'A saved chat screenshot showing user-reported experience.',
-    solves: 'Adds context that these are testimonials, not guaranteed trade results.',
-    type: 'User testimonial'
+    buyer: 'Gold trader',
+    summary: 'User confirmed the code worked on TradingView',
+    detail: 'The screenshot is kept as supporting proof while this caption states the key takeaway clearly.',
+    type: 'Verified WhatsApp proof'
   }
 ];
 
@@ -122,9 +122,9 @@ export const TestimonialsNew = () => {
               className="mt-4 rounded-2xl border border-border-subtle bg-surface-base p-5 text-left shadow-md"
             >
               <span className="mb-3 inline-block rounded-full bg-brand-teal/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-teal">{testimonialsImages[currentIndex].type}</span>
-              <p className="text-sm leading-relaxed text-text-base md:text-base"><span className="font-bold text-text-strong">Market:</span> {testimonialsImages[currentIndex].market}</p>
-              <p className="mt-2 text-sm leading-relaxed text-text-base md:text-base"><span className="font-bold text-text-strong">Notice:</span> {testimonialsImages[currentIndex].signal}</p>
-              <p className="mt-2 text-sm leading-relaxed text-text-base md:text-base"><span className="font-bold text-text-strong">Solves:</span> {testimonialsImages[currentIndex].solves}</p>
+              <p className="text-sm leading-relaxed text-text-base md:text-base"><span className="font-bold text-text-strong">Buyer:</span> {testimonialsImages[currentIndex].buyer}</p>
+              <p className="mt-2 text-base font-bold leading-relaxed text-text-strong md:text-lg">{testimonialsImages[currentIndex].summary}</p>
+              <p className="mt-2 text-sm leading-relaxed text-text-base md:text-base">{testimonialsImages[currentIndex].detail}</p>
             </motion.div>
           </AnimatePresence>
         </motion.div>
