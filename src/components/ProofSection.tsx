@@ -40,14 +40,14 @@ export const ProofSection = () => {
            className="mb-12"
         >
           <div className="inline-block px-4 py-1 bg-brand-teal/10 text-brand-teal rounded-full text-sm font-bold mb-4 uppercase tracking-wider">
-            Real Trades Taken Using This System
+            Chart Examples from This System
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-text-strong leading-tight">
-            Real Trades. Real Signals. <br className="hidden md:block"/> No Editing.
+            Example Setups. Chart-Based Signals. <br className="hidden md:block"/> Shown As Captured.
           </h2>
           <p className="text-lg md:text-xl text-text-base max-w-3xl mx-auto leading-relaxed">
-            Below are actual trades taken using Traders Queen 2.0.<br/>
-            These are not backtests. These are real market conditions — exactly how you will see them.
+            Below are examples of Traders Queen 2.0 signals captured on TradingView charts.<br/>
+            They show the type of entries, stop loss areas, targets, and market-condition context the tool displays. Trading involves risk, and examples are not a promise of future results.
           </p>
         </motion.div>
 
@@ -113,11 +113,11 @@ export const ProofSection = () => {
         >
            <motion.div variants={staggerItem} className="flex flex-col items-center p-4 bg-surface-base rounded-xl border border-border-subtle">
               <span className="text-xl font-bold text-text-strong mb-1">✔ Entry</span>
-              <span className="text-sm text-text-muted">Exact Price</span>
+              <span className="text-sm text-text-muted">Displayed Level</span>
            </motion.div>
            <motion.div variants={staggerItem} className="flex flex-col items-center p-4 bg-surface-base rounded-xl border border-border-subtle">
               <span className="text-xl font-bold text-text-strong mb-1">✔ Stop Loss</span>
-              <span className="text-sm text-text-muted">Clear Invalid</span>
+              <span className="text-sm text-text-muted">Invalidation Level</span>
            </motion.div>
            <motion.div variants={staggerItem} className="flex flex-col items-center p-4 bg-surface-base rounded-xl border border-border-subtle">
               <span className="text-xl font-bold text-text-strong mb-1">✔ Target</span>
@@ -136,7 +136,7 @@ export const ProofSection = () => {
           viewport={viewport}
           className="mt-10 text-xl font-semibold text-text-strong"
         >
-          No guessing. No confusion.
+          Use defined levels instead of random entries.
         </motion.p>
       </div>
     </section>

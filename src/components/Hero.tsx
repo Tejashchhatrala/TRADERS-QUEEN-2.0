@@ -32,7 +32,7 @@ export const Hero = () => {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-raised border border-border-subtle text-text-base font-medium tracking-wide text-sm mb-8 shadow-sm"
         >
           <div className="w-2 h-2 rounded-full bg-brand-teal" />
-          Used by 50+ traders across India — Zero complaints
+          Used by 50+ traders across India — customer feedback available
         </motion.div>
 
         <motion.h1 
@@ -41,8 +41,8 @@ export const Hero = () => {
           animate="visible"
           className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight text-text-strong"
         >
-          A Trading Tool That <br/>
-          <span className="text-brand-teal">Actually Works.</span>
+          Get Clear Buy, Sell, <br/>
+          <span className="text-brand-teal">Stop Loss & Target Levels.</span>
         </motion.h1>
 
         <motion.p
@@ -51,7 +51,7 @@ export const Hero = () => {
           animate="visible"
           className="text-lg md:text-xl text-text-base mb-8 max-w-2xl leading-relaxed"
         >
-          Traders Queen 2.0 is a TradingView tool that shows you exactly when to buy and sell — on stocks, gold, crypto, or options. No Monthly Fees. No Fake Signals. You Own It Forever.
+          Traders Queen 2.0 is a TradingView tool that displays buy, sell, stop loss, and target levels on stocks, gold, crypto, and options charts. Signals are generated directly on your TradingView chart. One-time access with no monthly fees.
         </motion.p>
 
         <motion.div
@@ -88,12 +88,12 @@ export const Hero = () => {
             <span className="text-text-muted">Traders Using It</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold text-text-strong">0</span>
-            <span className="text-text-muted">Complaints So Far</span>
+            <span className="text-2xl font-bold text-text-strong">User</span>
+            <span className="text-text-muted">Feedback Available</span>
           </div>
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold text-brand-teal">Full Code</span>
-            <span className="text-text-muted">You Own It Forever</span>
+            <span className="text-text-muted">Source Code Included</span>
           </div>
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold text-text-strong">₹2,999</span>

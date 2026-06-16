@@ -8,7 +8,7 @@ export const BeforeAfter = () => {
     "Watching charts for hours",
     "Random entries",
     "Missed trades",
-    "Losses from sideways market",
+    "Unclear sideways-market conditions",
     "Following others blindly"
   ];
 
@@ -16,7 +16,7 @@ export const BeforeAfter = () => {
     "Alerts tell you when to act",
     "Clear entry, SL & target",
     "1–2 focused trades per day",
-    "Avoid bad market conditions",
+    "Filter for clearer market conditions",
     "Full control over your trades"
   ];
 
@@ -115,7 +115,7 @@ export const BeforeAfter = () => {
             This is not about more trades.
           </p>
           <p className="text-xl text-brand-teal font-medium mt-2">
-            It's about better trades.
+            It's about clearer trade planning.
           </p>
         </motion.div>
       </div>

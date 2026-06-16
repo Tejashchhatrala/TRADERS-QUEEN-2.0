@@ -41,10 +41,10 @@ export const TestimonialsNew = () => {
         >
           <div className="inline-block px-4 py-1 bg-brand-teal/10 text-brand-teal rounded-full text-sm font-bold mb-4 uppercase tracking-wider flex items-center justify-center gap-2 mx-auto w-fit">
             <MessageSquare size={16} />
-            Screenshots from Real Users
+            User Message Screenshots
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-text-strong leading-tight">
-            Real Feedback from Traders Using This
+            Feedback Shared by Traders Using This
           </h2>
         </motion.div>
 
@@ -108,7 +108,7 @@ export const TestimonialsNew = () => {
            viewport={viewport}
            className="mt-8 text-xl font-bold text-text-strong"
         >
-          These are actual messages from users. <br/> No scripts. No fake reviews.
+          These screenshots show messages shared by users. <br/> Individual experiences vary, and trading involves risk.
         </motion.p>
       </div>
     </section>
