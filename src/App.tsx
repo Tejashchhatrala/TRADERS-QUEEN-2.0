@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { ProofSection } from './components/ProofSection';
 import { DemoVideo } from './components/DemoVideo';
 import { TrustStack } from './components/TrustStack';
+import { Comparison } from './components/Comparison';
 import { BeforeAfter } from './components/BeforeAfter';
 import { TestimonialsNew } from './components/TestimonialsNew';
 import { Guarantee } from './components/Guarantee';
@@ -50,6 +51,7 @@ function App() {
             <ProofSection />
             <DemoVideo />
             <TrustStack />
+            <Comparison />
             <BeforeAfter />
             <TestimonialsNew />
             <Guarantee />
