@@ -46,7 +46,7 @@ export const FAQ = () => {
     {
       id: "refund-policy",
       q: "What if it doesn't work? Can I get a refund?",
-      a: "We offer a 100% money-back guarantee if you can prove the indicator repaints on a closed bar. We are that confident in our math."
+      a: "Refunds are available only under our conditional zero-repaint guarantee: submit proof within 7 days of purchase showing a signal changed or disappeared after the candle closed. Send the chart link, screenshots or screen recording, symbol, timeframe, and timestamp to WhatsApp support at +91 98797 37819. Setup issues, strategy preference, market losses, or results from changing settings do not qualify."
     },
     {
       id: "coding-requirements",

@@ -19,7 +19,7 @@ export const Guarantee = () => {
 
           <div className="inline-block px-4 py-1 bg-brand-teal/10 text-brand-teal rounded-full text-sm font-bold mb-6 uppercase tracking-wider flex items-center justify-center gap-2 mx-auto w-fit relative z-10">
             <ShieldAlert size={16} />
-            Zero Risk Guarantee
+            Conditional Zero-Repaint Guarantee
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-text-strong relative z-10">
@@ -36,7 +36,7 @@ export const Guarantee = () => {
             >
               <img
                 src="/images/trust/guarantee-badge.jpg"
-                alt="100% No Repaint Guarantee Or Full Refund"
+                alt="Conditional zero-repaint guarantee"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -44,13 +44,15 @@ export const Guarantee = () => {
 
             <div className="text-left max-w-sm">
               <p className="text-xl md:text-2xl text-text-strong font-medium mb-4">
-                If you find even <strong className="text-danger-base">ONE</strong> repaint example:
+                If you find even <strong className="text-danger-base">ONE</strong> verified repaint on a closed candle:
               </p>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-start gap-3 mb-4">
                 <span className="text-brand-teal text-2xl">👉</span>
-                <span className="text-2xl font-bold text-text-strong">You get 100% refund</span>
+                <span className="text-2xl font-bold text-text-strong">You qualify for a refund</span>
               </div>
-              <p className="text-text-base italic">No questions asked.</p>
+              <p className="text-text-base">
+                Submit your claim within 7 days of purchase via WhatsApp at +91 98797 37819 with the TradingView chart link, screenshots or screen recording, symbol, timeframe, and timestamp. Setup issues, changing settings, trading losses, or preference-based concerns do not qualify.
+              </p>
             </div>
           </div>
 
