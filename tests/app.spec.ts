@@ -7,10 +7,10 @@ test.describe('App Routing', () => {
     await page.goto(BASE_URL);
 
     // Check for Navbar brand using regex for robustness
-    await expect(page.getByText(/Traders Queen\s*2\.0/i)).toBeVisible();
+    await expect(page.getByRole('navigation').getByText(/Traders Queen\s*2\.0/i)).toBeVisible();
 
     // Check for Hero content
-    await expect(page.getByText(/Zero Repaint/i)).toBeVisible();
+    await expect(page.getByText(/Zero Repaint/i).first()).toBeVisible();
   });
 
   test('should navigate to Terms of Service page via URL parameter', async ({ page }) => {
@@ -24,14 +24,14 @@ test.describe('App Routing', () => {
     await page.goto(`${BASE_URL}/?page=privacy`);
 
     await expect(page.getByRole('heading', { name: /Privacy Policy/i, exact: true })).toBeVisible();
-    await expect(page.getByText(/Information We Collect/i)).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Information We Collect/i })).toBeVisible();
   });
 
   test('should navigate to Refund Policy page via URL parameter', async ({ page }) => {
     await page.goto(`${BASE_URL}/?page=refund`);
 
     await expect(page.getByRole('heading', { name: /Refund Policy/i, exact: true })).toBeVisible();
-    await expect(page.getByText(/No Refunds Policy/i)).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Digital Products Nature/i })).toBeVisible();
   });
 
   test('should navigate to legal pages via footer links', async ({ page }) => {
