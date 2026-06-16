@@ -16,11 +16,11 @@ export const FinalCTA = () => {
            viewport={viewport}
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-text-strong tracking-tight">
-            Stop Guessing. <br className="md:hidden" /> Start Trading with Clarity.
+            Plan Entries with Clear Levels. <br className="md:hidden" /> Trade with More Structure.
           </h2>
 
           <p className="text-xl md:text-2xl text-text-base mb-10 max-w-2xl mx-auto">
-            You don't need more indicators. <br /> You need a system that fits your life.
+            You don't need another cluttered chart. <br /> You need buy, sell, stop loss, and target levels that are easy to review.
           </p>
         </motion.div>
 
@@ -34,11 +34,11 @@ export const FinalCTA = () => {
           <ul className="space-y-4 text-left max-w-sm mx-auto mb-8">
             <li className="flex items-center gap-3 text-lg font-medium text-text-strong">
               <span className="w-6 h-6 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center text-sm">✔</span>
-              No chart watching
+              Chart-based alerts
             </li>
             <li className="flex items-center gap-3 text-lg font-medium text-text-strong">
               <span className="w-6 h-6 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center text-sm">✔</span>
-              No confusion
+              Clear rules and levels
             </li>
             <li className="flex items-center gap-3 text-lg font-medium text-text-strong">
               <span className="w-6 h-6 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center text-sm">✔</span>
@@ -47,7 +47,7 @@ export const FinalCTA = () => {
           </ul>
 
           <div className="text-4xl md:text-5xl font-bold text-text-strong mb-2">₹2,999</div>
-          <div className="text-text-base font-medium mb-8">One-Time. Lifetime Access.</div>
+          <div className="text-text-base font-medium mb-8">One-Time Payment. Source Code Included.</div>
 
           <div className="flex flex-col gap-4 max-w-sm mx-auto">
             <a

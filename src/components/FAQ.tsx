@@ -11,12 +11,12 @@ export const FAQ = () => {
     {
       id: "new-to-trading",
       q: "I'm new to trading. Will this work for me?",
-      a: "Yes. You don't need years of experience or coding knowledge. The tool gives you clear Buy and Sell signals with exact entry, stop loss, and target levels right on the chart."
+      a: "It can help beginners read structured chart levels, but it does not remove trading risk. The tool displays Buy and Sell signals with entry, stop loss, and target levels right on the chart."
     },
     {
       id: "tradingview-info",
       q: "What is TradingView? Do I need to pay for it?",
-      a: "TradingView is a popular charting platform. You can use it entirely for free. Our tool works perfectly on the free version of TradingView."
+      a: "TradingView is a popular charting platform. You can use it entirely for free. Our tool is designed to run on the free version of TradingView."
     },
     {
       id: "mobile-app",
@@ -26,17 +26,17 @@ export const FAQ = () => {
     {
       id: "nifty-banknifty",
       q: "I trade only Nifty/BankNifty options. Will this work?",
-      a: "Yes! It automatically adjusts for Call (CE) and Put (PE) charts. You can even take signals from the main index while trading the option chart."
+      a: "Yes. It includes settings for Call (CE) and Put (PE) charts, and you can review signals from the main index while trading an option chart."
     },
     {
       id: "multi-market",
       q: "I trade gold/crypto/forex. Does it work on those too?",
-      a: "Yes. One tool for all markets. If the chart is available on TradingView, this indicator works on it."
+      a: "It is designed for TradingView charts across multiple markets, including gold, crypto, and forex. Market behavior varies, so always test settings and manage risk."
     },
     {
       id: "zero-repaint",
       q: "What does 'zero repaint' mean? Why does it matter?",
-      a: "Repainting means an indicator changes its past signals to look more accurate after the fact. Our tool never repaints. Once a signal is printed on a closed candle, it stays there forever."
+      a: "Repainting means an indicator changes its past signals to look more accurate after the fact. The indicator is built so signals on closed candles should not change. Once a signal is printed on a closed candle, it is intended to stay there."
     },
     {
       id: "pricing",
@@ -51,12 +51,12 @@ export const FAQ = () => {
     {
       id: "coding-requirements",
       q: "I don't know coding. Can I still use this?",
-      a: "Absolutely. You get a step-by-step setup guide. It just takes copying and pasting the text into TradingView. Takes 2 minutes."
+      a: "Yes. You get a step-by-step setup guide for copying and pasting the code into TradingView. Setup time can vary by user."
     },
     {
       id: "telegram-comparison",
       q: "How is this different from paid Telegram groups or signal services?",
-      a: "You aren't relying on someone else's timing or internet connection. You get the signals live on your own chart, and you own the code forever. No monthly fees, no missed WhatsApp messages."
+      a: "You are not waiting for someone else to send an alert. Signals are generated directly on your TradingView chart, the source code is included, and there are no monthly fees."
     }
   ];
 
@@ -132,9 +132,9 @@ export const FAQ = () => {
            viewport={viewport}
            className="text-center mt-20"
         >
-          <h2 className="text-3xl font-bold mb-4 text-text-strong">Stop Losing Money on Bad Signals.</h2>
-          <p className="text-lg text-text-base mb-2">Start Trading with a Tool That Works.</p>
-          <p className="text-text-muted text-sm mb-8">₹2,999 one-time. Everything included. No monthly fees. 50+ traders already using it — zero complaints.</p>
+          <h2 className="text-3xl font-bold mb-4 text-text-strong">Avoid random entries with clearer trade conditions.</h2>
+          <p className="text-lg text-text-base mb-2">Use chart-based signals with defined levels.</p>
+          <p className="text-text-muted text-sm mb-8">₹2,999 one-time. Everything included. No monthly fees. 50+ traders already using it. Trading involves risk; no tool can guarantee profits or prevent losses.</p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
              <a
