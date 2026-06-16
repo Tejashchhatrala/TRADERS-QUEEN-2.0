@@ -7,22 +7,38 @@ const trustItems = [
   {
     image: '/images/trust/code-preview.jpg',
     title: 'Full Source Code Included',
-    desc: 'Full TradingView Pine Script Code — Editable & Visible'
+    desc: 'Full TradingView Pine Script Code — Editable & Visible',
+    market: 'TradingView Pine Script workspace',
+    signal: 'Source code remains visible and editable instead of hidden behind a locked black box.',
+    solves: 'Gives buyers transparency and control over what is running on their chart.',
+    type: 'Product UI example'
   },
   {
     image: '/images/trust/no-repaint.jpg',
     title: 'Zero Repaint',
-    desc: 'Signal stays fixed — No manipulation'
+    desc: 'Signal stays fixed — No manipulation',
+    market: 'Live TradingView chart conditions',
+    signal: 'Signals are presented as fixed chart markers once confirmed.',
+    solves: 'Reduces confusion caused by tools that move or rewrite past entries.',
+    type: 'Product UI example'
   },
   {
     image: '/images/trust/tradingview.jpg',
     title: 'Works on Free TradingView',
-    desc: 'Runs on TradingView — No software needed'
+    desc: 'Runs on TradingView — No software needed',
+    market: 'Any supported market opened in TradingView',
+    signal: 'The setup is loaded directly on TradingView charts.',
+    solves: 'Avoids separate software installs and lets traders use their existing chart workflow.',
+    type: 'Product UI example'
   },
   {
     image: '/images/trust/no-login.jpg',
     title: 'No Login / No Dependency',
-    desc: 'No app. No account. You own it.'
+    desc: 'No app. No account. You own it.',
+    market: 'Personal TradingView chart setup',
+    signal: 'No extra login gate or external dependency is required after setup.',
+    solves: 'Prevents access issues caused by third-party dashboards or subscription portals.',
+    type: 'Product UI example'
   }
 ];
 
@@ -75,6 +91,12 @@ export const TrustStack = () => {
                   <span className="text-brand-teal">✔</span> {item.title}
                 </h3>
                 <p className="text-text-base">{item.desc}</p>
+                <div className="mt-4 space-y-2 rounded-xl bg-surface-raised p-4 text-sm leading-relaxed text-text-base">
+                  <p><span className="font-bold text-text-strong">Market:</span> {item.market}</p>
+                  <p><span className="font-bold text-text-strong">Notice:</span> {item.signal}</p>
+                  <p><span className="font-bold text-text-strong">Solves:</span> {item.solves}</p>
+                  <p className="font-bold uppercase tracking-wider text-brand-teal">{item.type}</p>
+                </div>
               </div>
             </motion.div>
           ))}
