@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShoppingCart, MessageCircle } from 'lucide-react';
+import { ShoppingCart, MessageCircle, CheckCircle2 } from 'lucide-react';
 import { fadeUp, viewport } from '../lib/animations';
 
 export const FinalCTA = () => {
@@ -22,6 +22,43 @@ export const FinalCTA = () => {
           <p className="text-xl md:text-2xl text-text-base mb-10 max-w-2xl mx-auto">
             You don't need another cluttered chart. <br /> You need buy, sell, stop loss, and target levels that are easy to review.
           </p>
+        </motion.div>
+
+        <motion.div
+           variants={fadeUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={viewport}
+           className="bg-surface-raised border border-brand-teal/20 p-6 md:p-8 rounded-3xl shadow-lg max-w-3xl mx-auto mb-8 text-left"
+        >
+          <div className="text-center mb-8">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-teal mb-3">Simple setup</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-text-strong mb-3">What happens after you buy?</h3>
+            <p className="text-text-base max-w-2xl mx-auto">
+              Get the TradingView script and clear setup steps quickly, then start using it on your chart without a complicated onboarding process.
+            </p>
+          </div>
+
+          <ol className="grid gap-4 md:grid-cols-2">
+            {[
+              'Pay ₹2,999 securely.',
+              'Receive the Pine Script/source code and setup instructions.',
+              'Open TradingView on your device.',
+              'Paste the script or follow the provided setup guide.',
+              'Add alerts if you want TradingView notifications.',
+              'Message WhatsApp support if you get stuck.',
+            ].map((step, index) => (
+              <li key={step} className="flex gap-3 rounded-2xl bg-surface-base/80 border border-brand-teal/10 p-4">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-teal/15 text-sm font-bold text-brand-teal">
+                  {index + 1}
+                </span>
+                <span className="flex items-start gap-2 text-text-strong font-medium">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" />
+                  {step}
+                </span>
+              </li>
+            ))}
+          </ol>
         </motion.div>
 
         <motion.div
