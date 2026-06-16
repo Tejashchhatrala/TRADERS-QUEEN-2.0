@@ -58,6 +58,28 @@ export const Hero = () => {
           variants={heroEntrance(0.3)}
           initial="hidden"
           animate="visible"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left w-full max-w-2xl mb-8"
+        >
+          {[
+            'You receive the TradingView Pine Script source code.',
+            'Copy/paste it into TradingView.',
+            'Use it on your own charts.',
+            'One-time payment, no subscription.'
+          ].map((item) => (
+            <div
+              key={item}
+              className="flex items-start gap-3 rounded-xl border border-border-subtle bg-surface-raised/80 px-4 py-3 text-sm md:text-base text-text-base shadow-sm"
+            >
+              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand-teal" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          variants={heroEntrance(0.4)}
+          initial="hidden"
+          animate="visible"
           className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mb-10"
         >
            <a
