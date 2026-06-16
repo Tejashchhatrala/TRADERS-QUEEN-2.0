@@ -16,13 +16,13 @@ export const DemoVideo = () => {
         >
           <div className="inline-block px-4 py-1 bg-brand-teal/10 text-brand-teal rounded-full text-sm font-bold mb-4 uppercase tracking-wider flex items-center justify-center gap-2 mx-auto w-fit">
             <PlayCircle size={16} />
-            See Exactly How It Works (5 Min)
+            See Exactly How It Works (3 Min)
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-text-strong">
             Watch This Before You Buy
           </h2>
           <p className="text-lg md:text-xl text-text-base max-w-2xl mx-auto leading-relaxed">
-            This 5-minute video shows exactly how signals appear, how to place trades, and how alerts work.
+            This 3-minute demo walks through adding Traders Queen 2.0 to TradingView, reading buy/sell signals, entry, stop loss, and target levels, using the sideways-market cloud, configuring alerts, and what you receive after payment.
           </p>
         </motion.div>
 
@@ -33,14 +33,14 @@ export const DemoVideo = () => {
            viewport={viewport}
            className="relative aspect-video w-full rounded-2xl overflow-hidden bg-surface-elevated border border-border-subtle shadow-2xl"
         >
-           {/* Placeholder for YouTube iframe embed */}
+           {/* Vimeo demo video embed */}
            <iframe
              width="100%"
              height="100%"
-             src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-             title="Traders Queen System Demo"
+             src="https://player.vimeo.com/video/1168371693"
+             title="Traders Queen 2.0 Demo Video"
              frameBorder="0"
-             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
              allowFullScreen
              className="absolute top-0 left-0 w-full h-full"
            ></iframe>
