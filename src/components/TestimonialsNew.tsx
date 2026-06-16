@@ -6,15 +6,27 @@ import { fadeUp, scaleReveal, viewport } from '../lib/animations';
 const testimonialsImages = [
   {
     path: '/images/testimonials/whatsapp-1.jpg',
-    alt: 'User testimonial 1'
+    alt: 'User testimonial screenshot from a trader message',
+    market: 'Market discussed by the user in their message',
+    signal: 'Real customer feedback about using the Traders Queen 2.0 setup.',
+    solves: 'Shows social proof from users who wanted clearer chart guidance.',
+    type: 'User testimonial'
   },
   {
     path: '/images/testimonials/whatsapp-2.jpg',
-    alt: 'User testimonial 2'
+    alt: 'Second user testimonial screenshot from a trader message',
+    market: 'Market discussed by the user in their message',
+    signal: 'Follow-up feedback about signals, levels, or ease of use.',
+    solves: 'Helps visitors understand how traders describe the tool after trying it.',
+    type: 'User testimonial'
   },
   {
     path: '/images/testimonials/whatsapp-3.jpg',
-    alt: 'User testimonial 3'
+    alt: 'Third user testimonial screenshot from a trader message',
+    market: 'Market discussed by the user in their message',
+    signal: 'A saved chat screenshot showing user-reported experience.',
+    solves: 'Adds context that these are testimonials, not guaranteed trade results.',
+    type: 'User testimonial'
   }
 ];
 
@@ -99,6 +111,22 @@ export const TestimonialsNew = () => {
                ))}
              </div>
           </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`testimonial-caption-${currentIndex}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25 }}
+              className="mt-4 rounded-2xl border border-border-subtle bg-surface-base p-5 text-left shadow-md"
+            >
+              <span className="mb-3 inline-block rounded-full bg-brand-teal/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-teal">{testimonialsImages[currentIndex].type}</span>
+              <p className="text-sm leading-relaxed text-text-base md:text-base"><span className="font-bold text-text-strong">Market:</span> {testimonialsImages[currentIndex].market}</p>
+              <p className="mt-2 text-sm leading-relaxed text-text-base md:text-base"><span className="font-bold text-text-strong">Notice:</span> {testimonialsImages[currentIndex].signal}</p>
+              <p className="mt-2 text-sm leading-relaxed text-text-base md:text-base"><span className="font-bold text-text-strong">Solves:</span> {testimonialsImages[currentIndex].solves}</p>
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
 
         <motion.p

@@ -7,22 +7,38 @@ const visualFeatures = [
   {
     image: '/images/features/buy-signal.jpg',
     title: '🟢 Buy Signal',
-    desc: 'Green arrow — Buy signal on chart'
+    desc: 'Green arrow — Buy signal on chart',
+    market: 'Nifty, Bank Nifty, Gold, and other TradingView markets',
+    signal: 'A green buy arrow and supportive cloud direction.',
+    solves: 'Helps traders spot long opportunities quickly instead of scanning multiple indicators.',
+    type: 'Product UI example'
   },
   {
     image: '/images/features/sell-signal.jpg',
     title: '🔴 Sell Signal',
-    desc: 'Red arrow — Sell signal'
+    desc: 'Red arrow — Sell signal',
+    market: 'Nifty, Bank Nifty, Gold, and other TradingView markets',
+    signal: 'A red sell arrow when downside conditions appear.',
+    solves: 'Clarifies when to avoid long bias or plan a short-side setup.',
+    type: 'Product UI example'
   },
   {
     image: '/images/features/cloud.jpg',
     title: '☁️ Market Cloud',
-    desc: 'Grey = Avoid | Colored = Trade'
+    desc: 'Grey = Avoid | Colored = Trade',
+    market: 'Works across supported chart markets',
+    signal: 'Color-coded market cloud for trend or avoid zones.',
+    solves: 'Filters noisy sideways areas so traders are not forced into every candle.',
+    type: 'Product UI example'
   },
   {
     image: '/images/features/levels.jpg',
     title: '📊 Entry, SL, Target',
-    desc: 'Exact levels displayed on chart'
+    desc: 'Exact levels displayed on chart',
+    market: 'Index, option, and commodity charts',
+    signal: 'Entry, stop loss, and target labels printed directly on the chart.',
+    solves: 'Turns a signal into a structured plan with risk and exits visible upfront.',
+    type: 'Product UI example'
   }
 ];
 
@@ -72,6 +88,12 @@ export const VisualFeatures = () => {
                   {feature.title}
                 </h3>
                 <p className="text-text-base">{feature.desc}</p>
+                <div className="mt-4 space-y-2 rounded-xl bg-surface-raised p-4 text-sm leading-relaxed text-text-base">
+                  <p><span className="font-bold text-text-strong">Market:</span> {feature.market}</p>
+                  <p><span className="font-bold text-text-strong">Notice:</span> {feature.signal}</p>
+                  <p><span className="font-bold text-text-strong">Solves:</span> {feature.solves}</p>
+                  <p className="font-bold uppercase tracking-wider text-brand-teal">{feature.type}</p>
+                </div>
               </div>
             </motion.div>
           ))}

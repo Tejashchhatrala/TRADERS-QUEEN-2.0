@@ -6,15 +6,30 @@ import { fadeUp, scaleReveal, staggerContainer, staggerItem, viewport } from '..
 const proofImages = [
   {
     path: '/images/proof/trade-1.jpg',
-    alt: 'Trade Example 1 — Nifty Buy Signal'
+    alt: 'Trade example on Bank Nifty index showing a buy signal with entry, stop loss, and three target levels',
+    market: 'Bank Nifty Index',
+    timeframe: '3-minute chart',
+    signal: 'Buy setup with entry, stop loss, target levels, and bullish market cloud.',
+    type: 'Trade example',
+    caption: 'Shows how a defined long setup replaces guesswork by marking the entry, invalidation area, and profit targets before the move is managed.'
   },
   {
     path: '/images/proof/trade-2.jpg',
-    alt: 'Trade Example 2 — Gold Sell Signal'
+    alt: 'Trade example on Bank Nifty call option showing a sell signal with entry, stop loss, and target levels',
+    market: 'Bank Nifty 55700 Call Option',
+    timeframe: '3-minute chart',
+    signal: 'Sell setup after momentum slows, with stop loss above and staged targets below.',
+    type: 'Trade example',
+    caption: 'Highlights the option-mode levels traders should notice so exits and risk are planned instead of reacting emotionally.'
   },
   {
     path: '/images/proof/trade-3.jpg',
-    alt: 'Trade Example 3 — BankNifty'
+    alt: 'Trade example on Gold Spot U.S. Dollar showing buy and sell signals with entry, stop loss, and target levels',
+    market: 'XAUUSD / Gold Spot',
+    timeframe: '3-minute chart',
+    signal: 'Fresh buy signal with entry, stop loss, targets, and cloud color shift.',
+    type: 'Trade example',
+    caption: 'Demonstrates the same visual rules on gold, helping visitors see trend direction, risk level, and target zones without indicator clutter.'
   }
 ];
 
@@ -102,6 +117,25 @@ export const ProofSection = () => {
                ))}
              </div>
           </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`caption-${currentIndex}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25 }}
+              className="mt-4 rounded-2xl border border-border-subtle bg-surface-base p-5 text-left shadow-md"
+            >
+              <div className="mb-3 flex flex-wrap gap-2">
+                <span className="rounded-full bg-brand-teal/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-teal">{proofImages[currentIndex].type}</span>
+                <span className="rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-text-base">{proofImages[currentIndex].market}</span>
+                <span className="rounded-full bg-surface-raised px-3 py-1 text-xs font-semibold text-text-base">{proofImages[currentIndex].timeframe}</span>
+              </div>
+              <p className="text-sm font-bold text-text-strong md:text-base">Notice: {proofImages[currentIndex].signal}</p>
+              <p className="mt-2 text-sm leading-relaxed text-text-base md:text-base">Problem solved: {proofImages[currentIndex].caption}</p>
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
 
         <motion.div
