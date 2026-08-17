@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Settings - LinkedIn AI Comment Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="settings">
+    <h1>Settings</h1>
+    <label>Google AI key<input id="googleAiKey" type="password" placeholder="AIza..."></label>
+    <label>Your LinkedIn profile summary<textarea id="viewerProfile" rows="5" placeholder="Role, industry, expertise, audience, writing preferences"></textarea></label>
+    <label>Available tones<input id="tones" placeholder="Insightful, Supportive, Curious"></label>
+    <label>Default tone<input id="defaultTone" placeholder="Insightful"></label>
+    <label>Comment length<select id="commentLength"><option value="short">Short</option><option value="medium">Medium</option><option value="long">Long</option></select></label>
+    <button id="save">Save settings</button>
+    <p id="saved" role="status"></p>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

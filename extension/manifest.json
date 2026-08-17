@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn AI Comment Assistant",
+  "description": "Generate thoughtful LinkedIn comments with Google login, your Google AI key, profile context, and custom tones.",
+  "version": "1.0.0",
+  "permissions": ["activeTab", "identity", "scripting", "storage"],
+  "host_permissions": ["https://www.linkedin.com/*", "https://generativelanguage.googleapis.com/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "LinkedIn AI Comment Assistant",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "oauth2": {
+    "client_id": "REPLACE_WITH_GOOGLE_OAUTH_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
+  }
+}
